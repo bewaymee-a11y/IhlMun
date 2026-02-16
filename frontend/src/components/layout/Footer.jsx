@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Instagram, Mail, MapPin, Calendar } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_59399e88-526c-4fa4-9ba6-4f1971c66f66/artifacts/ezbkvbq2_photo_2026-01-27%2018.52.01.jpeg';
+const LOGO_URL = '/logo_original.jpg';
 
 export const Footer = ({ settings }) => {
   const { t } = useLanguage();
@@ -17,7 +17,8 @@ export const Footer = ({ settings }) => {
               <img
                 src={LOGO_URL}
                 alt="IHL MUN Logo"
-                className="w-14 h-14 object-contain"
+                className="w-14 h-14 object-contain mix-blend-screen"
+                style={{ filter: 'contrast(1.1) brightness(1.1)' }}
               />
               <div>
                 <h3 className="font-heading text-xl text-[var(--text-main)]">IHL MUN</h3>

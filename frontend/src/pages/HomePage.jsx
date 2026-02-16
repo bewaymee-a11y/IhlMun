@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_59399e88-526c-4fa4-9ba6-4f1971c66f66/artifacts/ezbkvbq2_photo_2026-01-27%2018.52.01.jpeg';
+const LOGO_URL = '/logo_original.jpg';
 
 const HomePage = () => {
   const [committees, setCommittees] = useState([]);
@@ -49,16 +49,14 @@ const HomePage = () => {
         {/* Content */}
         <div className="relative z-10 container-main pt-32 md:pt-36 pb-24 text-center">
           <div className="max-w-4xl mx-auto">
-            {/* Logo with glow effect */}
+            {/* Logo without container */}
             <div className="mb-6 animate-fade-in-up relative inline-block">
-              <div className="absolute inset-0 bg-[var(--primary)]/20 blur-3xl rounded-full scale-150" />
-              <div className="relative p-3 border-2 border-[var(--primary)]/30 rounded-full bg-[var(--surface)]/50 backdrop-blur-sm">
-                <img 
-                  src={LOGO_URL} 
-                  alt="IHL MUN Logo" 
-                  className="w-20 h-20 md:w-24 md:h-24 object-cover rounded-full opacity-80"
-                />
-              </div>
+              <img
+                src={LOGO_URL}
+                alt="IHL MUN Logo"
+                className="w-20 h-20 md:w-24 md:h-24 object-contain opacity-90 mix-blend-screen"
+                style={{ filter: 'contrast(1.2) brightness(1.2)' }}
+              />
             </div>
 
             {/* Title */}

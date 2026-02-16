@@ -4,7 +4,7 @@ import { Menu, X, Instagram, Sun, Moon, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_59399e88-526c-4fa4-9ba6-4f1971c66f66/artifacts/ezbkvbq2_photo_2026-01-27%2018.52.01.jpeg';
+const LOGO_URL = '/logo_original.jpg';
 
 export const Navbar = ({ settings }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,7 +74,8 @@ export const Navbar = ({ settings }) => {
             <img
               src={LOGO_URL}
               alt="IHL MUN Logo"
-              className="h-8 w-8 md:h-12 md:w-12 object-contain"
+              className="h-8 w-8 md:h-12 md:w-12 object-contain mix-blend-screen"
+              style={{ filter: 'contrast(1.1) brightness(1.1)' }}
             />
             <span className="font-heading text-lg md:text-xl tracking-tight text-[var(--text-main)] group-hover:text-[var(--primary)] transition-colors">
               IHL MUN
@@ -89,8 +90,8 @@ export const Navbar = ({ settings }) => {
                 to={link.to}
                 data-testid={`nav-link-${link.label.toLowerCase().replace(' ', '-')}`}
                 className={`text-sm uppercase tracking-widest transition-colors link-underline ${isActive(link.to)
-                    ? 'text-[var(--primary)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'
+                  ? 'text-[var(--primary)]'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'
                   }`}
               >
                 {link.label}
@@ -188,8 +189,8 @@ export const Navbar = ({ settings }) => {
                   onClick={() => setIsOpen(false)}
                   data-testid={`mobile-nav-${link.label.toLowerCase().replace(' ', '-')}`}
                   className={`text-2xl font-heading uppercase tracking-wider py-2 transition-colors border-b border-[var(--text-muted)]/10 ${isActive(link.to)
-                      ? 'text-[var(--primary)]'
-                      : 'text-[var(--text-main)] hover:text-[var(--primary)]'
+                    ? 'text-[var(--primary)]'
+                    : 'text-[var(--text-main)] hover:text-[var(--primary)]'
                     }`}
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
@@ -204,8 +205,8 @@ export const Navbar = ({ settings }) => {
                     key={lang.code}
                     onClick={() => setLanguage(lang.code)}
                     className={`flex items-center gap-2 px-4 py-2 border ${language === lang.code
-                        ? 'border-[var(--primary)] text-[var(--primary)]'
-                        : 'border-[var(--text-muted)]/20 text-[var(--text-muted)]'
+                      ? 'border-[var(--primary)] text-[var(--primary)]'
+                      : 'border-[var(--text-muted)]/20 text-[var(--text-muted)]'
                       }`}
                   >
                     <span>{lang.flag}</span>
