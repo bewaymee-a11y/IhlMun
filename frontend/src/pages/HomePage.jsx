@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, MapPin, Users, Globe, Award, Mic, CheckCircle, FileText } from 'lucide-react';
 import axios from 'axios';
 import { SectionTitle } from '@/components/common/SectionTitle';
+import DarkVeil from '@/components/ui/DarkVeil';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -40,6 +41,17 @@ const HomePage = () => {
         {/* Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[var(--background)]" />
+          <div className="absolute inset-0 opacity-50">
+            <DarkVeil
+              hueShift={20}
+              noiseIntensity={0.02}
+              scanlineIntensity={0}
+              speed={0.8}
+              scanlineFrequency={0}
+              warpAmount={0}
+              resolutionScale={1}
+            />
+          </div>
           <div className="absolute inset-0 hero-glow" />
           <div className="absolute inset-0 gold-glow opacity-30" />
           <div className="absolute top-1/4 left-10 w-64 h-64 border border-[var(--primary)]/10 rounded-full animate-pulse-glow" />
