@@ -42,6 +42,8 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-[var(--background)]" />
           <div className="absolute inset-0 hero-glow" />
           <div className="absolute inset-0 gold-glow opacity-30" />
+          <div className="absolute top-1/4 left-10 w-64 h-64 border border-[var(--primary)]/10 rounded-full animate-pulse-glow" />
+          <div className="absolute bottom-1/4 right-10 w-96 h-96 border border-[var(--secondary)]/20 rounded-full" />
         </div>
 
         {/* Content */}
@@ -53,7 +55,11 @@ const HomePage = () => {
                 src={LOGO_URL}
                 alt="IHL MUN Logo"
                 className="w-20 h-20 md:w-24 md:h-24 object-contain mix-blend-screen"
-                style={{ filter: 'brightness(0.7) contrast(1.8) saturate(1.2)' }}
+                style={{
+                  filter: 'brightness(0.9) contrast(1.5) saturate(1.1)',
+                  WebkitClipPath: 'circle(48%)',
+                  clipPath: 'circle(48%)'
+                }}
               />
             </div>
 
