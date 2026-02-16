@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Instagram, Mail, MapPin, Calendar } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const LOGO_URL = '/logo_original.jpg';
+const LOGO_URL = process.env.PUBLIC_URL + '/logo_original.jpg';
 
 export const Footer = ({ settings }) => {
   const { t } = useLanguage();

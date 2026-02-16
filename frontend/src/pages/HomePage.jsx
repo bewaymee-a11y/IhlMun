@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
-const LOGO_URL = '/logo_original.jpg';
+const LOGO_URL = process.env.PUBLIC_URL + '/logo_original.jpg';
 
 const HomePage = () => {
   const [committees, setCommittees] = useState([]);
@@ -42,8 +42,6 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-[var(--background)]" />
           <div className="absolute inset-0 hero-glow" />
           <div className="absolute inset-0 gold-glow opacity-30" />
-          <div className="absolute top-1/4 left-10 w-64 h-64 border border-[var(--primary)]/10 rounded-full animate-pulse-glow" />
-          <div className="absolute bottom-1/4 right-10 w-96 h-96 border border-[var(--secondary)]/20 rounded-full" />
         </div>
 
         {/* Content */}

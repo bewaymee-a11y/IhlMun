@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "homepage": "https://bewaymee-a11y.github.io/IhlMun/",
   "private": true,
   "dependencies": {
     "@babel/generator": "^7.29.1",
