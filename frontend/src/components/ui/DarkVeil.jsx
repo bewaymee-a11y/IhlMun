@@ -1,67 +1,76 @@
 import React from 'react';
 
 const DarkVeil = ({
-    hueShift = 0,
-    noiseIntensity = 0.02,
-    scanlineIntensity = 0,
-    speed = 0.8,
-    scanlineFrequency = 0,
-    warpAmount = 0,
-    resolutionScale = 1
+    className = "",
+    children,
+    ...props
 }) => {
     return (
         <div
-            className="dark-veil-container"
-            style={{
-                width: '100%',
-                height: '100%',
-                backgroundColor: '#000',
-                position: 'relative',
-                overflow: 'hidden',
-                '--hue-shift': `${hueShift}deg`,
-                '--noise-opacity': noiseIntensity,
-                '--scanline-opacity': scanlineIntensity,
-                '--anim-speed': `${2 / speed}s`
-            }}
+            className={`dark-veil-container relative w-full h-full overflow-hidden bg-slate-950 ${className}`}
+            {...props}
         >
-            {/* Gradient Background with Hue Shift */}
-            <div
-                className="absolute inset-0"
-                style={{
-                    background: 'radial-gradient(circle at 50% 50%, #4a00e0 0%, #8e2de2 50%, #000000 100%)',
-                    filter: `hue-rotate(${hueShift}deg)`,
-                    animation: speed > 0 ? `hueRotate var(--anim-speed) linear infinite` : 'none',
-                    opacity: 0.6
-                }}
-            />
+            {/* Base dark blue background */}
+            <div className="absolute inset-0 bg-[#0A1628]" />
 
-            {/* Noise Layer */}
-            <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='${noiseIntensity}'/%3E%3C/svg%3E")`,
-                    opacity: noiseIntensity * 20, // Scale up for visibility
-                    mixBlendMode: 'overlay'
-                }}
-            />
-
-            {/* Scanlines Layer */}
-            {scanlineIntensity > 0 && (
+            {/* Aurora Layers (Blue, Cyan, Violet Northern Lights) */}
+            <div className="absolute inset-0 opacity-60 mix-blend-screen">
+                {/* Layer 1: Deep Blue/Indigo moving slowly */}
                 <div
-                    className="absolute inset-0 pointer-events-none"
+                    className="absolute top-[-50%] left-[-20%] w-[180%] h-[180%] animate-aurora-1 opacity-70 blur-[80px]"
                     style={{
-                        background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2))',
-                        backgroundSize: '100% 4px',
-                        opacity: scanlineIntensity
+                        background: 'radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.8), transparent 60%)', // Secondary blue
                     }}
                 />
-            )}
+
+                {/* Layer 2: Bright Cyan/Teal accents (Brighter Northern Lights feel) */}
+                <div
+                    className="absolute top-[-30%] right-[-20%] w-[150%] h-[150%] animate-aurora-2 opacity-50 blur-[100px]"
+                    style={{
+                        background: 'radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.6), transparent 50%)', // Cyan-500
+                    }}
+                />
+
+                {/* Layer 3: Purple/Violet undertones */}
+                <div
+                    className="absolute bottom-[-40%] left-[-10%] w-[160%] h-[160%] animate-aurora-3 opacity-40 blur-[90px]"
+                    style={{
+                        background: 'radial-gradient(circle at 60% 40%, rgba(124, 58, 237, 0.5), transparent 50%)', // Violet-600
+                    }}
+                />
+            </div>
+
+            {/* Scanlines (optional, subtle) */}
+            <div
+                className="absolute inset-0 pointer-events-none opacity-10"
+                style={{
+                    background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2))',
+                    backgroundSize: '100% 4px',
+                }}
+            />
+
+            {children}
 
             <style jsx>{`
-                @keyframes hueRotate {
-                    0% { filter: hue-rotate(0deg); }
-                    100% { filter: hue-rotate(360deg); }
+                @keyframes aurora-1 {
+                    0% { transform: translate(0, 0) scale(1); }
+                    33% { transform: translate(5%, 2%) scale(1.1); }
+                    66% { transform: translate(-2%, 5%) scale(0.95); }
+                    100% { transform: translate(0, 0) scale(1); }
                 }
+                @keyframes aurora-2 {
+                    0% { transform: translate(0, 0) rotate(0deg); }
+                    50% { transform: translate(-5%, 5%) rotate(5deg); }
+                    100% { transform: translate(0, 0) rotate(0deg); }
+                }
+                @keyframes aurora-3 {
+                    0% { transform: translate(0, 0) scale(1); }
+                    50% { transform: translate(5%, -5%) scale(1.1); }
+                    100% { transform: translate(0, 0) scale(1); }
+                }
+                .animate-aurora-1 { animation: aurora-1 20s infinite ease-in-out alternate; }
+                .animate-aurora-2 { animation: aurora-2 25s infinite ease-in-out alternate; }
+                .animate-aurora-3 { animation: aurora-3 30s infinite ease-in-out alternate; }
             `}</style>
         </div>
     );
