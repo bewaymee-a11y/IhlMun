@@ -4,7 +4,7 @@ import { Menu, X, Instagram, Sun, Moon, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 
-const LOGO_URL = process.env.PUBLIC_URL + '/logo_final.png';
+const LOGO_URL = process.env.PUBLIC_URL + '/logo_original.jpg';
 
 export const Navbar = ({ settings }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,7 +74,8 @@ export const Navbar = ({ settings }) => {
             <img
               src={LOGO_URL}
               alt="IHL MUN Logo"
-              className="h-8 w-8 md:h-12 md:w-12 object-contain"
+              className="h-8 w-8 md:h-12 md:w-12 object-contain mix-blend-screen"
+              style={{ filter: 'brightness(1.1) contrast(1.2)' }}
             />
             <span className="font-heading text-lg md:text-xl tracking-tight text-[var(--text-main)] group-hover:text-[var(--primary)] transition-colors">
               IHL MUN

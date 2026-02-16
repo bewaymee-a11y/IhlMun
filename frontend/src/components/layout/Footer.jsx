@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Instagram, Mail, MapPin, Calendar } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const LOGO_URL = process.env.PUBLIC_URL + '/logo_final.png';
+const LOGO_URL = process.env.PUBLIC_URL + '/logo_original.jpg';
 
 export const Footer = ({ settings }) => {
   const { t } = useLanguage();
@@ -17,7 +17,8 @@ export const Footer = ({ settings }) => {
               <img
                 src={LOGO_URL}
                 alt="IHL MUN Logo"
-                className="w-14 h-14 object-contain"
+                className="w-14 h-14 object-contain mix-blend-screen"
+                style={{ filter: 'brightness(1.1) contrast(1.2)' }}
               />
               <div>
                 <h3 className="font-heading text-xl text-[var(--text-main)]">IHL MUN</h3>

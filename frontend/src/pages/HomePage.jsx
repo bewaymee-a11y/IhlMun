@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
-const LOGO_URL = process.env.PUBLIC_URL + '/logo_final.png';
+const LOGO_URL = process.env.PUBLIC_URL + '/logo_original.jpg';
 
 const HomePage = () => {
   const [committees, setCommittees] = useState([]);
@@ -54,7 +54,10 @@ const HomePage = () => {
               <img
                 src={LOGO_URL}
                 alt="IHL MUN Logo"
-                className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                className="w-20 h-20 md:w-24 md:h-24 object-contain mix-blend-screen"
+                style={{
+                  filter: 'brightness(1.1) contrast(1.3) saturate(1.1)'
+                }}
               />
             </div>
 
