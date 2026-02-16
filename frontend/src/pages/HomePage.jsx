@@ -52,8 +52,8 @@ const HomePage = () => {
               <img
                 src={LOGO_URL}
                 alt="IHL MUN Logo"
-                className="w-20 h-20 md:w-24 md:h-24 object-contain opacity-90 mix-blend-screen"
-                style={{ filter: 'contrast(1.2) brightness(1.2)' }}
+                className="w-20 h-20 md:w-24 md:h-24 object-contain mix-blend-screen"
+                style={{ filter: 'brightness(0.7) contrast(1.8) saturate(1.2)' }}
               />
             </div>
 

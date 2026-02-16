@@ -75,7 +75,7 @@ export const Navbar = ({ settings }) => {
               src={LOGO_URL}
               alt="IHL MUN Logo"
               className="h-8 w-8 md:h-12 md:w-12 object-contain mix-blend-screen"
-              style={{ filter: 'contrast(1.1) brightness(1.1)' }}
+              style={{ filter: 'brightness(0.8) contrast(1.6) saturate(1.1)' }}
             />
             <span className="font-heading text-lg md:text-xl tracking-tight text-[var(--text-main)] group-hover:text-[var(--primary)] transition-colors">
               IHL MUN

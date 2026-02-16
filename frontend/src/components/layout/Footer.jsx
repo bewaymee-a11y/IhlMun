@@ -18,7 +18,7 @@ export const Footer = ({ settings }) => {
                 src={LOGO_URL}
                 alt="IHL MUN Logo"
                 className="w-14 h-14 object-contain mix-blend-screen"
-                style={{ filter: 'contrast(1.1) brightness(1.1)' }}
+                style={{ filter: 'brightness(0.8) contrast(1.6) saturate(1.1)' }}
               />
               <div>
                 <h3 className="font-heading text-xl text-[var(--text-main)]">IHL MUN</h3>
