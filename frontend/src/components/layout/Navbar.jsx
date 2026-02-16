@@ -4,7 +4,7 @@ import { Menu, X, Instagram, Sun, Moon, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 
-const LOGO_URL = process.env.PUBLIC_URL + '/logo_original.jpg';
+const LOGO_URL = process.env.PUBLIC_URL + '/logo_final.png';
 
 export const Navbar = ({ settings }) => {
   const [isOpen, setIsOpen] = useState(false);

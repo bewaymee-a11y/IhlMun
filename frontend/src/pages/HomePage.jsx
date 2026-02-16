@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
-const LOGO_URL = process.env.PUBLIC_URL + '/logo_original.jpg';
+const LOGO_URL = process.env.PUBLIC_URL + '/logo_final.png';
 
 const HomePage = () => {
   const [committees, setCommittees] = useState([]);
