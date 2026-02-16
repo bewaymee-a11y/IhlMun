@@ -54,12 +54,7 @@ const HomePage = () => {
               <img
                 src={LOGO_URL}
                 alt="IHL MUN Logo"
-                className="w-20 h-20 md:w-24 md:h-24 object-contain mix-blend-screen"
-                style={{
-                  filter: 'brightness(0.9) contrast(1.5) saturate(1.1)',
-                  WebkitClipPath: 'circle(48%)',
-                  clipPath: 'circle(48%)'
-                }}
+                className="w-20 h-20 md:w-24 md:h-24 object-contain"
               />
             </div>
 
