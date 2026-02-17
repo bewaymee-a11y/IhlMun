@@ -66,7 +66,7 @@ const HomePage = () => {
               <img
                 src={LOGO_URL}
                 alt="IHL MUN Logo"
-                className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain"
               />
             </div>
 

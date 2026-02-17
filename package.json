@@ -1,0 +1,13 @@
+{
+  "name": "ihlmun-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "fe:install": "npm --prefix frontend install",
+    "fe:start": "npm --prefix frontend start",
+    "fe:build": "npm --prefix frontend run build",
+    "fe:deploy": "npm --prefix frontend run deploy",
+    "be:install": "pip install -r backend/requirements.txt",
+    "be:start": "python backend/backend_test.py"
+  }
+}

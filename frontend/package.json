@@ -68,7 +68,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && node -e \"const fs = require('fs'); fs.copyFileSync('build/index.html', 'build/404.html');\"",
     "deploy": "gh-pages -d build"
   },
   "browserslist": {

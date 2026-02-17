@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
@@ -37,7 +37,7 @@ function AppContent() {
       {/* Noise overlay for texture */}
       <div className="noise-overlay" />
 
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <Routes>
           {/* Admin route without navbar/footer */}
           <Route path="/admin" element={<AdminPage />} />
@@ -64,7 +64,7 @@ function AppContent() {
             }
           />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
