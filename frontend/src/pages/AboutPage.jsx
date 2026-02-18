@@ -67,7 +67,7 @@ const AboutPage = () => {
               <h3 className="font-heading text-3xl mb-6">{t('ourMission')}</h3>
               <div className="space-y-4 text-text-muted leading-relaxed">
                 <p>
-                  {settings?.about_description || 
+                  {settings?.about_description ||
                     'IHL Model United Nations is the premier MUN conference in Uzbekistan, bringing together young diplomats from across the region.'}
                 </p>
                 <p>
@@ -83,18 +83,18 @@ const AboutPage = () => {
               </div>
             </div>
 
-            <div className="bg-surface border border-white/5 p-8">
+            <div className="bg-surface border border-[var(--text-muted)]/20 p-8">
               <h4 className="font-heading text-2xl mb-6">{t('conferenceDetails')}</h4>
               <div className="space-y-4">
-                <div className="flex justify-between py-3 border-b border-white/5">
+                <div className="flex justify-between py-3 border-b border-[var(--text-muted)]/20">
                   <span className="text-text-muted">{t('date')}</span>
                   <span className="font-mono text-primary">{settings?.conference_date || 'March 2026'}</span>
                 </div>
-                <div className="flex justify-between py-3 border-b border-white/5">
+                <div className="flex justify-between py-3 border-b border-[var(--text-muted)]/20">
                   <span className="text-text-muted">{t('location')}</span>
                   <span className="font-mono">{settings?.conference_location || 'Tashkent, Uzbekistan'}</span>
                 </div>
-                <div className="flex justify-between py-3 border-b border-white/5">
+                <div className="flex justify-between py-3 border-b border-[var(--text-muted)]/20">
                   <span className="text-text-muted">{t('committeesCount')}</span>
                   <span className="font-mono">7</span>
                 </div>
@@ -131,7 +131,7 @@ const AboutPage = () => {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-16 bg-surface border border-white/5">
+              <div className="text-center py-16 bg-surface border border-[var(--text-muted)]/20">
                 <p className="text-text-muted">
                   {t('secretariatSoon')}
                 </p>

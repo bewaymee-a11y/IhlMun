@@ -14,7 +14,7 @@ const CommitteesPage = () => {
   const { t, language } = useLanguage();
   const [searchParams] = useSearchParams();
   const selectedId = searchParams.get('id');
-  
+
   const [committees, setCommittees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [expandedCommittee, setExpandedCommittee] = useState(selectedId);
@@ -75,9 +75,8 @@ const CommitteesPage = () => {
                 key={committee.id}
                 id={`committee-${committee.id}`}
                 data-testid={`committee-${committee.id}`}
-                className={`bg-surface border border-white/5 overflow-hidden transition-all duration-500 ${
-                  expandedCommittee === committee.id ? 'border-primary/30' : ''
-                }`}
+                className={`bg-surface border border-[var(--text-muted)]/20 overflow-hidden transition-all duration-500 ${expandedCommittee === committee.id ? 'border-primary/30' : ''
+                  }`}
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 {/* Header */}
@@ -119,9 +118,8 @@ const CommitteesPage = () => {
 
                 {/* Expanded Content */}
                 <div
-                  className={`overflow-hidden transition-all duration-500 ${
-                    expandedCommittee === committee.id ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
-                  }`}
+                  className={`overflow-hidden transition-all duration-500 ${expandedCommittee === committee.id ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
                 >
                   <div className="px-6 md:px-8 pb-8">
                     {/* Background Image */}
@@ -144,7 +142,7 @@ const CommitteesPage = () => {
                         {committee.agenda?.map((item, idx) => (
                           <div
                             key={idx}
-                            className="flex items-start gap-3 p-3 md:p-4 bg-surface-highlight border border-white/5"
+                            className="flex items-start gap-3 p-3 md:p-4 bg-surface-highlight border border-[var(--text-muted)]/20"
                           >
                             <span className="text-primary font-mono text-sm shrink-0">{String(idx + 1).padStart(2, '0')}</span>
                             <span className="text-text-muted text-sm md:text-base">{item}</span>

@@ -11,7 +11,7 @@ const translations = {
     media: 'Media',
     register: 'Register',
     applyNow: 'Apply Now',
-    
+
     // Hero
     ihlModel: 'IHL Model',
     unitedNations: 'United Nations',
@@ -19,14 +19,14 @@ const translations = {
     heroDescription: 'Join the premier Model United Nations conference in Uzbekistan. Debate global issues, forge connections, and develop your diplomatic skills.',
     learnMore: 'Learn More',
     selectionProcess: 'Selection Process',
-    
+
     // Stats
     date: 'Date',
     location: 'Location',
     committeesCount: 'Committees',
     delegates: 'Delegates',
     freeForSelected: 'Free for selected delegates',
-    
+
     // Selection
     freeParticipationWithSelection: 'Free Participation with Selection',
     selectionDescription: 'IHL MUN 2026 is completely free for all selected delegates. Due to high interest and limited spots, there will be a strict selection process.',
@@ -35,7 +35,7 @@ const translations = {
     shortlistedInterview: 'Shortlisted candidates may be invited for interview',
     finalDecisions: 'Final decisions communicated via email/Telegram',
     learnMoreSelection: 'Learn more about selection',
-    
+
     // Committees
     ourCommittees: 'Our Committees',
     committeesSubtitle: 'Choose from seven diverse committees covering critical global issues',
@@ -45,7 +45,7 @@ const translations = {
     committeeChairs: 'Committee Chairs',
     registerForCommittee: 'Register for this Committee',
     registrationClosed: 'Registration Closed',
-    
+
     // Registration Form
     applyFor: 'Apply for',
     fillApplicationForm: 'Fill out the application form below. All applications are reviewed by our Delegate Relations team.',
@@ -73,14 +73,14 @@ const translations = {
     thankYouApplying: 'Thank you for applying to',
     reviewContact: 'Our Delegate Relations team will review your application and contact you soon.',
     backToCommittees: 'Back to Committees',
-    
+
     // About
     ourMission: 'Our Mission',
     conferenceDetails: 'Conference Details',
     theSecretariat: 'The Secretariat',
     meetTheTeam: 'Meet the team behind IHL MUN 2026',
     secretariatSoon: 'Secretariat members will be announced soon.',
-    
+
     // Selection Process Page
     registrationSelectionProcess: 'Registration & Selection Process',
     everythingYouNeed: 'Everything you need to know about applying to IHL MUN 2026',
@@ -91,7 +91,7 @@ const translations = {
     submitApplicationDesc: 'Fill out the application form with your personal information and essay responses. Answer all questions thoughtfully and originally.',
     applicationReview: 'Application Review',
     applicationReviewDesc: 'Our Delegate Relations team manually reviews every application, checking for originality, depth of answers, and motivation.',
-    interviewOptional: 'Interview (Optional)',
+    interviewOptional: 'Interview',
     interviewDesc: 'Shortlisted candidates may be invited for a short interview to discuss their application and interest in MUN.',
     finalDecision: 'Final Decision',
     finalDecisionDesc: 'Final decisions will be communicated via email and Telegram. Accepted delegates will receive further instructions.',
@@ -117,13 +117,13 @@ const translations = {
     readyToApply: 'Ready to Apply?',
     chooseCommittee: 'Choose your committee and submit your application. Good luck!',
     viewCommitteesApply: 'View Committees & Apply',
-    
+
     // Media
     mediaGallery: 'Media Gallery',
     photosFromEvents: 'Photos from past events and conference preparations',
     galleryComingSoon: 'Gallery Coming Soon',
     photosShared: 'Photos from our events will be shared here. Follow our Instagram for the latest updates.',
-    
+
     // Footer
     quickLinks: 'Quick Links',
     conferenceInfo: 'Conference Info',
@@ -132,17 +132,17 @@ const translations = {
     subjectToSelection: 'Subject to selection',
     allRightsReserved: 'All rights reserved.',
     adminPanel: 'Admin Panel',
-    
+
     // Common
     loading: 'Loading...',
     error: 'Error',
     comingSoon: 'Coming Soon',
-    
+
     // Speakers
     guestSpeakers: 'Guest Speakers',
     speakersSubtitle: 'Distinguished speakers at the Opening Ceremony',
     speakersComingSoon: 'Guest speakers will be announced as the conference approaches. Follow our Instagram for updates.',
-    
+
     // Benefits cards
     globalPerspective: 'Global Perspective',
     globalPerspectiveDesc: 'Understand international issues from multiple perspectives and cultures.',
@@ -152,7 +152,7 @@ const translations = {
     recognitionDesc: 'Earn awards and recognition for outstanding diplomacy and debate.',
     networking: 'Networking',
     networkingDesc: 'Connect with like-minded students from across the region.',
-    
+
     // Footer
     footerDescription: 'Join the premier Model United Nations conference in Central Asia.',
   },
@@ -165,22 +165,22 @@ const translations = {
     media: 'Медиа',
     register: 'Регистрация',
     applyNow: 'Подать заявку',
-    
+
     // Hero
-    ihlModel: 'IHL Модель',
-    unitedNations: 'Организации Объединённых Наций',
+    ihlModel: 'Модель',
+    unitedNations: 'ООН IHL',
     participationFree: 'Участие полностью БЕСПЛАТНОЕ',
     heroDescription: 'Присоединяйтесь к премьер-конференции Модели ООН в Узбекистане. Обсуждайте глобальные проблемы, налаживайте связи и развивайте дипломатические навыки.',
     learnMore: 'Узнать больше',
     selectionProcess: 'Процесс отбора',
-    
+
     // Stats
     date: 'Дата',
     location: 'Место',
     committeesCount: 'Комитеты',
     delegates: 'Делегаты',
     freeForSelected: 'Бесплатно для отобранных делегатов',
-    
+
     // Selection
     freeParticipationWithSelection: 'Бесплатное участие с отбором',
     selectionDescription: 'IHL MUN 2026 полностью бесплатен для всех отобранных делегатов. Из-за высокого интереса и ограниченного количества мест будет строгий отбор.',
@@ -189,7 +189,7 @@ const translations = {
     shortlistedInterview: 'Отобранные кандидаты могут быть приглашены на собеседование',
     finalDecisions: 'Итоговые решения сообщаются по email/Telegram',
     learnMoreSelection: 'Подробнее об отборе',
-    
+
     // Committees
     ourCommittees: 'Наши комитеты',
     committeesSubtitle: 'Выберите из семи разнообразных комитетов, охватывающих важные глобальные вопросы',
@@ -199,7 +199,7 @@ const translations = {
     committeeChairs: 'Председатели комитета',
     registerForCommittee: 'Подать заявку в этот комитет',
     registrationClosed: 'Регистрация закрыта',
-    
+
     // Registration Form
     applyFor: 'Заявка в',
     fillApplicationForm: 'Заполните форму заявки ниже. Все заявки рассматриваются нашей командой по работе с делегатами.',
@@ -227,14 +227,14 @@ const translations = {
     thankYouApplying: 'Спасибо за заявку в',
     reviewContact: 'Наша команда рассмотрит вашу заявку и скоро свяжется с вами.',
     backToCommittees: 'Вернуться к комитетам',
-    
+
     // About
     ourMission: 'Наша миссия',
     conferenceDetails: 'Информация о конференции',
     theSecretariat: 'Секретариат',
     meetTheTeam: 'Познакомьтесь с командой IHL MUN 2026',
     secretariatSoon: 'Члены секретариата будут объявлены в ближайшее время.',
-    
+
     // Selection Process Page
     registrationSelectionProcess: 'Регистрация и процесс отбора',
     everythingYouNeed: 'Всё, что нужно знать о подаче заявки на IHL MUN 2026',
@@ -245,7 +245,7 @@ const translations = {
     submitApplicationDesc: 'Заполните форму заявки с личной информацией и ответами на эссе. Отвечайте вдумчиво и оригинально.',
     applicationReview: 'Рассмотрение заявки',
     applicationReviewDesc: 'Наша команда вручную рассматривает каждую заявку, проверяя оригинальность, глубину ответов и мотивацию.',
-    interviewOptional: 'Собеседование (опционально)',
+    interviewOptional: 'Собеседование',
     interviewDesc: 'Отобранные кандидаты могут быть приглашены на короткое собеседование.',
     finalDecision: 'Итоговое решение',
     finalDecisionDesc: 'Итоговые решения будут сообщены по email и Telegram. Принятые делегаты получат дальнейшие инструкции.',
@@ -271,13 +271,13 @@ const translations = {
     readyToApply: 'Готовы подать заявку?',
     chooseCommittee: 'Выберите комитет и отправьте заявку. Удачи!',
     viewCommitteesApply: 'Смотреть комитеты и подать заявку',
-    
+
     // Media
     mediaGallery: 'Медиа галерея',
     photosFromEvents: 'Фото с прошлых мероприятий и подготовки к конференции',
     galleryComingSoon: 'Галерея скоро появится',
     photosShared: 'Фото с наших мероприятий будут размещены здесь. Следите за обновлениями в Instagram.',
-    
+
     // Footer
     quickLinks: 'Быстрые ссылки',
     conferenceInfo: 'О конференции',
@@ -286,17 +286,17 @@ const translations = {
     subjectToSelection: 'При прохождении отбора',
     allRightsReserved: 'Все права защищены.',
     adminPanel: 'Админ панель',
-    
+
     // Common
     loading: 'Загрузка...',
     error: 'Ошибка',
     comingSoon: 'Скоро',
-    
+
     // Speakers
     guestSpeakers: 'Приглашённые спикеры',
     speakersSubtitle: 'Выступающие на церемонии открытия',
     speakersComingSoon: 'Приглашённые спикеры будут объявлены ближе к конференции. Следите за обновлениями в Instagram.',
-    
+
     // Benefits cards
     globalPerspective: 'Глобальная перспектива',
     globalPerspectiveDesc: 'Понимание международных проблем с разных точек зрения и культур.',
@@ -306,163 +306,9 @@ const translations = {
     recognitionDesc: 'Получение наград и признания за выдающуюся дипломатию и дебаты.',
     networking: 'Нетворкинг',
     networkingDesc: 'Связь с единомышленниками со всего региона.',
-    
+
     // Footer
     footerDescription: 'Присоединяйтесь к премьер-конференции Модели ООН в Центральной Азии.',
-  },
-  uz: {
-    // Navigation
-    home: 'Bosh sahifa',
-    committees: 'Qo\'mitalar',
-    selection: 'Tanlov',
-    aboutUs: 'Biz haqimizda',
-    media: 'Media',
-    register: 'Ro\'yxatdan o\'tish',
-    applyNow: 'Ariza topshirish',
-    
-    // Hero
-    ihlModel: 'IHL Model',
-    unitedNations: 'Birlashgan Millatlar Tashkiloti',
-    participationFree: 'Ishtirok etish mutlaqo BEPUL',
-    heroDescription: 'O\'zbekistondagi eng yirik Birlashgan Millatlar Tashkiloti Model konferensiyasiga qo\'shiling. Global muammolarni muhokama qiling, aloqalar o\'rnating va diplomatik ko\'nikmalaringizni rivojlantiring.',
-    learnMore: 'Batafsil',
-    selectionProcess: 'Tanlov jarayoni',
-    
-    // Stats
-    date: 'Sana',
-    location: 'Joylashuv',
-    committeesCount: 'Qo\'mitalar',
-    delegates: 'Delegatlar',
-    freeForSelected: 'Tanlangan delegatlar uchun bepul',
-    
-    // Selection
-    freeParticipationWithSelection: 'Tanlov orqali bepul ishtirok',
-    selectionDescription: 'IHL MUN 2026 tanlangan barcha delegatlar uchun mutlaqo bepul. Yuqori qiziqish va cheklangan o\'rinlar tufayli qat\'iy tanlov bo\'ladi.',
-    allApplicationsReviewed: 'Barcha arizalar qo\'lda ko\'rib chiqiladi',
-    checkOriginality: 'Originallik va AI-kontent yo\'qligini tekshiramiz',
-    shortlistedInterview: 'Tanlangan nomzodlar suhbatga taklif qilinishi mumkin',
-    finalDecisions: 'Yakuniy qarorlar email/Telegram orqali xabar qilinadi',
-    learnMoreSelection: 'Tanlov haqida batafsil',
-    
-    // Committees
-    ourCommittees: 'Bizning qo\'mitalar',
-    committeesSubtitle: 'Muhim global masalalarni qamrab oluvchi yettita turli qo\'mitadan tanlang',
-    viewAllCommittees: 'Barcha qo\'mitalar',
-    chairs: 'Raislar',
-    agenda: 'Kun tartibi',
-    committeeChairs: 'Qo\'mita raislari',
-    registerForCommittee: 'Ushbu qo\'mitaga ariza topshirish',
-    registrationClosed: 'Ro\'yxatdan o\'tish yopiq',
-    
-    // Registration Form
-    applyFor: 'Ariza topshirish:',
-    fillApplicationForm: 'Quyidagi ariza shaklini to\'ldiring. Barcha arizalar Delegat munosabatlari jamoamiz tomonidan ko\'rib chiqiladi.',
-    participationIsFree: 'Ishtirok BEPUL',
-    freeNotice: 'IHL MUN 2026 tanlangan barcha delegatlar uchun mutlaqo bepul. Cheklangan o\'rinlar tufayli qat\'iy tanlov bo\'ladi. Iltimos, barcha savollarga o\'ylab javob bering.',
-    personalInformation: 'Shaxsiy ma\'lumotlar',
-    fullName: 'To\'liq ism',
-    institution: 'Ta\'lim muassasasi',
-    phoneNumber: 'Telefon raqami',
-    email: 'Elektron pochta',
-    applicationQuestions: 'Ariza savollari',
-    whyAttend: 'Nima uchun IHL MUN\'26 da ishtirok etmoqchisiz?',
-    minimum80Words: 'Kamida 80 so\'z',
-    wordCount: 'So\'zlar soni',
-    minimum: 'minimum',
-    munExperience: 'Oldingi MUN tajribangiz qanday?',
-    twoSentences: '2 gap',
-    whyCommittee: 'Nima uchun siz tanladingiz',
-    alternativeCommittees: 'Bu qo\'mita mavjud bo\'lmasa, qaysi qo\'mitalarni tanlagan bo\'lardingiz?',
-    consentConfirmation: 'Rozilik va tasdiqlash',
-    consentInterview: 'Tanlov ro\'yxatiga kiritilgan taqdirda suhbatga taklif qilinishga roziman (ixtiyoriy, lekin tavsiya etiladi)',
-    understandsSelection: 'Ishtirok bepul, lekin qat\'iy tanlov talab qilinishini tushunaman',
-    submitApplication: 'Ariza yuborish',
-    applicationReceived: 'Ariza qabul qilindi!',
-    thankYouApplying: 'Ariza uchun rahmat:',
-    reviewContact: 'Jamoamiz arizangizni ko\'rib chiqadi va tez orada siz bilan bog\'lanadi.',
-    backToCommittees: 'Qo\'mitalarga qaytish',
-    
-    // About
-    ourMission: 'Bizning missiyamiz',
-    conferenceDetails: 'Konferensiya ma\'lumotlari',
-    theSecretariat: 'Kotibiyat',
-    meetTheTeam: 'IHL MUN 2026 jamoasi bilan tanishing',
-    secretariatSoon: 'Kotibiyat a\'zolari tez orada e\'lon qilinadi.',
-    
-    // Selection Process Page
-    registrationSelectionProcess: 'Ro\'yxatdan o\'tish va tanlov jarayoni',
-    everythingYouNeed: 'IHL MUN 2026 ga ariza topshirish haqida bilishingiz kerak bo\'lgan hamma narsa',
-    participationCompletelyFree: 'Ishtirok mutlaqo BEPUL',
-    freeParticipationDescription: 'IHL MUN 2026 tanlangan barcha delegatlar uchun mutlaqo bepul. Yuqori qiziqish va cheklangan o\'rinlar tufayli qat\'iy tanlov bo\'ladi.',
-    howSelectionWorks: 'Tanlov qanday ishlaydi',
-    submitApplicationStep: 'Ariza topshirish',
-    submitApplicationDesc: 'Shaxsiy ma\'lumotlar va esse javoblari bilan ariza shaklini to\'ldiring. Barcha savollarga o\'ylab va original javob bering.',
-    applicationReview: 'Arizani ko\'rib chiqish',
-    applicationReviewDesc: 'Jamoamiz har bir arizani qo\'lda ko\'rib chiqadi, originallik, javoblar chuqurligi va motivatsiyani tekshiradi.',
-    interviewOptional: 'Suhbat (ixtiyoriy)',
-    interviewDesc: 'Tanlangan nomzodlar qisqa suhbatga taklif qilinishi mumkin.',
-    finalDecision: 'Yakuniy qaror',
-    finalDecisionDesc: 'Yakuniy qarorlar email va Telegram orqali xabar qilinadi. Qabul qilingan delegatlar keyingi ko\'rsatmalarni oladi.',
-    whatWeLookFor: 'Biz nimani qidiramiz',
-    whatWeLookForDesc: 'Jamoamiz har bir arizani bir nechta mezonlar bo\'yicha baholaydi. Biz eng motivatsiyali va tayyorgarlikli delegatlarni tanlashga intilamiz.',
-    originalityResponses: 'Javoblar originalligi',
-    noAiContent: 'AI-kontent yo\'qligi',
-    noPlagiarism: 'Plagiat yo\'qligi',
-    relevanceQuestions: 'Savollarga muvofiqlik',
-    depthUnderstanding: 'Tushunish chuqurligi',
-    demonstratedMotivation: 'Motivatsiya namoyishi',
-    munExperienceHelpful: 'MUN tajribasi (foydali, lekin shart emas)',
-    commitmentParticipate: 'Ishtirok etish majburiyati',
-    applicationTips: 'Ariza bo\'yicha maslahatlar',
-    beOriginal: 'Original bo\'ling:',
-    beOriginalDesc: 'O\'zingizning javoblaringizni yozing. AI-kontent yoki plagiat darhol rad etishga olib keladi.',
-    beSpecific: 'Aniq bo\'ling:',
-    beSpecificDesc: 'Umumiy javoblar ajralib turmaydi. Shaxsiy tajribangiz va haqiqiy motivatsiyangizni baham ko\'ring.',
-    showPassion: 'Qiziqishingizni ko\'rsating:',
-    showPassionDesc: 'Biz xalqaro munosabatlarga chin dildan qiziqqan delegatlarni qidiramiz.',
-    meetWordRequirements: 'Talablarni bajaring:',
-    meetWordRequirementsDesc: '"Nima uchun ishtirok etish" savoli kamida 80 so\'zni talab qiladi. O\'ylab javob yozishga vaqt ajrating.',
-    readyToApply: 'Ariza topshirishga tayyormisiz?',
-    chooseCommittee: 'Qo\'mitangizni tanlang va ariza yuboring. Omad!',
-    viewCommitteesApply: 'Qo\'mitalarni ko\'rish va ariza topshirish',
-    
-    // Media
-    mediaGallery: 'Media galereya',
-    photosFromEvents: 'O\'tgan tadbirlar va konferensiyaga tayyorgarlik suratlari',
-    galleryComingSoon: 'Galereya tez orada',
-    photosShared: 'Tadbirlarimiz suratlari bu yerda joylashtiriladi. Instagram orqali yangilanishlarni kuzating.',
-    
-    // Footer
-    quickLinks: 'Tezkor havolalar',
-    conferenceInfo: 'Konferensiya haqida',
-    connect: 'Bog\'lanish',
-    freeParticipation: 'BEPUL ISHTIROK',
-    subjectToSelection: 'Tanlov asosida',
-    allRightsReserved: 'Barcha huquqlar himoyalangan.',
-    adminPanel: 'Admin panel',
-    
-    // Common
-    loading: 'Yuklanmoqda...',
-    error: 'Xato',
-    comingSoon: 'Tez orada',
-    
-    // Speakers
-    guestSpeakers: 'Mehmon spikerlar',
-    speakersSubtitle: 'Ochilish marosimida nutq so\'zlovchilar',
-    speakersComingSoon: 'Mehmon spikerlar konferensiya yaqinlashganda e\'lon qilinadi. Instagram orqali yangilanishlarni kuzating.',
-    
-    // Benefits cards
-    globalPerspective: 'Global nuqtai nazar',
-    globalPerspectiveDesc: 'Xalqaro muammolarni turli nuqtai nazar va madaniyatlardan tushunish.',
-    leadershipSkills: 'Yetakchilik ko\'nikmalari',
-    leadershipSkillsDesc: 'Ommaviy nutq, muzokaralar va tanqidiy fikrlash qobiliyatlarini rivojlantirish.',
-    recognition: 'Tan olinish',
-    recognitionDesc: 'Ajoyib diplomatiya va debatlar uchun mukofotlar va tan olinish.',
-    networking: 'Tarmoq yaratish',
-    networkingDesc: 'Butun mintaqadan hamfikr talabalar bilan bog\'lanish.',
-    
-    // Footer
-    footerDescription: 'Markaziy Osiyodagi eng yirik Birlashgan Millatlar Tashkiloti Model konferensiyasiga qo\'shiling.',
   }
 };
 

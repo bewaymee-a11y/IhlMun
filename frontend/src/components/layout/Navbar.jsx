@@ -50,7 +50,6 @@ export const Navbar = ({ settings }) => {
   const languages = [
     { code: 'en', label: 'English', flag: '🇬🇧' },
     { code: 'ru', label: 'Русский', flag: '🇷🇺' },
-    { code: 'uz', label: 'O\'zbek', flag: '🇺🇿' },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -100,15 +99,7 @@ export const Navbar = ({ settings }) => {
 
           {/* Right side actions */}
           <div className="flex items-center gap-2 md:gap-3">
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              data-testid="theme-toggle"
-              className="p-2 text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+
 
             {/* Language Selector */}
             <div className="relative">

@@ -8,8 +8,8 @@ export const Footer = ({ settings }) => {
   const { t } = useLanguage();
 
   return (
-    <footer data-testid="footer" className="bg-[var(--surface)] border-t border-[var(--text-muted)]/10">
-      <div className="container-main py-16">
+    <footer data-testid="footer" className="mt-0 bg-[var(--surface)] border-t border-[var(--text-muted)]/10">
+      <div className="container-main pt-36 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">

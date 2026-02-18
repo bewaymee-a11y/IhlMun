@@ -5,6 +5,7 @@ import axios from 'axios';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import DarkVeil from '@/components/ui/DarkVeil';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -14,6 +15,7 @@ const HomePage = () => {
   const [committees, setCommittees] = useState([]);
   const [settings, setSettings] = useState(null);
   const { t } = useLanguage();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,7 +57,7 @@ const HomePage = () => {
           <div className="absolute inset-0 hero-glow" />
           <div className="absolute inset-0 gold-glow opacity-30" />
           <div className="absolute top-1/4 left-10 w-64 h-64 border border-[var(--primary)]/10 rounded-full animate-pulse-glow" />
-          <div className="absolute bottom-1/4 right-10 w-96 h-96 border border-[var(--secondary)]/20 rounded-full" />
+          <div className="absolute bottom-1/4 right-10 w-96 h-96 border border-[var(--secondary)]/20 rounded-full animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
         </div>
 
         {/* Content */}
@@ -80,20 +82,7 @@ const HomePage = () => {
             </h1>
 
             {/* Badge with date and FREE mention */}
-            <div
-              className="inline-flex flex-col sm:flex-row items-center gap-3 mb-6 animate-fade-in-up"
-              style={{ animationDelay: '0.15s' }}
-            >
-              <div className="flex items-center gap-2 px-4 py-2 bg-[var(--surface)] border border-[var(--primary)]/30">
-                <span className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse" />
-                <span className="text-sm font-mono text-[var(--text-muted)] uppercase tracking-wider">
-                  {settings?.conference_date || 'March 2026'} • Tashkent
-                </span>
-              </div>
-              <span className="text-xs font-mono text-[var(--text-muted)]/70 uppercase tracking-wider">
-                {t('freeForSelected')}
-              </span>
-            </div>
+
 
             {/* Description */}
             <p
@@ -111,10 +100,10 @@ const HomePage = () => {
               <Link
                 to="/committees"
                 data-testid="hero-register-btn"
-                className="btn-primary flex items-center gap-2 group animate-pulse-glow"
+                className="btn-primary flex items-center gap-2 group animate-pulse-glow px-8 py-4 text-xl tracking-widest min-w-[200px]"
               >
                 {t('applyNow')}
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/selection-process"
@@ -128,21 +117,21 @@ const HomePage = () => {
 
             {/* Stats */}
             <div
-              className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-[var(--text-muted)]/10 animate-fade-in-up"
+              className="grid grid-cols-3 gap-8 mt-12 pt-0 border-t-0 border-transparent animate-fade-in-up"
               style={{ animationDelay: '0.4s' }}
             >
               <div>
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Calendar className="w-5 h-5 text-[var(--primary)]" />
                 </div>
-                <p className="font-heading text-2xl md:text-3xl text-[var(--text-main)]">{settings?.conference_date || 'March 2026'}</p>
+                <p className="font-heading text-2xl md:text-3xl text-[var(--text-main)]">18-19 April 2026</p>
                 <p className="font-mono text-sm text-[var(--text-muted)]">{t('date')}</p>
               </div>
               <div>
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <MapPin className="w-5 h-5 text-[var(--primary)]" />
                 </div>
-                <p className="font-heading text-2xl md:text-3xl text-[var(--text-main)]">Tashkent</p>
+                <p className="font-heading text-2xl md:text-3xl text-[var(--text-main)]">International House Lyceum</p>
                 <p className="font-mono text-sm text-[var(--text-muted)]">{t('location')}</p>
               </div>
               <div>
@@ -157,11 +146,7 @@ const HomePage = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <div className="w-6 h-10 border-2 border-[var(--primary)]/30 rounded-full flex justify-center pt-2">
-            <div className="w-1 h-3 bg-[var(--primary)] rounded-full animate-pulse" />
-          </div>
-        </div>
+
       </section>
 
       {/* Selection Process Preview */}

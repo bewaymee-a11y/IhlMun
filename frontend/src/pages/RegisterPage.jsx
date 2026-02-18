@@ -11,7 +11,7 @@ const API = `${BACKEND_URL}/api`;
 const RegisterPage = () => {
   const { t, language } = useLanguage();
   const { committeeId } = useParams();
-  
+
   const [committee, setCommittee] = useState(null);
   const [settings, setSettings] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -134,7 +134,7 @@ const RegisterPage = () => {
         <div className="py-8 md:py-12">
           <Link
             to="/committees"
-            className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-text-muted hover:text-[var(--text-main)] transition-colors mb-6"
           >
             <ArrowLeft size={16} />
             <span className="text-sm font-mono uppercase tracking-wider">{t('backToCommittees')}</span>
@@ -167,7 +167,7 @@ const RegisterPage = () => {
           )}
 
           {/* Personal Information */}
-          <div className="bg-surface border border-white/5 p-6 mb-6">
+          <div className="bg-surface border border-[var(--text-muted)]/20 p-6 mb-6">
             <h2 className="font-heading text-xl mb-6">{t('personalInformation')}</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -238,9 +238,9 @@ const RegisterPage = () => {
           </div>
 
           {/* Essay Questions */}
-          <div className="bg-surface border border-white/5 p-6 mb-6">
+          <div className="bg-surface border border-[var(--text-muted)]/20 p-6 mb-6">
             <h2 className="font-heading text-xl mb-6">{t('applicationQuestions')}</h2>
-            
+
             <div className="space-y-6">
               <div>
                 <label className="block text-sm text-text-muted mb-2">
@@ -250,7 +250,7 @@ const RegisterPage = () => {
                   name="why_attend"
                   value={formData.why_attend}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-white/10 p-3 text-white resize-none h-40 focus:outline-none focus:border-primary transition-colors"
+                  className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-40 focus:outline-none focus:border-primary transition-colors"
                   placeholder={t('whyAttend')}
                   data-testid="input-why-attend"
                 />
@@ -267,7 +267,7 @@ const RegisterPage = () => {
                   name="mun_experience"
                   value={formData.mun_experience}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-white/10 p-3 text-white resize-none h-24 focus:outline-none focus:border-primary transition-colors"
+                  className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-24 focus:outline-none focus:border-primary transition-colors"
                   placeholder={t('munExperience')}
                   data-testid="input-mun-experience"
                 />
@@ -281,7 +281,7 @@ const RegisterPage = () => {
                   name="why_committee"
                   value={formData.why_committee}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-white/10 p-3 text-white resize-none h-24 focus:outline-none focus:border-primary transition-colors"
+                  className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-24 focus:outline-none focus:border-primary transition-colors"
                   placeholder={t('whyCommittee')}
                   data-testid="input-why-committee"
                 />
@@ -295,7 +295,7 @@ const RegisterPage = () => {
                   name="alternative_committees"
                   value={formData.alternative_committees}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-white/10 p-3 text-white resize-none h-24 focus:outline-none focus:border-primary transition-colors"
+                  className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-24 focus:outline-none focus:border-primary transition-colors"
                   placeholder={t('alternativeCommittees')}
                   data-testid="input-alternative-committees"
                 />
@@ -304,9 +304,9 @@ const RegisterPage = () => {
           </div>
 
           {/* Consent */}
-          <div className="bg-surface border border-white/5 p-6 mb-6">
+          <div className="bg-surface border border-[var(--text-muted)]/20 p-6 mb-6">
             <h2 className="font-heading text-xl mb-6">{t('consentConfirmation')}</h2>
-            
+
             <div className="space-y-4">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input

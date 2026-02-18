@@ -105,7 +105,7 @@ const SelectionProcessPage = () => {
             {steps.map((step, i) => (
               <div
                 key={i}
-                className="bg-surface border border-white/5 p-6 relative"
+                className="bg-surface border border-[var(--text-muted)]/20 p-6 relative"
               >
                 <div className="absolute top-4 right-4 text-primary/20 font-heading text-5xl">
                   {String(i + 1).padStart(2, '0')}
@@ -135,23 +135,23 @@ const SelectionProcessPage = () => {
               </div>
             </div>
 
-            <div className="bg-surface border border-white/5 p-8">
+            <div className="bg-surface border border-[var(--text-muted)]/20 p-8">
               <h3 className="font-heading text-2xl mb-6 flex items-center gap-3">
                 <Users className="w-6 h-6 text-primary" />
                 {t('applicationTips')}
               </h3>
               <div className="space-y-4 text-text-muted">
                 <p>
-                  <strong className="text-white">{t('beOriginal')}</strong> {t('beOriginalDesc')}
+                  <strong className="text-[var(--text-main)]">{t('beOriginal')}</strong> {t('beOriginalDesc')}
                 </p>
                 <p>
-                  <strong className="text-white">{t('beSpecific')}</strong> {t('beSpecificDesc')}
+                  <strong className="text-[var(--text-main)]">{t('beSpecific')}</strong> {t('beSpecificDesc')}
                 </p>
                 <p>
-                  <strong className="text-white">{t('showPassion')}</strong> {t('showPassionDesc')}
+                  <strong className="text-[var(--text-main)]">{t('showPassion')}</strong> {t('showPassionDesc')}
                 </p>
                 <p>
-                  <strong className="text-white">{t('meetWordRequirements')}</strong> {t('meetWordRequirementsDesc')}
+                  <strong className="text-[var(--text-main)]">{t('meetWordRequirements')}</strong> {t('meetWordRequirementsDesc')}
                 </p>
               </div>
             </div>
