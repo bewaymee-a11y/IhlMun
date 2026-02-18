@@ -8,20 +8,25 @@ export const Footer = ({ settings }) => {
   const { t } = useLanguage();
 
   return (
-    <footer data-testid="footer" className="mt-0 bg-[var(--surface)] border-t border-[var(--text-muted)]/10">
-      <div className="container-main pt-36 pb-24">
+    <footer data-testid="footer" className="mt-0 bg-[var(--surface)] min-h-[280px]">
+      {/* Gold accent top bar */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-[var(--primary)] to-transparent opacity-60" />
+
+      <div className="container-main py-20 md:py-16">
+        {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-5 lg:col-span-1">
             <div className="flex items-center gap-3">
               <img
                 src={LOGO_URL}
                 alt="IHL MUN Logo"
-                className="w-14 h-14 object-contain"
+                className="w-12 h-12 object-contain"
               />
               <div>
-                <h3 className="font-heading text-xl text-[var(--text-main)]">IHL MUN</h3>
-                <p className="text-sm text-[var(--text-muted)]">Tashkent, Uzbekistan</p>
+                <h3 className="font-heading text-xl text-[var(--text-main)] tracking-wide">IHL MUN</h3>
+                <p className="text-xs text-[var(--primary)] uppercase tracking-widest">2026</p>
               </div>
             </div>
             <p className="text-[var(--text-muted)] text-sm leading-relaxed">
@@ -31,60 +36,80 @@ export const Footer = ({ settings }) => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading text-lg mb-4 text-[var(--primary)]">{t('quickLinks')}</h4>
+            <h4 className="font-heading text-sm uppercase tracking-widest mb-5 text-[var(--primary)]">{t('quickLinks')}</h4>
             <div className="flex flex-col gap-3">
-              <Link to="/" className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-sm">{t('home')}</Link>
-              <Link to="/committees" className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-sm">{t('committees')}</Link>
-              <Link to="/selection-process" className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-sm">{t('selection')}</Link>
-              <Link to="/about" className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-sm">{t('aboutUs')}</Link>
-              <Link to="/media" className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-sm">{t('media')}</Link>
+              {[
+                { to: '/', label: t('home') },
+                { to: '/committees', label: t('committees') },
+                { to: '/selection-process', label: t('selection') },
+                { to: '/about', label: t('aboutUs') },
+                { to: '/media', label: t('media') },
+              ].map(link => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-sm flex items-center gap-2 group"
+                >
+                  <span className="w-0 group-hover:w-3 h-px bg-[var(--primary)] transition-all duration-300 inline-block" />
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
-          {/* Contact Info */}
+          {/* Conference Info */}
           <div>
-            <h4 className="font-heading text-lg mb-4 text-[var(--primary)]">{t('conferenceInfo')}</h4>
-            <div className="flex flex-col gap-3 text-sm text-[var(--text-muted)]">
-              <div className="flex items-center gap-3">
-                <Calendar size={16} className="text-[var(--primary)]" />
+            <h4 className="font-heading text-sm uppercase tracking-widest mb-5 text-[var(--primary)]">{t('conferenceInfo')}</h4>
+            <div className="flex flex-col gap-4 text-sm text-[var(--text-muted)]">
+              <div className="flex items-start gap-3">
+                <Calendar size={15} className="text-[var(--primary)] mt-0.5 shrink-0" />
                 <span>{settings?.conference_date || 'March 2026'}</span>
               </div>
-              <div className="flex items-center gap-3">
-                <MapPin size={16} className="text-[var(--primary)]" />
+              <div className="flex items-start gap-3">
+                <MapPin size={15} className="text-[var(--primary)] mt-0.5 shrink-0" />
                 <span>{settings?.conference_location || 'Tashkent, Uzbekistan'}</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail size={16} className="text-[var(--primary)]" />
+              <div className="flex items-start gap-3">
+                <Mail size={15} className="text-[var(--primary)] mt-0.5 shrink-0" />
                 <span>ihlmun@example.com</span>
               </div>
             </div>
           </div>
 
-          {/* Social */}
+          {/* Social & CTA */}
           <div>
-            <h4 className="font-heading text-lg mb-4 text-[var(--primary)]">{t('connect')}</h4>
-            <div className="flex gap-4">
+            <h4 className="font-heading text-sm uppercase tracking-widest mb-5 text-[var(--primary)]">{t('connect')}</h4>
+            <div className="flex flex-col gap-5">
               <a
                 href="https://www.instagram.com/ihl_mun/"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="footer-instagram"
-                className="w-10 h-10 bg-[var(--surface-highlight)] border border-[var(--text-muted)]/10 flex items-center justify-center hover:border-[var(--primary)] hover:text-[var(--primary)] transition-colors text-[var(--text-muted)]"
+                className="flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors group"
               >
-                <Instagram size={18} />
+                <div className="w-9 h-9 bg-[var(--surface-highlight)] border border-[var(--text-muted)]/10 flex items-center justify-center group-hover:border-[var(--primary)] transition-colors">
+                  <Instagram size={16} />
+                </div>
+                <span className="text-sm">@ihl_mun</span>
               </a>
+              <Link
+                to="/committees"
+                className="btn-primary text-center text-xs py-3 px-5 inline-block"
+              >
+                {t('applyNow')} →
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-[var(--text-muted)]/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[var(--text-muted)] text-sm">
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3">
+          <p className="text-[var(--text-muted)] text-xs tracking-wide">
             © 2026 IHL Model United Nations. {t('allRightsReserved')}
           </p>
           <Link
             to="/admin"
-            className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-sm"
+            className="text-[var(--text-muted)]/50 hover:text-[var(--primary)] transition-colors text-xs"
           >
             {t('adminPanel')}
           </Link>

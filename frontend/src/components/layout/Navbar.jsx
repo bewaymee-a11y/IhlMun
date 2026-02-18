@@ -23,8 +23,11 @@ export const Navbar = ({ settings }) => {
   }, []);
 
   useEffect(() => {
-    setIsOpen(false);
-    setLangMenuOpen(false);
+    const timer = setTimeout(() => {
+      setIsOpen(false);
+      setLangMenuOpen(false);
+    }, 0);
+    return () => clearTimeout(timer);
   }, [location]);
 
   // Prevent body scroll when menu is open

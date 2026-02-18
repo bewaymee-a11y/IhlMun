@@ -88,15 +88,15 @@ const AboutPage = () => {
               <div className="space-y-4">
                 <div className="flex justify-between py-3 border-b border-[var(--text-muted)]/20">
                   <span className="text-text-muted">{t('date')}</span>
-                  <span className="font-mono text-primary">{settings?.conference_date || 'March 2026'}</span>
+                  <span className="font-mono text-primary">{settings?.conference_date || '18–19 April 2026'}</span>
                 </div>
                 <div className="flex justify-between py-3 border-b border-[var(--text-muted)]/20">
                   <span className="text-text-muted">{t('location')}</span>
-                  <span className="font-mono">{settings?.conference_location || 'Tashkent, Uzbekistan'}</span>
+                  <span className="font-mono">{settings?.conference_location || 'International House Lyceum, Tashkent'}</span>
                 </div>
                 <div className="flex justify-between py-3 border-b border-[var(--text-muted)]/20">
                   <span className="text-text-muted">{t('committeesCount')}</span>
-                  <span className="font-mono">7</span>
+                  <span className="font-mono">8</span>
                 </div>
                 <div className="flex justify-between py-3">
                   <span className="text-text-muted">{t('delegates')}</span>

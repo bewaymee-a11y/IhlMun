@@ -138,7 +138,7 @@ const HomePage = () => {
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Users className="w-5 h-5 text-[var(--primary)]" />
                 </div>
-                <p className="font-heading text-2xl md:text-3xl text-[var(--text-main)]">7</p>
+                <p className="font-heading text-2xl md:text-3xl text-[var(--text-main)]">8</p>
                 <p className="font-mono text-sm text-[var(--text-muted)]">{t('committeesCount')}</p>
               </div>
             </div>
@@ -248,8 +248,8 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section data-testid="cta-section" className="section-padding bg-[var(--surface)] relative overflow-hidden">
-        <div className="absolute inset-0 gold-glow opacity-50" />
+      <section data-testid="cta-section" className="section-padding pb-16 bg-[var(--surface)] relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 bottom-0 gold-glow opacity-50" style={{ background: 'radial-gradient(circle at 50% 30%, rgba(255,199,44,0.12) 0%, rgba(10,22,40,0) 65%)' }} />
         <div className="container-main relative">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl mb-6 text-[var(--text-main)]">

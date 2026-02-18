@@ -70,7 +70,11 @@ const CommitteesPage = () => {
       <section className="section-padding pt-0">
         <div className="container-main">
           <div className="space-y-6">
-            {committees.map((committee, i) => (
+            {committees.length === 0 ? (
+              <div className="text-center py-20 text-[var(--text-muted)]">
+                <p className="text-lg">{t('noCommitteesYet') || 'No committees available yet.'}</p>
+              </div>
+            ) : committees.map((committee, i) => (
               <div
                 key={committee.id}
                 id={`committee-${committee.id}`}

@@ -430,3 +430,7 @@ h6 {
 .laurel-decoration::after {
   right: -2rem;
 }
+
+footer {
+  height: 120%;
+}
