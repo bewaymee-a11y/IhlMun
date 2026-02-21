@@ -38,7 +38,7 @@ const translations = {
 
     // Committees
     ourCommittees: 'Our Committees',
-    committeesSubtitle: 'Choose from seven diverse committees covering critical global issues',
+    committeesSubtitle: 'Choose from eight diverse committees covering critical global issues',
     viewAllCommittees: 'View All Committees',
     chairs: 'Chairs',
     agenda: 'Agenda',
@@ -193,7 +193,7 @@ const translations = {
 
     // Committees
     ourCommittees: 'Наши комитеты',
-    committeesSubtitle: 'Выберите из семи разнообразных комитетов, охватывающих важные глобальные вопросы',
+    committeesSubtitle: 'Выберите из восьми разнообразных комитетов, охватывающих важные глобальные вопросы',
     viewAllCommittees: 'Все комитеты',
     chairs: 'Председатели',
     agenda: 'Повестка дня',
