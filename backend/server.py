@@ -291,7 +291,7 @@ async def init_default_data():
                 "name_ru": "Комитет Государственной Думы России",
                 "description": "Симуляция заседания Комитета Государственной Думы Российской Федерации.",
                 "agenda": ["«Чёрный октябрь»: Политический и конституционный кризис в Российской Федерации"],
-                "background_image": "/committees/duma.jpg",
+                "background_image": "/committees/gosduma.jpg",
                 "chairs": [
                     {"id": str(uuid.uuid4()), "name": "Asya", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
                     {"id": str(uuid.uuid4()), "name": "Solomon", "role": "Co-Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
