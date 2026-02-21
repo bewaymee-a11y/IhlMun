@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/IhlMun/static/css/main.c5b66a87.css",
-    "main.js": "/IhlMun/static/js/main.8d5b1c67.js",
+    "main.js": "/IhlMun/static/js/main.3677f36b.js",
     "index.html": "/IhlMun/index.html",
     "main.c5b66a87.css.map": "/IhlMun/static/css/main.c5b66a87.css.map",
-    "main.8d5b1c67.js.map": "/IhlMun/static/js/main.8d5b1c67.js.map"
+    "main.3677f36b.js.map": "/IhlMun/static/js/main.3677f36b.js.map"
   },
   "entrypoints": [
     "static/css/main.c5b66a87.css",
-    "static/js/main.8d5b1c67.js"
+    "static/js/main.3677f36b.js"
   ]
 }
