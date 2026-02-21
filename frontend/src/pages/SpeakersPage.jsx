@@ -57,13 +57,7 @@ const SpeakersPage = () => {
       {/* Speakers Section */}
       <section className="section-padding pt-0">
         <div className="container-main">
-          <div className="max-w-3xl mb-16">
-            <p className="text-text-muted text-lg leading-relaxed">
-              Our opening ceremony features distinguished speakers from various fields including
-              diplomacy, academia, and international organizations. Their insights and experiences
-              will inspire delegates to engage meaningfully with global issues.
-            </p>
-          </div>
+
 
           {speakers.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

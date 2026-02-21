@@ -47,7 +47,7 @@ function AppContent() {
             path="/*"
             element={
               <>
-                <Navbar settings={settings} />
+                <Navbar />
                 <main>
                   <Routes>
                     <Route path="/" element={<HomePage />} />

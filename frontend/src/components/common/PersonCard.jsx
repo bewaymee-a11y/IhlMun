@@ -2,22 +2,21 @@ import { User } from 'lucide-react';
 
 export const PersonCard = ({ name, role, experience, photo_url, variant = 'default' }) => {
   const isPlaceholder = !photo_url || photo_url.includes('placeholder');
+  const imageUrl = photo_url?.startsWith('/') ? `${process.env.PUBLIC_URL || ''}${photo_url}` : photo_url;
 
   return (
     <div
       data-testid="person-card"
-      className={`group relative overflow-hidden ${
-        variant === 'large'
-          ? 'bg-[var(--surface)] border border-[var(--text-muted)]/10 p-4 md:p-6 card-hover'
-          : 'text-center'
-      }`}
+      className={`group relative overflow-hidden ${variant === 'large'
+        ? 'bg-[var(--surface)] border border-[var(--text-muted)]/10 p-4 md:p-6 card-hover'
+        : 'text-center'
+        }`}
     >
       <div
-        className={`relative mx-auto overflow-hidden ${
-          variant === 'large'
-            ? 'w-full h-32 md:h-48 mb-3 md:mb-4'
-            : 'w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full mb-3 md:mb-4'
-        }`}
+        className={`relative mx-auto overflow-hidden ${variant === 'large'
+          ? 'w-full h-32 md:h-48 mb-3 md:mb-4'
+          : 'w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full mb-3 md:mb-4'
+          }`}
       >
         {isPlaceholder ? (
           <div className="w-full h-full bg-[var(--surface-highlight)] flex items-center justify-center">
@@ -25,7 +24,7 @@ export const PersonCard = ({ name, role, experience, photo_url, variant = 'defau
           </div>
         ) : (
           <img
-            src={photo_url}
+            src={imageUrl}
             alt={name}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />

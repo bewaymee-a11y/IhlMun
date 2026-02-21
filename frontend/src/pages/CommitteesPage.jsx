@@ -11,7 +11,7 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const CommitteesPage = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [searchParams] = useSearchParams();
   const selectedId = searchParams.get('id');
 

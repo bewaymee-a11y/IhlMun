@@ -137,6 +137,7 @@ const translations = {
     loading: 'Loading...',
     error: 'Error',
     comingSoon: 'Coming Soon',
+    noCommitteesYet: 'No committees available yet. Check back soon!',
 
     // Speakers
     guestSpeakers: 'Guest Speakers',
@@ -291,6 +292,7 @@ const translations = {
     loading: 'Загрузка...',
     error: 'Ошибка',
     comingSoon: 'Скоро',
+    noCommitteesYet: 'Комитеты пока недоступны. Следите за обновлениями!',
 
     // Speakers
     guestSpeakers: 'Приглашённые спикеры',

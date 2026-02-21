@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 
 const ThemeContext = createContext();
 
@@ -6,9 +6,6 @@ export const ThemeProvider = ({ children }) => {
   const theme = 'dark';
 
   useEffect(() => {
-    localStorage.setItem('theme', 'dark');
-
-    // Ensure dark mode variables are set
     const root = document.documentElement;
     root.style.setProperty('--background', '#0A1628');
     root.style.setProperty('--surface', '#0F1D32');

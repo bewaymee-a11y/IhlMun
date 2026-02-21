@@ -1,40 +1,10 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, FileText, Users, Search, MessageSquare, Mail } from 'lucide-react';
-import axios from 'axios';
 import { SectionTitle } from '@/components/common/SectionTitle';
-import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
 
 const SelectionProcessPage = () => {
   const { t } = useLanguage();
-  const [settings, setSettings] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchSettings = async () => {
-      try {
-        const res = await axios.get(`${API}/settings`);
-        setSettings(res.data);
-      } catch (e) {
-        console.error('Error fetching settings:', e);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchSettings();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <LoadingSpinner size="lg" />
-      </div>
-    );
-  }
 
   const steps = [
     {

@@ -70,16 +70,6 @@ const AboutPage = () => {
                   {settings?.about_description ||
                     'IHL Model United Nations is the premier MUN conference in Uzbekistan, bringing together young diplomats from across the region.'}
                 </p>
-                <p>
-                  Our conference provides a platform for students to develop their skills in
-                  diplomacy, public speaking, negotiation, and critical thinking while engaging
-                  with pressing global issues.
-                </p>
-                <p>
-                  Hosted in the historic city of Tashkent, IHL MUN brings together participants
-                  from Central Asia and beyond to simulate the workings of the United Nations
-                  and other international bodies.
-                </p>
               </div>
             </div>
 

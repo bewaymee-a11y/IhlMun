@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Instagram, Sun, Moon, Globe } from 'lucide-react';
+import { Menu, X, Instagram, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useTheme } from '@/contexts/ThemeContext';
 
 const LOGO_URL = process.env.PUBLIC_URL + '/logo_transparent.png';
 
-export const Navbar = ({ settings }) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Navbar = () => {
+  const [menuState, setMenuState] = useState({ isOpen: false, langOpen: false });
+  const isOpen = menuState.isOpen;
+  const langMenuOpen = menuState.langOpen;
+  const setIsOpen = (val) => setMenuState(prev => ({ ...prev, isOpen: val }));
+  const setLangMenuOpen = (val) => setMenuState(prev => ({ ...prev, langOpen: val }));
   const [scrolled, setScrolled] = useState(false);
-  const [langMenuOpen, setLangMenuOpen] = useState(false);
   const location = useLocation();
   const { language, setLanguage, t } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,11 +24,7 @@ export const Navbar = ({ settings }) => {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(false);
-      setLangMenuOpen(false);
-    }, 0);
-    return () => clearTimeout(timer);
+    setMenuState({ isOpen: false, langOpen: false });
   }, [location]);
 
   // Prevent body scroll when menu is open

@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import {
   LogOut, Settings, Users, Image, Mic, BookOpen,
   Download, Trash2, Edit, Plus, Save, X, AlertCircle, ChevronDown
@@ -9,6 +10,14 @@ import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
+
+const getImageUrl = (url) => {
+  if (!url) return '';
+  if (url.startsWith('/')) {
+    return `${process.env.PUBLIC_URL || ''}${url}`;
+  }
+  return url;
+};
 
 // Admin Login Component
 const AdminLogin = ({ onLogin }) => {
@@ -134,7 +143,34 @@ const AdminDashboard = ({ onLogout }) => {
   };
 
   useEffect(() => {
-    fetchData();
+    const loadData = async () => {
+      setLoading(true);
+      try {
+        const [regs, comms, secs, spks, media, settings] = await Promise.all([
+          axios.get(`${API}/admin/registrations`, { headers }),
+          axios.get(`${API}/committees`),
+          axios.get(`${API}/secretariat`),
+          axios.get(`${API}/speakers`),
+          axios.get(`${API}/media`),
+          axios.get(`${API}/settings`),
+        ]);
+        setData({
+          registrations: regs.data,
+          committees: comms.data,
+          secretariat: secs.data,
+          speakers: spks.data,
+          media: media.data,
+          settings: settings.data,
+        });
+      } catch (e) {
+        console.error('Error fetching data:', e);
+        if (e.response?.status === 401) onLogout();
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const tabs = [
@@ -176,11 +212,10 @@ const AdminDashboard = ({ onLogout }) => {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               data-testid={`tab-${tab.id}`}
-              className={`flex items-center gap-2 px-4 py-2 text-sm transition-colors ${
-                activeTab === tab.id
-                  ? 'bg-primary text-black'
-                  : 'bg-surface border border-white/10 text-text-muted hover:text-white'
-              }`}
+              className={`flex items-center gap-2 px-4 py-2 text-sm transition-colors ${activeTab === tab.id
+                ? 'bg-primary text-black'
+                : 'bg-surface border border-white/10 text-text-muted hover:text-white'
+                }`}
             >
               <tab.icon size={16} />
               <span>{tab.label}</span>
@@ -344,8 +379,8 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
           </thead>
           <tbody>
             {filteredData.map((reg) => (
-              <>
-                <tr key={reg.id} className="border-b border-white/5 hover:bg-surface-highlight cursor-pointer" onClick={() => setExpandedReg(expandedReg === reg.id ? null : reg.id)}>
+              <React.Fragment key={reg.id}>
+                <tr className="border-b border-white/5 hover:bg-surface-highlight cursor-pointer" onClick={() => setExpandedReg(expandedReg === reg.id ? null : reg.id)}>
                   <td className="p-4">
                     <div className="font-medium">{reg.full_name}</div>
                     <div className="text-xs text-text-muted">{reg.institution}</div>
@@ -406,7 +441,7 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
                     </td>
                   </tr>
                 )}
-              </>
+              </React.Fragment>
             ))}
             {filteredData.length === 0 && (
               <tr>
@@ -424,7 +459,6 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
 
 // Committees Tab
 const CommitteesTab = ({ data, headers, onRefresh }) => {
-  const [editing, setEditing] = useState(null);
   const [expanded, setExpanded] = useState(null);
 
   const handleToggleRegistration = async (committee) => {
@@ -453,7 +487,7 @@ const CommitteesTab = ({ data, headers, onRefresh }) => {
               <div className="flex items-center gap-4">
                 <div
                   className="w-12 h-12 bg-cover bg-center rounded"
-                  style={{ backgroundImage: `url('${comm.background_image}')` }}
+                  style={{ backgroundImage: `url('${getImageUrl(comm.background_image)}')` }}
                 />
                 <div>
                   <h3 className="font-heading text-lg">{comm.name_ru || comm.name}</h3>
@@ -464,7 +498,7 @@ const CommitteesTab = ({ data, headers, onRefresh }) => {
               </div>
               <ChevronDown size={20} className={`transform transition-transform ${expanded === comm.id ? 'rotate-180' : ''}`} />
             </button>
-            
+
             {expanded === comm.id && (
               <div className="p-4 pt-0 border-t border-white/5">
                 <div className="flex gap-2 mb-4">
@@ -590,7 +624,7 @@ const CrudTab = ({ title, data, headers, endpoint, fields, onRefresh }) => {
           <div key={item.id} className="bg-surface border border-white/5 p-4">
             <div className="flex gap-4 mb-3">
               {item.photo_url && (
-                <div className="w-16 h-16 bg-surface-highlight bg-cover bg-center shrink-0" style={{ backgroundImage: `url('${item.photo_url}')` }} />
+                <div className="w-16 h-16 bg-surface-highlight bg-cover bg-center shrink-0" style={{ backgroundImage: `url('${getImageUrl(item.photo_url)}')` }} />
               )}
               <div>
                 <h4 className="font-heading">{item.name}</h4>
@@ -728,7 +762,7 @@ const MediaTab = ({ data, headers, onRefresh }) => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {data.map((photo) => (
           <div key={photo.id} className="bg-surface border border-white/5 overflow-hidden group">
-            <div className="aspect-square bg-cover bg-center" style={{ backgroundImage: `url('${photo.url}')` }} />
+            <div className="aspect-square bg-cover bg-center" style={{ backgroundImage: `url('${getImageUrl(photo.url)}')` }} />
             <div className="p-3">
               <p className="text-xs font-mono text-primary">{photo.date}</p>
               <p className="text-sm text-text-muted truncate">{photo.caption}</p>

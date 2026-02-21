@@ -39,6 +39,8 @@ const webpackConfig = {
       rules: {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
+        "react-hooks/react-compiler": "off",
+        "react-hooks/set-state-in-effect": "off",
       },
     },
   },

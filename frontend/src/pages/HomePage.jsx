@@ -5,7 +5,6 @@ import axios from 'axios';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import DarkVeil from '@/components/ui/DarkVeil';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useTheme } from '@/contexts/ThemeContext';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -15,7 +14,6 @@ const HomePage = () => {
   const [committees, setCommittees] = useState([]);
   const [settings, setSettings] = useState(null);
   const { t } = useLanguage();
-  const { theme } = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,15 +42,7 @@ const HomePage = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[var(--background)]" />
           <div className="absolute inset-0 opacity-50">
-            <DarkVeil
-              hueShift={20}
-              noiseIntensity={0.02}
-              scanlineIntensity={0}
-              speed={0.8}
-              scanlineFrequency={0}
-              warpAmount={0}
-              resolutionScale={1}
-            />
+            <DarkVeil />
           </div>
           <div className="absolute inset-0 hero-glow" />
           <div className="absolute inset-0 gold-glow opacity-30" />

@@ -9,11 +9,10 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const RegisterPage = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const { committeeId } = useParams();
 
   const [committee, setCommittee] = useState(null);
-  const [settings, setSettings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -38,14 +37,10 @@ const RegisterPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [commRes, settingsRes] = await Promise.all([
-          axios.get(`${API}/committees/${committeeId}`),
-          axios.get(`${API}/settings`)
-        ]);
+        const commRes = await axios.get(`${API}/committees/${committeeId}`);
         setCommittee(commRes.data);
-        setSettings(settingsRes.data);
       } catch (e) {
-        console.error('Error fetching data:', e);
+        console.error('Error fetching committee:', e);
         setError('Committee not found');
       } finally {
         setLoading(false);
