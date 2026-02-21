@@ -189,18 +189,18 @@ export const Navbar = () => {
               ))}
 
               {/* Mobile Language Selector */}
-              <div className="flex gap-2 py-4 border-b border-[var(--text-muted)]/10">
+              <div className="flex gap-4 py-8 border-b border-[var(--text-muted)]/10">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
-                    className={`flex items-center gap-2 px-4 py-2 border ${language === lang.code
-                      ? 'border-[var(--primary)] text-[var(--primary)]'
-                      : 'border-[var(--text-muted)]/20 text-[var(--text-muted)]'
+                    onClick={() => { setLanguage(lang.code); setIsOpen(false); }}
+                    className={`flex-1 flex flex-col items-center gap-2 p-4 rounded-sm transition-all duration-300 ${language === lang.code
+                      ? 'bg-[var(--primary)]/10 border border-[var(--primary)] text-[var(--primary)]'
+                      : 'bg-[var(--surface-highlight)]/5 border border-[var(--text-muted)]/10 text-[var(--text-muted)]'
                       }`}
                   >
-                    <span>{lang.flag}</span>
-                    <span className="text-sm">{lang.code.toUpperCase()}</span>
+                    <span className="text-3xl">{lang.flag}</span>
+                    <span className="text-xs font-mono tracking-tighter uppercase">{lang.label}</span>
                   </button>
                 ))}
               </div>

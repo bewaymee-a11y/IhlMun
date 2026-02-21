@@ -158,7 +158,7 @@ const CommitteesPage = () => {
                     {/* Chairs */}
                     <div className="mb-8 md:mb-10">
                       <h4 className="font-heading text-lg md:text-xl mb-4 md:mb-6">{t('committeeChairs')}</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                         {committee.chairs?.map((chair) => (
                           <PersonCard
                             key={chair.id}

@@ -33,9 +33,9 @@ export const PersonCard = ({ name, role, experience, photo_url, variant = 'defau
       </div>
 
       <div className={variant === 'large' ? '' : 'px-1'}>
-        <h3 className="font-heading text-sm md:text-lg lg:text-xl mb-1 truncate text-[var(--text-main)]">{name}</h3>
-        <p className="text-[var(--primary)] text-xs md:text-sm font-mono uppercase tracking-wider mb-1 md:mb-2 truncate">{role}</p>
-        <p className="text-[var(--text-muted)] text-xs md:text-sm leading-relaxed line-clamp-2">{experience}</p>
+        <h3 className="font-heading text-sm md:text-lg lg:text-xl mb-1 text-[var(--text-main)]">{name}</h3>
+        <p className="text-[var(--primary)] text-xs md:text-sm font-mono uppercase tracking-wider mb-1 md:mb-2">{role}</p>
+        <p className="text-[var(--text-muted)] text-xs md:text-sm leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-300">{experience}</p>
       </div>
     </div>
   );

@@ -1,11 +1,10 @@
 export const SectionTitle = ({ title, subtitle, align = 'left', className = '' }) => {
   return (
     <div
-      className={`mb-12 md:mb-16 ${
-        align === 'center' ? 'text-center' : ''
-      } ${className}`}
+      className={`mb-12 md:mb-16 ${align === 'center' ? 'text-center' : ''
+        } ${className}`}
     >
-      <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl mb-4 animate-fade-in-up text-[var(--text-main)]">
+      <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 animate-fade-in-up text-[var(--text-main)]">
         {title}
       </h2>
       {subtitle && (

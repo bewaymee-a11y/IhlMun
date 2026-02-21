@@ -76,19 +76,19 @@ const AboutPage = () => {
             <div className="bg-surface border border-[var(--text-muted)]/20 p-8">
               <h4 className="font-heading text-2xl mb-6">{t('conferenceDetails')}</h4>
               <div className="space-y-4">
-                <div className="flex justify-between py-3 border-b border-[var(--text-muted)]/20">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-[var(--text-muted)]/20 gap-1 sm:gap-4">
                   <span className="text-text-muted">{t('date')}</span>
                   <span className="font-mono text-primary">{settings?.conference_date || '18–19 April 2026'}</span>
                 </div>
-                <div className="flex justify-between py-3 border-b border-[var(--text-muted)]/20">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-[var(--text-muted)]/20 gap-1 sm:gap-4">
                   <span className="text-text-muted">{t('location')}</span>
                   <span className="font-mono">{settings?.conference_location || 'International House Lyceum, Tashkent'}</span>
                 </div>
-                <div className="flex justify-between py-3 border-b border-[var(--text-muted)]/20">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-[var(--text-muted)]/20 gap-1 sm:gap-4">
                   <span className="text-text-muted">{t('committeesCount')}</span>
                   <span className="font-mono">8</span>
                 </div>
-                <div className="flex justify-between py-3">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-3 gap-1 sm:gap-4">
                   <span className="text-text-muted">{t('delegates')}</span>
                   <span className="font-mono">200+</span>
                 </div>
@@ -104,7 +104,7 @@ const AboutPage = () => {
             />
 
             {secretariat.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
                 {secretariat.map((member, i) => (
                   <div
                     key={member.id}

@@ -64,7 +64,7 @@ const HomePage = () => {
 
             {/* Title */}
             <h1
-              className="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none mb-6 animate-fade-in-up"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none mb-6 animate-fade-in-up"
               style={{ animationDelay: '0.1s' }}
             >
               <span className="block text-[var(--text-main)]">{t('ihlModel')}</span>
@@ -84,13 +84,13 @@ const HomePage = () => {
 
             {/* CTAs */}
             <div
-              className="flex flex-wrap justify-center gap-4 animate-fade-in-up"
+              className="flex flex-col sm:flex-row justify-center items-center gap-4 animate-fade-in-up"
               style={{ animationDelay: '0.3s' }}
             >
               <Link
                 to="/committees"
                 data-testid="hero-register-btn"
-                className="btn-primary flex items-center gap-2 group animate-pulse-glow px-8 py-4 text-xl tracking-widest min-w-[200px]"
+                className="btn-primary flex items-center justify-center gap-2 group animate-pulse-glow px-8 py-4 text-xl tracking-widest w-full sm:w-auto min-w-[200px]"
               >
                 {t('applyNow')}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -98,7 +98,7 @@ const HomePage = () => {
               <Link
                 to="/selection-process"
                 data-testid="hero-selection-btn"
-                className="btn-secondary flex items-center gap-2"
+                className="btn-secondary flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <FileText className="w-4 h-4" />
                 {t('selectionProcess')}
@@ -107,7 +107,7 @@ const HomePage = () => {
 
             {/* Stats */}
             <div
-              className="grid grid-cols-3 gap-8 mt-12 pt-0 border-t-0 border-transparent animate-fade-in-up"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 pt-0 border-t-0 border-transparent animate-fade-in-up"
               style={{ animationDelay: '0.4s' }}
             >
               <div>
