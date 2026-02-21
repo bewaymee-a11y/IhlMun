@@ -76,38 +76,33 @@ class CommitteeCreate(BaseModel):
 
 class Registration(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    full_name: str
-    institution: str
+    first_name: str
+    surname: str
+    email: EmailStr
     phone: str
     telegram: str
-    email: EmailStr
+    date_of_birth: str
+    place_of_study: str
     committee_id: str
     committee_name: str
-    # New essay fields
-    why_attend: str  # Min 80 words
-    mun_experience: str  # 2 sentences
-    why_committee: str
-    alternative_committees: str
-    consent_interview: bool
-    understands_selection: bool
-    # Status field for admin
+    mun_experience: str
+    motivation: str
+    global_crisis: str
     status: str = "Under Review"  # Under Review, Reviewed, Not Reviewed, Accepted, Rejected, Waitlisted
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 class RegistrationCreate(BaseModel):
-    full_name: str
-    institution: str
+    first_name: str
+    surname: str
+    email: EmailStr
     phone: str
     telegram: str
-    email: EmailStr
+    date_of_birth: str
+    place_of_study: str
     committee_id: str
-    # New essay fields
-    why_attend: str
     mun_experience: str
-    why_committee: str
-    alternative_committees: str
-    consent_interview: bool
-    understands_selection: bool
+    motivation: str
+    global_crisis: str
 
 class RegistrationStatusUpdate(BaseModel):
     status: str  # Under Review, Reviewed, Not Reviewed, Accepted, Rejected, Waitlisted
@@ -430,11 +425,14 @@ async def create_registration(data: RegistrationCreate):
     if existing:
         raise HTTPException(status_code=400, detail="You have already registered for this committee")
     
-    # Validate why_attend has minimum 80 words
-    word_count = len(data.why_attend.split())
-    if word_count < 80:
-        raise HTTPException(status_code=400, detail=f"'Why do you want to attend' must be at least 80 words (currently {word_count} words)")
-    
+    # Basic word count validations
+    motivation_words = len(data.motivation.split())
+    if motivation_words > 250:
+        raise HTTPException(status_code=400, detail=f"Motivation must not exceed 250 words (currently {motivation_words})")
+        
+    global_crisis_words = len(data.global_crisis.split())
+    if global_crisis_words < 200 or global_crisis_words > 300:
+        raise HTTPException(status_code=400, detail=f"Global crisis essay must be exactly 200-300 words (currently {global_crisis_words})")
     registration = Registration(
         **data.model_dump(),
         committee_name=committee["name"],
