@@ -226,7 +226,7 @@ async def init_default_data():
                     "The Impact of Aggressive Border Enforcement Policies on Forced Migration and Asylum Systems",
                     "Balancing State Sovereignty and the Protection of Migrants' Rights"
                 ],
-                "background_image": "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800",
+                "background_image": "/committees/iom.jpg",
                 "chairs": [
                     {"id": str(uuid.uuid4()), "name": "Khonzodabegim", "role": "Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
                     {"id": str(uuid.uuid4()), "name": "Ezoza", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
@@ -244,7 +244,7 @@ async def init_default_data():
                     "Reviewing Violations of Press Freedom and the Protection of Journalists",
                     "Examining the Status and Rights of Religious Minorities in the Syrian Arab Republic"
                 ],
-                "background_image": "https://images.unsplash.com/photo-1591035897819-f4bdf739f446?w=800",
+                "background_image": "/committees/hrc.jpg",
                 "chairs": [
                     {"id": str(uuid.uuid4()), "name": "Roman", "role": "Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
                     {"id": str(uuid.uuid4()), "name": "Dilshod", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
@@ -262,7 +262,7 @@ async def init_default_data():
                     "Addressing the Challenges of Foreign Political Interference via Technology and Media",
                     "Digitizing and Innovating Peacekeeping Efforts"
                 ],
-                "background_image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800",
+                "background_image": "/committees/ga.jpg",
                 "chairs": [
                     {"id": str(uuid.uuid4()), "name": "Aziza", "role": "Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
                     {"id": str(uuid.uuid4()), "name": "Raykhona", "role": "Co-Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
@@ -273,11 +273,11 @@ async def init_default_data():
             },
             {
                 "id": str(uuid.uuid4()),
-                "name": "Vienna Congress of 1815",
+                "name": "Congress Of Vienna",
                 "name_ru": None,
                 "description": "Historical simulation of the Congress of Vienna, a diplomatic conference that reshaped Europe.",
                 "agenda": ["No Fixed Agenda - Crisis Committee"],
-                "background_image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
+                "background_image": "/committees/vienna.jpg",
                 "chairs": [
                     {"id": str(uuid.uuid4()), "name": "Neve", "role": "Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
                     {"id": str(uuid.uuid4()), "name": "Said", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"}
@@ -291,7 +291,7 @@ async def init_default_data():
                 "name_ru": "Комитет Государственной Думы России",
                 "description": "Симуляция заседания Комитета Государственной Думы Российской Федерации.",
                 "agenda": ["«Чёрный октябрь»: Политический и конституционный кризис в Российской Федерации"],
-                "background_image": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800",
+                "background_image": "/committees/duma.jpg",
                 "chairs": [
                     {"id": str(uuid.uuid4()), "name": "Asya", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
                     {"id": str(uuid.uuid4()), "name": "Solomon", "role": "Co-Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
@@ -309,7 +309,7 @@ async def init_default_data():
                     "Strengthening Regional Cooperation to Combat Drug Trafficking, Abuse, and Related Crimes in Central Asia",
                     "Promoting Sustainable Agrarian Transitions for Cocoa and Opium Farmers"
                 ],
-                "background_image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800",
+                "background_image": "/committees/unodc.jpg",
                 "chairs": [
                     {"id": str(uuid.uuid4()), "name": "Midnight", "role": "Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
                     {"id": str(uuid.uuid4()), "name": "Khilola", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
@@ -324,7 +324,7 @@ async def init_default_data():
                 "name_ru": None,
                 "description": "The Press Corps covers all committees and produces conference media content.",
                 "agenda": ["No fixed agenda - Media Coverage"],
-                "background_image": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800",
+                "background_image": "/committees/press.jpg",
                 "chairs": [
                     {"id": str(uuid.uuid4()), "name": "Lola", "role": "Chair", "experience": "Media experience", "photo_url": "/placeholder-chair.jpg"},
                     {"id": str(uuid.uuid4()), "name": "Nozanin", "role": "Co-Chair", "experience": "Media experience", "photo_url": "/placeholder-chair.jpg"},
