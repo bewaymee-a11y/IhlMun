@@ -675,8 +675,13 @@ app.include_router(api_router)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
-    allow_methods=["*"],
+    allow_origins=[
+        "https://bewaymee-a11y.github.io",
+        "http://localhost:3000",
+        "http://localhost:3001",
+        *os.environ.get('CORS_ORIGINS', '').split(','),
+    ],
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
