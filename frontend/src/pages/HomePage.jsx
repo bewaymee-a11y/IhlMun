@@ -28,9 +28,8 @@ const HomePage = () => {
           </div>
           <div className="absolute inset-0 hero-glow" />
           <div className="absolute inset-0 gold-glow opacity-30" />
-          <div className="absolute -top-16 -left-16 w-80 sm:w-96 h-80 sm:h-96 border border-[var(--primary)]/15 rounded-full animate-pulse-glow" />
-          <div className="absolute -bottom-20 -right-20 w-[28rem] sm:w-[36rem] h-[28rem] sm:h-[36rem] border border-[var(--secondary)]/15 rounded-full animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] sm:w-[44rem] h-[32rem] sm:h-[44rem] border border-[var(--primary)]/5 rounded-full" />
+          <div className="absolute -top-16 -left-16 w-80 sm:w-96 h-80 sm:h-96 border border-[var(--primary)]/15 rounded-full animate-pulse-glow hidden md:block" />
+          <div className="absolute -bottom-20 -right-20 w-[28rem] sm:w-[36rem] h-[28rem] sm:h-[36rem] border border-[var(--secondary)]/15 rounded-full animate-pulse-glow hidden md:block" style={{ animationDelay: '1.5s' }} />
         </div>
 
         {/* Content */}
