@@ -212,7 +212,7 @@ export const STATIC_COMMITTEES = [
             {
                 id: "f09170d8-599f-4129-b453-285441dc3b2d",
                 name: "Saidakhmadkhon Saidaminov",
-                role: "Main Chair / Congress Arbiter",
+                role: "Congress Arbiter",
                 experience:
                     "Active in MUN since 2020 with international conference recognition, Saidakhmadkhon specializes in historical simulations and structured diplomatic negotiation.",
                 photo_url: "./secretariat/saidakhmadkhon_saidaminov.jpg",
