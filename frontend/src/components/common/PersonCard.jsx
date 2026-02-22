@@ -39,12 +39,21 @@ export const PersonCard = ({ name, role, experience, photo_url, variant = 'defau
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      <div className={variant === 'large' ? '' : 'px-1'}>
+      <div className={variant === 'large' ? 'relative' : 'px-1 relative'}>
         <h3 className="font-heading text-sm md:text-base mb-1 text-[var(--text-main)]">{name}</h3>
         <p className="text-[var(--primary)] text-xs font-mono uppercase tracking-wider mb-1 md:mb-2">{role}</p>
-        <p className="text-[var(--text-muted)] text-xs leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-700 ease-in-out max-h-[4.2rem] group-hover:max-h-[40rem] overflow-hidden">
-          {experience}
-        </p>
+
+        <div className="relative">
+          <p className="text-[var(--text-muted)] text-xs leading-relaxed line-clamp-3">
+            {experience}
+          </p>
+
+          <div className="absolute top-[-16px] left-1/2 -translate-x-1/2 w-[calc(100%+24px)] md:w-[calc(100%+32px)] bg-[var(--background)] p-4 rounded-xl shadow-2xl border border-[var(--text-muted)]/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 scale-95 group-hover:scale-100 text-center origin-top">
+            <p className="text-[var(--text-muted)] text-xs leading-relaxed">
+              {experience}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
