@@ -315,14 +315,6 @@ export const STATIC_SETTINGS = {
 
 export const STATIC_SECRETARIAT = [
     {
-        id: "sec-sg",
-        name: "Abdurakhmon A’zamjonov",
-        role: "Secretary-General",
-        photo_url: "/secretariat/abdurakhmon_ajamjonov.jpg",
-        experience: "Leading the conference with overarching authority.",
-        tier: 1
-    },
-    {
         id: "sec-dg",
         name: "Khojiakbar Turabekov",
         role: "Director-General",
@@ -331,32 +323,40 @@ export const STATIC_SECRETARIAT = [
         tier: 1
     },
     {
+        id: "sec-sg",
+        name: "A’zamjonov Abdurakhmon",
+        role: "Secretary-General",
+        photo_url: "/secretariat/abdurakhmon_azamjonov.jpg",
+        experience: "Leading the conference with overarching authority.",
+        tier: 1
+    },
+    {
         id: "sec-vsg",
-        name: "Amirkhon Mirzakarimov",
-        role: "Vice Secretary-General",
+        name: "Mirzakarimov Amirkhon",
+        role: "Vice-Secretary General",
         photo_url: "/secretariat/amirkhon_mirzakarimov.jpg",
         experience: "Assisting the Secretary-General in key conference matters.",
         tier: 1
     },
     {
-        id: "sec-site",
-        name: "Amin",
-        role: "Head of IT",
-        photo_url: "/secretariat/amin.png",
-        experience: "Managing the conference website and digital infrastructure.",
-        tier: 2
-    },
-    {
         id: "sec-event",
-        name: "Sabina Jong",
+        name: "Jong Sabina",
         role: "Head of Event",
         photo_url: "/secretariat/sabina_jong.jpg",
         experience: "Organizing logistics, opening/closing ceremonies, and social events.",
         tier: 2
     },
     {
+        id: "sec-volunteers",
+        name: "Seyt-Akaeva Elina",
+        role: "Head of Volunteers",
+        photo_url: "/secretariat/elina_seyt_akaeva.jpg",
+        experience: "Coordinating and training the volunteer staff for the conference.",
+        tier: 2
+    },
+    {
         id: "sec-media",
-        name: "Kamila Muradkasimova",
+        name: "Muradkasimova Kamila",
         role: "Head of Media",
         photo_url: "/secretariat/kamila_muradkasimova.jpg",
         experience: "Managing public relations, content creation, and media strategies.",
@@ -364,18 +364,18 @@ export const STATIC_SECRETARIAT = [
     },
     {
         id: "sec-delegate",
-        name: "Shakhboz Kayumov",
+        name: "Kayumov Shakhboz",
         role: "Head of Delegate Affairs",
-        photo_url: "/secretariat/placeholder-chair.jpg",
+        photo_url: "/secretariat/shakhboz_kayumov.png",
         experience: "Handling all delegate communications and registration affairs.",
         tier: 2
     },
     {
-        id: "sec-volunteers",
-        name: "Elina Seyt-Akaeva",
-        role: "Head of Volunteers",
-        photo_url: "/secretariat/elina_seyt_akaeva.jpg",
-        experience: "Coordinating and training the volunteer staff for the conference.",
+        id: "sec-site",
+        name: "Muxammadamin Isamiddinov",
+        role: "Site Developer",
+        photo_url: "/secretariat/muxammadamin_isamiddinov.png",
+        experience: "Managing the conference website and digital infrastructure.",
         tier: 2
     }
 ];
