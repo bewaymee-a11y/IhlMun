@@ -32,7 +32,7 @@ const CommitteesPage = () => {
   return (
     <div className="page-transition pt-24">
       {/* Hero */}
-      <section className="relative pt-16 pb-8 md:pt-24 md:pb-12 overflow-hidden">
+      <section className="relative pt-8 pb-0 md:pt-12 md:pb-0 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -44,7 +44,7 @@ const CommitteesPage = () => {
           <SectionTitle
             title={t('ourCommittees')}
             subtitle={t('committeesSubtitle')}
-            className="mb-4 md:mb-6"
+            className="mb-0"
           />
         </div>
       </section>
