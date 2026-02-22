@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, ChevronUp, Users } from 'lucide-react';
-import axios from 'axios';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import { PersonCard } from '@/components/common/PersonCard';
-import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import { STATIC_COMMITTEES } from '@/data/staticData';
 
 const CommitteesPage = () => {
   const { t } = useLanguage();
@@ -20,32 +16,18 @@ const CommitteesPage = () => {
   const [expandedCommittee, setExpandedCommittee] = useState(selectedId);
 
   useEffect(() => {
-    const fetchCommittees = async () => {
-      try {
-        const res = await axios.get(`${API}/committees`);
-        setCommittees(res.data);
-        if (selectedId) {
-          setExpandedCommittee(selectedId);
-          setTimeout(() => {
-            document.getElementById(`committee-${selectedId}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 100);
-        }
-      } catch (e) {
-        console.error('Error fetching committees:', e);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchCommittees();
+    // Use static data — no backend needed
+    setCommittees(STATIC_COMMITTEES);
+    setLoading(false);
+    if (selectedId) {
+      setExpandedCommittee(selectedId);
+      setTimeout(() => {
+        document.getElementById(`committee-${selectedId}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
   }, [selectedId]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <LoadingSpinner size="lg" />
-      </div>
-    );
-  }
+
 
   return (
     <div className="page-transition pt-24">
@@ -166,6 +148,7 @@ const CommitteesPage = () => {
                             role={chair.role}
                             experience={chair.experience}
                             photo_url={chair.photo_url}
+                            imagePosition={chair.image_position || 'center 40%'}
                           />
                         ))}
                       </div>

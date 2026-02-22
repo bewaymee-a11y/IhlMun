@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { Navbar } from '@/components/layout/Navbar';
@@ -13,24 +12,10 @@ import SpeakersPage from '@/pages/SpeakersPage';
 import MediaPage from '@/pages/MediaPage';
 import SelectionProcessPage from '@/pages/SelectionProcessPage';
 import AdminPage from '@/pages/AdminPage';
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import { STATIC_SETTINGS } from '@/data/staticData';
 
 function AppContent() {
-  const [settings, setSettings] = useState(null);
-
-  useEffect(() => {
-    const fetchSettings = async () => {
-      try {
-        const res = await axios.get(`${API}/settings`);
-        setSettings(res.data);
-      } catch (e) {
-        console.error('Error fetching settings:', e);
-      }
-    };
-    fetchSettings();
-  }, []);
+  const [settings] = useState(STATIC_SETTINGS);
 
   return (
     <div className="App min-h-screen bg-[var(--background)] text-[var(--text-main)] transition-colors duration-300">

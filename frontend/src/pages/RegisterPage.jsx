@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, AlertCircle, Info } from 'lucide-react';
+import { ArrowLeft, CheckCircle, AlertCircle, Info, Loader2 } from 'lucide-react';
 import axios from 'axios';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { STATIC_COMMITTEES } from '@/data/staticData';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -12,42 +13,44 @@ const RegisterPage = () => {
   const { t } = useLanguage();
   const { committeeId } = useParams();
 
-  const [committee, setCommittee] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // Find committee from static data — no API call needed
+  const [committee] = useState(() =>
+    STATIC_COMMITTEES.find((c) => c.id === committeeId) || null
+  );
+  const [loading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(''); // e.g. 'Waking up server...'
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
+  // Ping the server on mount so it wakes up before the user submits
+  useEffect(() => {
+    axios.get(`${API}/`).catch(() => { }); // fire-and-forget warm-up
+  }, []);
+
   const [formData, setFormData] = useState({
-    full_name: '',
-    institution: '',
+    first_name: '',
+    surname: '',
+    email: '',
     phone: '',
     telegram: '',
-    email: '',
-    why_attend: '',
+    date_of_birth: '',
+    place_of_study: '',
     mun_experience: '',
-    why_committee: '',
-    alternative_committees: '',
-    consent_interview: false,
-    understands_selection: false,
+    motivation: '',
+    global_crisis: '',
   });
 
-  const [wordCount, setWordCount] = useState(0);
+  const [wordCounts, setWordCounts] = useState({
+    motivation: 0,
+    global_crisis: 0,
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const commRes = await axios.get(`${API}/committees/${committeeId}`);
-        setCommittee(commRes.data);
-      } catch (e) {
-        console.error('Error fetching committee:', e);
-        setError('Committee not found');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [committeeId]);
+    if (!committee && committeeId) {
+      setError('Committee not found');
+    }
+  }, [committee, committeeId]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -55,10 +58,10 @@ const RegisterPage = () => {
     setFormData((prev) => ({ ...prev, [name]: newValue }));
     setError('');
 
-    // Count words for why_attend
-    if (name === 'why_attend') {
-      const words = value.trim().split(/\s+/).filter(w => w.length > 0);
-      setWordCount(words.length);
+    // Count words
+    if (name === 'motivation' || name === 'global_crisis') {
+      const words = newValue.trim().split(/\s+/).filter(w => w.length > 0);
+      setWordCounts((prev) => ({ ...prev, [name]: words.length }));
     }
   };
 
@@ -67,30 +70,42 @@ const RegisterPage = () => {
     setError('');
 
     // Validation
-    if (!formData.full_name.trim()) return setError('Please enter your full name');
-    if (!formData.institution.trim()) return setError('Please enter your institution');
-    if (!formData.phone.trim()) return setError('Please enter your phone number');
-    if (!formData.telegram.trim()) return setError('Please enter your Telegram username');
-    if (!formData.email.trim()) return setError('Please enter your email');
-    if (wordCount < 80) return setError(`"Why do you want to attend" must be at least 80 words (currently ${wordCount} words)`);
-    if (!formData.mun_experience.trim()) return setError('Please describe your MUN experience');
-    if (!formData.why_committee.trim()) return setError('Please explain why you chose this committee');
-    if (!formData.alternative_committees.trim()) return setError('Please list alternative committees');
-    if (!formData.understands_selection) return setError('Please confirm you understand the selection process');
+    if (!formData.first_name.trim()) return setError('Please enter your First Name / Имя');
+    if (!formData.surname.trim()) return setError('Please enter your Surname / Фамилия');
+    if (!formData.email.trim()) return setError('Please enter your Email Address / Адрес электронной почты');
+    if (!formData.phone.trim()) return setError('Please enter your Phone Number / Номер телефона');
+    if (!formData.telegram.trim()) return setError('Please enter your Telegram Username / Имя пользователя Telegram');
+    if (!formData.date_of_birth.trim()) return setError('Please enter your Date of Birth / Дата рождения');
+    if (!formData.place_of_study.trim()) return setError('Please enter your Place of Study / Место обучения');
+    if (!formData.mun_experience.trim()) return setError('Please describe your MUN experience / Опишите ваш опыт участия в MUN');
+
+    if (!formData.motivation.trim()) return setError('Please enter your motivation / Опишите вашу мотивацию');
+    if (wordCounts.motivation > 250) return setError(`Motivation must be max 250 words (currently ${wordCounts.motivation} words) / Мотивация должна быть до 250 слов`);
+
+    if (!formData.global_crisis.trim()) return setError('Please write about a global crisis / Напишите о глобальном кризисе');
+    if (wordCounts.global_crisis < 200 || wordCounts.global_crisis > 300) return setError(`Global crisis essay must be 200-300 words (currently ${wordCounts.global_crisis} words) / Эссе о глобальном кризисе должно быть 200-300 слов`);
 
     setSubmitting(true);
+    setSubmitStatus('Sending...');
+
+    // Show a helpful message if the server takes more than 5 seconds to respond
+    const slowTimer = setTimeout(() => {
+      setSubmitStatus('Waking up server, please wait (~30 sec)...');
+    }, 5000);
 
     try {
       await axios.post(`${API}/registrations`, {
         ...formData,
         committee_id: committeeId,
-      });
+      }, { timeout: 60000 });
       setSuccess(true);
     } catch (e) {
       const message = e.response?.data?.detail || 'Application failed. Please try again.';
       setError(message);
     } finally {
+      clearTimeout(slowTimer);
       setSubmitting(false);
+      setSubmitStatus('');
     }
   };
 
@@ -166,54 +181,28 @@ const RegisterPage = () => {
             <h2 className="font-heading text-xl mb-6">{t('personalInformation')}</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm text-text-muted mb-2">{t('fullName')} *</label>
+                <label className="block text-sm text-text-muted mb-2">{t('firstName')} *</label>
                 <input
                   type="text"
-                  name="full_name"
-                  value={formData.full_name}
+                  name="first_name"
+                  value={formData.first_name}
                   onChange={handleChange}
                   className="input-minimal"
-                  placeholder={t('fullName')}
-                  data-testid="input-full-name"
+                  placeholder={t('firstName')}
+                  required
                 />
               </div>
 
               <div>
-                <label className="block text-sm text-text-muted mb-2">{t('institution')} *</label>
+                <label className="block text-sm text-text-muted mb-2">{t('surname')} *</label>
                 <input
                   type="text"
-                  name="institution"
-                  value={formData.institution}
+                  name="surname"
+                  value={formData.surname}
                   onChange={handleChange}
                   className="input-minimal"
-                  placeholder={t('institution')}
-                  data-testid="input-institution"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm text-text-muted mb-2">{t('phoneNumber')} *</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="input-minimal"
-                  placeholder="+998 XX XXX XX XX"
-                  data-testid="input-phone"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm text-text-muted mb-2">Telegram *</label>
-                <input
-                  type="text"
-                  name="telegram"
-                  value={formData.telegram}
-                  onChange={handleChange}
-                  className="input-minimal"
-                  placeholder="@username"
-                  data-testid="input-telegram"
+                  placeholder={t('surname')}
+                  required
                 />
               </div>
 
@@ -226,7 +215,58 @@ const RegisterPage = () => {
                   onChange={handleChange}
                   className="input-minimal"
                   placeholder="your@email.com"
-                  data-testid="input-email"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm text-text-muted mb-2">{t('phoneNumber')} *</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="input-minimal"
+                  placeholder="+998 XX XXX XX XX"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm text-text-muted mb-2">{t('telegramUsername')} *</label>
+                <input
+                  type="text"
+                  name="telegram"
+                  value={formData.telegram}
+                  onChange={handleChange}
+                  className="input-minimal"
+                  placeholder="@username"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm text-text-muted mb-2">{t('dateOfBirth')} *</label>
+                <input
+                  type="date"
+                  name="date_of_birth"
+                  value={formData.date_of_birth}
+                  onChange={handleChange}
+                  className="input-minimal"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm text-text-muted mb-2">{t('placeOfStudy')} *</label>
+                <input
+                  type="text"
+                  name="place_of_study"
+                  value={formData.place_of_study}
+                  onChange={handleChange}
+                  className="input-minimal"
+                  placeholder={t('placeOfStudy')}
+                  required
                 />
               </div>
             </div>
@@ -236,100 +276,54 @@ const RegisterPage = () => {
           <div className="bg-surface border border-[var(--text-muted)]/20 p-6 mb-6">
             <h2 className="font-heading text-xl mb-6">{t('applicationQuestions')}</h2>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div>
                 <label className="block text-sm text-text-muted mb-2">
-                  {t('whyAttend')} * <span className="text-primary">({t('minimum80Words')})</span>
-                </label>
-                <textarea
-                  name="why_attend"
-                  value={formData.why_attend}
-                  onChange={handleChange}
-                  className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-40 focus:outline-none focus:border-primary transition-colors"
-                  placeholder={t('whyAttend')}
-                  data-testid="input-why-attend"
-                />
-                <p className={`text-sm mt-1 ${wordCount >= 80 ? 'text-green-400' : 'text-text-muted'}`}>
-                  {t('wordCount')}: {wordCount}/80 {t('minimum')}
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-sm text-text-muted mb-2">
-                  {t('munExperience')} * <span className="text-primary">({t('twoSentences')})</span>
+                  {t('munExperienceQ')} *
                 </label>
                 <textarea
                   name="mun_experience"
                   value={formData.mun_experience}
                   onChange={handleChange}
                   className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-24 focus:outline-none focus:border-primary transition-colors"
-                  placeholder={t('munExperience')}
-                  data-testid="input-mun-experience"
+                  placeholder="N/A"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block text-sm text-text-muted mb-2">
-                  {t('whyCommittee')} {committee?.name}? *
+                  {t('motivationQ')} *
                 </label>
                 <textarea
-                  name="why_committee"
-                  value={formData.why_committee}
+                  name="motivation"
+                  value={formData.motivation}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-24 focus:outline-none focus:border-primary transition-colors"
-                  placeholder={t('whyCommittee')}
-                  data-testid="input-why-committee"
+                  className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-40 focus:outline-none focus:border-primary transition-colors"
+                  placeholder={t('motivationQ')}
+                  required
                 />
+                <p className={`text-sm mt-1 ${wordCounts.motivation > 250 ? 'text-red-400' : 'text-text-muted'}`}>
+                  {wordCounts.motivation}/250 words max
+                </p>
               </div>
 
               <div>
                 <label className="block text-sm text-text-muted mb-2">
-                  {t('alternativeCommittees')} *
+                  {t('globalCrisisQ')} *
                 </label>
                 <textarea
-                  name="alternative_committees"
-                  value={formData.alternative_committees}
+                  name="global_crisis"
+                  value={formData.global_crisis}
                   onChange={handleChange}
-                  className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-24 focus:outline-none focus:border-primary transition-colors"
-                  placeholder={t('alternativeCommittees')}
-                  data-testid="input-alternative-committees"
+                  className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-56 focus:outline-none focus:border-primary transition-colors"
+                  placeholder={t('globalCrisisQ')}
+                  required
                 />
+                <p className={`text-sm mt-1 ${(wordCounts.global_crisis < 200 || wordCounts.global_crisis > 300) ? 'text-red-400' : 'text-green-400'}`}>
+                  {wordCounts.global_crisis} words (200-300 required)
+                </p>
               </div>
-            </div>
-          </div>
-
-          {/* Consent */}
-          <div className="bg-surface border border-[var(--text-muted)]/20 p-6 mb-6">
-            <h2 className="font-heading text-xl mb-6">{t('consentConfirmation')}</h2>
-
-            <div className="space-y-4">
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  name="consent_interview"
-                  checked={formData.consent_interview}
-                  onChange={handleChange}
-                  className="w-5 h-5 accent-primary mt-0.5"
-                  data-testid="checkbox-consent-interview"
-                />
-                <span className="text-text-muted">
-                  {t('consentInterview')}
-                </span>
-              </label>
-
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  name="understands_selection"
-                  checked={formData.understands_selection}
-                  onChange={handleChange}
-                  className="w-5 h-5 accent-primary mt-0.5"
-                  data-testid="checkbox-understands-selection"
-                />
-                <span className="text-text-muted">
-                  {t('understandsSelection')} *
-                </span>
-              </label>
             </div>
           </div>
 
@@ -338,10 +332,13 @@ const RegisterPage = () => {
             type="submit"
             disabled={submitting}
             data-testid="submit-registration"
-            className="btn-primary w-full md:w-auto flex items-center justify-center gap-2"
+            className="btn-primary w-full md:w-auto flex items-center justify-center gap-2 min-w-[200px]"
           >
             {submitting ? (
-              <LoadingSpinner size="sm" />
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>{submitStatus || 'Sending...'}</span>
+              </>
             ) : (
               t('submitApplication')
             )}

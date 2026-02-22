@@ -1,35 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, MapPin, Users, Globe, Award, Mic, CheckCircle, FileText } from 'lucide-react';
-import axios from 'axios';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import DarkVeil from '@/components/ui/DarkVeil';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { STATIC_COMMITTEES, STATIC_SETTINGS } from '@/data/staticData';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
 const LOGO_URL = process.env.PUBLIC_URL + '/logo_transparent.png';
 
 const HomePage = () => {
-  const [committees, setCommittees] = useState([]);
-  const [settings, setSettings] = useState(null);
+  const [committees] = useState(STATIC_COMMITTEES.slice(0, 6));
+  const [settings] = useState(STATIC_SETTINGS);
   const { t } = useLanguage();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [commRes, settingsRes] = await Promise.all([
-          axios.get(`${API}/committees`),
-          axios.get(`${API}/settings`)
-        ]);
-        setCommittees(commRes.data.slice(0, 6));
-        setSettings(settingsRes.data);
-      } catch (e) {
-        console.error('Error fetching data:', e);
-      }
-    };
-    fetchData();
-  }, []);
 
   return (
     <div className="page-transition">
@@ -46,8 +28,9 @@ const HomePage = () => {
           </div>
           <div className="absolute inset-0 hero-glow" />
           <div className="absolute inset-0 gold-glow opacity-30" />
-          <div className="absolute top-1/4 left-10 w-64 h-64 border border-[var(--primary)]/10 rounded-full animate-pulse-glow" />
-          <div className="absolute bottom-1/4 right-10 w-96 h-96 border border-[var(--secondary)]/20 rounded-full animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute -top-16 -left-16 w-80 sm:w-96 h-80 sm:h-96 border border-[var(--primary)]/15 rounded-full animate-pulse-glow" />
+          <div className="absolute -bottom-20 -right-20 w-[28rem] sm:w-[36rem] h-[28rem] sm:h-[36rem] border border-[var(--secondary)]/15 rounded-full animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] sm:w-[44rem] h-[32rem] sm:h-[44rem] border border-[var(--primary)]/5 rounded-full" />
         </div>
 
         {/* Content */}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, Mail, MapPin, Calendar } from 'lucide-react';
+import { Instagram, Mail, MapPin, Calendar, Send } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const LOGO_URL = process.env.PUBLIC_URL + '/logo_transparent.png';
@@ -91,6 +91,18 @@ export const Footer = ({ settings }) => {
                   <Instagram size={16} />
                 </div>
                 <span className="text-sm">@ihl_mun</span>
+              </a>
+              <a
+                href="https://t.me/ihl_mun"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="footer-telegram"
+                className="flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors group"
+              >
+                <div className="w-9 h-9 bg-[var(--surface-highlight)] border border-[var(--text-muted)]/10 flex items-center justify-center group-hover:border-[var(--primary)] transition-colors">
+                  <Send size={16} />
+                </div>
+                <span className="text-sm">Telegram</span>
               </a>
               <Link
                 to="/committees"

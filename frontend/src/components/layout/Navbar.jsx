@@ -1,19 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Instagram, Globe } from 'lucide-react';
+import { Menu, X, Instagram } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const LOGO_URL = process.env.PUBLIC_URL + '/logo_transparent.png';
 
 export const Navbar = () => {
-  const [menuState, setMenuState] = useState({ isOpen: false, langOpen: false });
+  const [menuState, setMenuState] = useState({ isOpen: false });
   const isOpen = menuState.isOpen;
-  const langMenuOpen = menuState.langOpen;
   const setIsOpen = (val) => setMenuState(prev => ({ ...prev, isOpen: val }));
-  const setLangMenuOpen = (val) => setMenuState(prev => ({ ...prev, langOpen: val }));
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,14 +45,7 @@ export const Navbar = () => {
     { to: '/media', label: t('media') },
   ];
 
-  const languages = [
-    { code: 'en', label: 'English', flag: '🇬🇧' },
-    { code: 'ru', label: 'Русский', flag: '🇷🇺' },
-  ];
-
   const isActive = (path) => location.pathname === path;
-
-  const currentLang = languages.find(l => l.code === language);
 
   return (
     <nav
@@ -100,35 +91,6 @@ export const Navbar = () => {
           {/* Right side actions */}
           <div className="flex items-center gap-2 md:gap-3">
 
-
-            {/* Language Selector */}
-            <div className="relative">
-              <button
-                onClick={() => setLangMenuOpen(!langMenuOpen)}
-                data-testid="language-toggle"
-                className="flex items-center gap-1 p-2 text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors"
-              >
-                <Globe size={18} />
-                <span className="text-xs font-mono hidden md:inline">{language.toUpperCase()}</span>
-              </button>
-
-              {langMenuOpen && (
-                <div className="absolute right-0 top-full mt-2 bg-[var(--surface)] border border-[var(--text-muted)]/20 shadow-lg min-w-[140px] z-50">
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => { setLanguage(lang.code); setLangMenuOpen(false); }}
-                      data-testid={`lang-${lang.code}`}
-                      className={`w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-[var(--surface-highlight)] transition-colors ${language === lang.code ? 'text-[var(--primary)]' : 'text-[var(--text-muted)]'
-                        }`}
-                    >
-                      <span>{lang.flag}</span>
-                      <span>{lang.label}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
 
             {/* Instagram */}
             <a
@@ -188,22 +150,6 @@ export const Navbar = () => {
                 </Link>
               ))}
 
-              {/* Mobile Language Selector */}
-              <div className="flex gap-4 py-8 border-b border-[var(--text-muted)]/10">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => { setLanguage(lang.code); setIsOpen(false); }}
-                    className={`flex-1 flex flex-col items-center gap-2 p-4 rounded-sm transition-all duration-300 ${language === lang.code
-                      ? 'bg-[var(--primary)]/10 border border-[var(--primary)] text-[var(--primary)]'
-                      : 'bg-[var(--surface-highlight)]/5 border border-[var(--text-muted)]/10 text-[var(--text-muted)]'
-                      }`}
-                  >
-                    <span className="text-3xl">{lang.flag}</span>
-                    <span className="text-xs font-mono tracking-tighter uppercase">{lang.label}</span>
-                  </button>
-                ))}
-              </div>
 
               <Link
                 to="/committees"
