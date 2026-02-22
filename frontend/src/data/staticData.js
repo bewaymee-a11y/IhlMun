@@ -371,5 +371,13 @@ export const STATIC_SECRETARIAT = [
         photo_url: "./secretariat/muxammadamin_isamiddinov.png",
         experience: "Managing the conference website and digital infrastructure.",
         tier: 2
+    },
+    {
+        id: "sec-usg",
+        name: "Bekmuratov Tair",
+        role: "Head of USG",
+        photo_url: "./secretariat/bekmuratov_tair.jpg",
+        experience: "Coordinating Under-Secretary-General affairs and conference operations.",
+        tier: 2
     }
 ];

@@ -74,7 +74,7 @@ export const Footer = ({ settings }) => {
             <div className="flex flex-col gap-4 text-sm text-[var(--text-muted)]">
               <div className="flex items-start gap-3">
                 <Calendar size={15} className="text-[var(--primary)] mt-0.5 shrink-0" />
-                <span>{settings?.conference_date || 'March 2026'}</span>
+                <span>{t('conferenceDate')}</span>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin size={15} className="text-[var(--primary)] mt-0.5 shrink-0" />
@@ -108,7 +108,7 @@ export const Footer = ({ settings }) => {
                 <div className="w-9 h-9 bg-[var(--surface-highlight)] border border-[var(--text-muted)]/10 flex items-center justify-center group-hover:border-[var(--primary)] transition-colors">
                   <Instagram size={16} />
                 </div>
-                <span className="text-sm">@ihl_mun</span>
+                <span className="text-sm">Instagram</span>
               </a>
               <a
                 href="https://t.me/ihl_mun"

@@ -96,7 +96,7 @@ const HomePage = () => {
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Calendar className="w-5 h-5 text-[var(--primary)]" />
                 </div>
-                <p className="font-heading text-2xl md:text-3xl text-[var(--text-main)]">18-19 April 2026</p>
+                <p className="font-heading text-2xl md:text-3xl text-[var(--text-main)]">{t('conferenceDate')}</p>
                 <p className="font-mono text-sm text-[var(--text-muted)]">{t('date')}</p>
               </div>
               <div>

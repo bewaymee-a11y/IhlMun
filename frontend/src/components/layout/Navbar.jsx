@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Instagram } from 'lucide-react';
+import { Menu, X, Instagram, Send } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const LOGO_URL = process.env.PUBLIC_URL + '/logo_transparent.png';
@@ -102,6 +102,18 @@ export const Navbar = () => {
               aria-label="Instagram"
             >
               <Instagram size={20} />
+            </a>
+
+            {/* Telegram */}
+            <a
+              href="https://t.me/ihl_mun"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="telegram-link"
+              className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors z-50"
+              aria-label="Telegram"
+            >
+              <Send size={20} />
             </a>
 
             {/* Register Button */}

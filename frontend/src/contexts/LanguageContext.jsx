@@ -22,6 +22,7 @@ const translations = {
 
     // Stats
     date: 'Date',
+    conferenceDate: '28-29 March 2026',
     location: 'Location',
     committeesCount: 'Committees',
     delegates: 'Delegates',
@@ -172,6 +173,7 @@ const translations = {
 
     // Stats
     date: 'Дата',
+    conferenceDate: '28-29 March 2026',
     location: 'Место',
     committeesCount: 'Комитеты',
     delegates: 'Делегаты',
