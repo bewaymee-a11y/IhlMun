@@ -104,10 +104,10 @@ const CommitteesPage = () => {
 
                 {/* Expanded Content */}
                 <div
-                  className={`overflow-hidden transition-all duration-500 ${expandedCommittee === committee.id ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                  className={`overflow-hidden transition-all duration-500 ${expandedCommittee === committee.id ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
                     }`}
                 >
-                  <div className="px-6 md:px-8 pb-8">
+                  <div className="px-3 sm:px-6 md:px-8 pb-8">
                     {/* Background Image inside Expanded View */}
                     <div
                       className="relative h-48 md:h-64 mb-8 bg-cover rounded-sm"
@@ -143,16 +143,17 @@ const CommitteesPage = () => {
                     {/* Chairs */}
                     <div className="mb-8 md:mb-10">
                       <h4 className="font-heading text-lg md:text-xl mb-4 md:mb-6">{t('committeeChairs')}</h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                      <div className="flex flex-wrap -mx-2 md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-6">
                         {committee.chairs?.map((chair) => (
-                          <PersonCard
-                            key={chair.id}
-                            name={chair.name}
-                            role={chair.role}
-                            experience={chair.experience}
-                            photo_url={chair.photo_url}
-                            imagePosition={chair.image_position || 'center 40%'}
-                          />
+                          <div key={chair.id} className="w-1/2 md:w-auto px-2 mb-4 md:mb-0">
+                            <PersonCard
+                              name={chair.name}
+                              role={chair.role}
+                              experience={chair.experience}
+                              photo_url={chair.photo_url}
+                              imagePosition={chair.image_position || 'center 40%'}
+                            />
+                          </div>
                         ))}
                       </div>
                     </div>
