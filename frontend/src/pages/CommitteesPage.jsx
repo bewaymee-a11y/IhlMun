@@ -74,7 +74,7 @@ const CommitteesPage = () => {
                   <div className="flex items-center gap-3 md:gap-6 flex-1 min-w-0">
                     <div
                       className="w-12 h-12 md:w-20 md:h-20 bg-cover bg-center rounded-sm shrink-0 opacity-80 group-hover:opacity-100 transition-opacity"
-                      style={{ backgroundImage: `url('${process.env.PUBLIC_URL}${committee.background_image}')` }}
+                      style={{ backgroundImage: `url('${process.env.PUBLIC_URL}${committee.background_image?.replace('./', '/')}')` }}
                     />
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2 mb-1">
@@ -112,7 +112,7 @@ const CommitteesPage = () => {
                     <div
                       className="relative h-48 md:h-64 mb-8 bg-cover rounded-sm"
                       style={{
-                        backgroundImage: `url('${process.env.PUBLIC_URL}${committee.background_image}')`,
+                        backgroundImage: `url('${process.env.PUBLIC_URL}${committee.background_image?.replace('./', '/')}')`,
                         backgroundPosition: committee.banner_position || 'center 20%'
                       }}
                     >

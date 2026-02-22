@@ -2,7 +2,12 @@ import { User } from 'lucide-react';
 
 export const PersonCard = ({ name, role, experience, photo_url, variant = 'default', imagePosition = 'center 40%' }) => {
   const isPlaceholder = !photo_url || photo_url.includes('placeholder');
-  const imageUrl = photo_url?.startsWith('/') ? `${process.env.PUBLIC_URL || ''}${photo_url}` : photo_url;
+  let imageUrl = photo_url;
+  if (photo_url?.startsWith('/')) {
+    imageUrl = `${process.env.PUBLIC_URL || ''}${photo_url}`;
+  } else if (photo_url?.startsWith('./')) {
+    imageUrl = `${process.env.PUBLIC_URL || ''}/${photo_url.substring(2)}`;
+  }
 
   return (
     <div
