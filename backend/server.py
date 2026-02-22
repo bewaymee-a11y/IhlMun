@@ -674,6 +674,8 @@ app.include_router(api_router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://ihlmun.uz",
+        "https://www.ihlmun.uz",
         "https://bewaymee-a11y.github.io",
         "http://localhost:3000",
         "http://localhost:3001",

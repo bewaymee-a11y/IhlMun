@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://bewaymee-a11y.github.io/IhlMun/",
+  "homepage": "https://ihlmun.uz/",
   "proxy": "http://localhost:8000",
   "private": true,
   "dependencies": {
