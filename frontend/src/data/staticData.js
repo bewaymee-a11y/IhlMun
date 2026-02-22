@@ -187,13 +187,13 @@ export const STATIC_COMMITTEES = [
                 image_position: "center 50%",
             },
             {
-                id: "7e923e3e-4f3b-4c2d-8a0b-1f1c2b3a4d5e",
-                name: "Lola Yuldasheva",
+                id: "40571ec6-f468-4d1d-9468-cbb77160c1d0",
+                name: "Dilnoza Yuldasheva",
                 role: "Co-Chair",
                 experience:
-                    "A Webster University student with multiple awards and diverse MUN roles, Lola is known for analytical consistency and calm procedural control.",
-                photo_url: "./secretariat/lola_yuldasheva.png",
-                image_position: "center 30%",
+                    "A Webster University student with multiple awards and diverse MUN roles, Dilnoza is known for analytical consistency and calm procedural control.",
+                photo_url: "./secretariat/dilnoza_yuldasheva.jpg",
+                image_position: "center 50%",
             },
             {
                 id: "79323f6b-c483-4dad-b999-3fdc9b2d8f83",
@@ -287,7 +287,7 @@ export const STATIC_COMMITTEES = [
                 role: "Main Chair",
                 experience:
                     "Senior at Interhouse Lyceum with over 20 conferences of experience, Nozanin oversees analytical reporting and structured media coordination within the Press Corps.",
-                photo_url: "./chairs/placeholder-chair.jpg",
+                photo_url: "./secretariat/placeholder-chair.jpg",
                 image_position: "center 50%",
             },
             {
@@ -296,8 +296,8 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "With a background in design and media production, Lola ensures professional visual storytelling and organized media coverage throughout the conference.",
-                photo_url: "./chairs/placeholder-chair.jpg",
-                image_position: "center 50%",
+                photo_url: "./secretariat/lola_yuldasheva.png",
+                image_position: "center 30%",
             },
         ],
         registration_open: true,
