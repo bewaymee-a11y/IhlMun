@@ -186,15 +186,7 @@ export const STATIC_COMMITTEES = [
                 photo_url: "./secretariat/abdumajid_toshmatov.jpg",
                 image_position: "center 50%",
             },
-            {
-                id: "40571ec6-f468-4d1d-9468-cbb77160c1d0",
-                name: "Dilnoza Yuldasheva",
-                role: "Co-Chair",
-                experience:
-                    "A Webster University student with multiple awards and diverse MUN roles, Dilnoza is known for analytical consistency and calm procedural control.",
-                photo_url: "./secretariat/dilnoza_yuldasheva.jpg",
-                image_position: "center 50%",
-            },
+
             {
                 id: "79323f6b-c483-4dad-b999-3fdc9b2d8f83",
                 name: "Mark Tokarev",
