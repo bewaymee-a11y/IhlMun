@@ -13,7 +13,7 @@ export const STATIC_COMMITTEES = [
         agenda: [
             "Addressing the Challenges of Foreign Political Interference via Technology and Media",
         ],
-        background_image: "/committees/ga.jpg",
+        background_image: "./committees/ga.jpg",
         chairs: [
             {
                 id: "4d7b4b61-8e68-456f-b993-f67b0824c114",
@@ -46,7 +46,7 @@ export const STATIC_COMMITTEES = [
         agenda: [
             "Strengthening Regional Cooperation to Combat Drug Trafficking, Abuse, and Related Crimes in Central Asia",
         ],
-        background_image: "/committees/unodc.JPG",
+        background_image: "./committees/unodc.JPG",
         chairs: [
             {
                 id: "5b33db74-8a57-4d55-9667-254724d41b00",
@@ -89,7 +89,7 @@ export const STATIC_COMMITTEES = [
         agenda: [
             "Enhancing Global Responses to Environmental Crimes and Their Links to Transnational Organized Crime",
         ],
-        background_image: "/committees/ccpcj.jpg",
+        background_image: "./committees/ccpcj.jpg",
         chairs: [
             {
                 id: "26205455-a26a-4a7a-a02b-530b42368375",
@@ -131,7 +131,7 @@ export const STATIC_COMMITTEES = [
         agenda: [
             "Addressing the Humanitarian Consequences of Mass Deportation Operations on Migrant Communities",
         ],
-        background_image: "/committees/migration.JPG",
+        background_image: "./committees/migration.JPG",
         banner_position: "center 80%",
         chairs: [
             {
@@ -175,7 +175,7 @@ export const STATIC_COMMITTEES = [
         agenda: [
             "Mitigating Armed Conflicts and Terrorist Expansion in the Sahel Region",
         ],
-        background_image: "/committees/secrity.JPG",
+        background_image: "./committees/secrity.JPG",
         chairs: [
             {
                 id: "322020ca-8861-4c71-b0af-0800648dffef",
@@ -215,7 +215,7 @@ export const STATIC_COMMITTEES = [
         description:
             "The Congress of Vienna was a landmark diplomatic conference held in 1814–1815 to reshape the political landscape of Europe following the Napoleonic Wars, bringing together representatives of all major European powers. Delegates were tasked with establishing a new political order, redrawing national borders, and creating a framework for maintaining peace and stability across the continent for generations to come. The Congress established the Concert of Europe, an innovative system of multilateral diplomacy and collective security that governed European affairs for nearly a century. This committee simulates the historical negotiations and strategic decisions of the Congress, challenging delegates to analyze and engage with the complex diplomatic realities of the early nineteenth century.",
         agenda: ["Historical Simulation (Restoring Order in Europe)"],
-        background_image: "/committees/congressofviena.JPG",
+        background_image: "./committees/congressofviena.JPG",
         chairs: [
             {
                 id: "f09170d8-599f-4129-b453-285441dc3b2d",
@@ -248,7 +248,7 @@ export const STATIC_COMMITTEES = [
         agenda: [
             "\u00ab\u0427\u0451\u0440\u043d\u044b\u0439 \u043e\u043a\u0442\u044f\u0431\u0440\u044c\u00bb: \u041f\u043e\u043b\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0438 \u043a\u043e\u043d\u0441\u0442\u0438\u0442\u0443\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u043a\u0440\u0438\u0437\u0438\u0441 1993 \u0433\u043e\u0434\u0430 \u0432 \u0420\u043e\u0441\u0441\u0438\u0438.",
         ],
-        background_image: "/committees/gosduma.jpg",
+        background_image: "./committees/gosduma.jpg",
         chairs: [
             {
                 id: "c1e1fb4f-3b5e-4631-b27d-19f8d94d6053",
