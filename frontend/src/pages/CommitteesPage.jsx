@@ -110,8 +110,11 @@ const CommitteesPage = () => {
                   <div className="px-6 md:px-8 pb-8">
                     {/* Background Image inside Expanded View */}
                     <div
-                      className="relative h-48 md:h-64 mb-8 bg-cover bg-center rounded-sm"
-                      style={{ backgroundImage: `url('${process.env.PUBLIC_URL}${committee.background_image}')` }}
+                      className="relative h-48 md:h-64 mb-8 bg-cover rounded-sm"
+                      style={{
+                        backgroundImage: `url('${process.env.PUBLIC_URL}${committee.background_image}')`,
+                        backgroundPosition: committee.banner_position || 'center 20%'
+                      }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent" />
                     </div>

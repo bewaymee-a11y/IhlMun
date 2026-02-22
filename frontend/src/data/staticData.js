@@ -132,6 +132,7 @@ export const STATIC_COMMITTEES = [
             "Addressing the Humanitarian Consequences of Mass Deportation Operations on Migrant Communities",
         ],
         background_image: "/committees/migration.JPG",
+        banner_position: "center 80%",
         chairs: [
             {
                 id: "5fe180b1-2471-4a07-a218-2affea3480f1",
