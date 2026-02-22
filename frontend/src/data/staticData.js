@@ -257,7 +257,7 @@ export const STATIC_COMMITTEES = [
                 role: "\u041f\u0440\u0435\u0434\u0441\u0435\u0434\u0430\u0442\u0435\u043b\u044c / Co-Chair",
                 experience:
                     "\u0421\u0442\u0443\u0434\u0435\u043d\u0442\u043a\u0430 \u0412\u0435\u0431\u0441\u0442\u0435\u0440\u0441\u043a\u043e\u0433\u043e \u0443\u043d\u0438\u0432\u0435\u0440\u0441\u0438\u0442\u0435\u0442\u0430 \u0432 \u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0435, \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u0446\u0430 \u0431\u043e\u043b\u0435\u0435 17 \u043a\u043e\u043d\u0444\u0435\u0440\u0435\u043d\u0446\u0438\u0439 \u041c\u041e\u041e\u041d \u0438 \u0428\u041e\u0421. \u041c\u0430\u0440\u0438\u044f\u043c \u0438\u0437\u0432\u0435\u0441\u0442\u043d\u0430 \u043a\u0430\u043a \u0443\u0432\u0435\u0440\u0435\u043d\u043d\u044b\u0439 \u0438 \u0434\u0438\u0441\u0446\u0438\u043f\u043b\u0438\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043c\u043e\u0434\u0435\u0440\u0430\u0442\u043e\u0440 \u043f\u043e\u043b\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u0434\u0438\u0441\u043a\u0443\u0441\u0441\u0438\u0439.",
-                photo_url: "./chairs/mariyam_melibaeva.jpg",
+                photo_url: "./secretariat/mariyam_melibaeva.jpg",
                 image_position: "center 50%",
             },
         ],
@@ -279,7 +279,7 @@ export const STATIC_COMMITTEES = [
                 role: "Main Chair",
                 experience:
                     "Senior at Interhouse Lyceum with over 20 conferences of experience, Nozanin oversees analytical reporting and structured media coordination within the Press Corps.",
-                photo_url: "./secretariat/placeholder-chair.jpg",
+                photo_url: "./secretariat/nozanin_makhmudova.png",
                 image_position: "center 50%",
             },
             {
