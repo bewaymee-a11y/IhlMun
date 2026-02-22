@@ -1,11 +1,22 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Mail, MapPin, Calendar, Send } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useState } from 'react';
 
 const LOGO_URL = process.env.PUBLIC_URL + '/logo_transparent.png';
 
 export const Footer = ({ settings }) => {
   const { t } = useLanguage();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText('ihlmun@mail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+    // Also try to open mailto as fallback
+    window.location.href = 'mailto:ihlmun@mail.com';
+  };
 
   return (
     <footer data-testid="footer" className="mt-0 bg-[var(--surface)] min-h-[280px]">
@@ -71,7 +82,14 @@ export const Footer = ({ settings }) => {
               </div>
               <div className="flex items-start gap-3">
                 <Mail size={15} className="text-[var(--primary)] mt-0.5 shrink-0" />
-                <a href="mailto:ihlmun@mail.com" className="hover:text-[var(--primary)] transition-colors">ihlmun@mail.com</a>
+                <a
+                  href="#"
+                  onClick={handleCopyEmail}
+                  className="hover:text-[var(--primary)] transition-colors cursor-pointer"
+                  title="Click to copy email"
+                >
+                  {copied ? 'Copied to clipboard!' : 'ihlmun@mail.com'}
+                </a>
               </div>
             </div>
           </div>
