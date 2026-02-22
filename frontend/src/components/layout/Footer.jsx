@@ -71,7 +71,7 @@ export const Footer = ({ settings }) => {
               </div>
               <div className="flex items-start gap-3">
                 <Mail size={15} className="text-[var(--primary)] mt-0.5 shrink-0" />
-                <span>ihlmun@example.com</span>
+                <a href="mailto:ihlmun@mail.com" className="hover:text-[var(--primary)] transition-colors">ihlmun@mail.com</a>
               </div>
             </div>
           </div>
