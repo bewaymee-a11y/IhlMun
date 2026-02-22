@@ -327,6 +327,7 @@ export const STATIC_SECRETARIAT = [
         name: "A’zamjonov Abdurakhmon",
         role: "Secretary-General",
         photo_url: "./secretariat/abdurakhmon_azamjonov.jpg",
+        imagePosition: "center 20%",
         experience: "Leading the conference with overarching authority.",
         tier: 1
     },
