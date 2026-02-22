@@ -46,16 +46,18 @@ export const PersonCard = ({ name, role, experience, photo_url, variant = 'defau
         <div className="relative">
           <div className="grid transition-all duration-500 ease-in-out grid-rows-[0fr] group-hover:grid-rows-[1fr]">
             <div className="overflow-hidden">
-              <p className="text-[var(--text-muted)] text-xs leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 pb-2">
+              <p className="text-[var(--text-muted)] text-xs leading-relaxed opacity-0 group-hover:opacity-100 transition-[opacity,line-clamp] duration-500 delay-100 pb-2">
                 {experience}
               </p>
             </div>
           </div>
 
-          {/* Default clamp-3 text that fades out when expanded */}
-          <p className="text-[var(--text-muted)] text-xs leading-relaxed line-clamp-3 absolute top-0 left-0 w-full opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-            {experience}
-          </p>
+          {/* Default clamp-3 text that fades out when expanded. It uses absolute positioning but is wrapped in a container with a defined min-height matching 3 lines of text so it doesn't overflow. */}
+          <div className="min-h-[3.6rem]">
+            <p className="text-[var(--text-muted)] text-xs leading-relaxed line-clamp-3 absolute top-0 left-0 w-full opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
+              {experience}
+            </p>
+          </div>
         </div>
       </div>
     </div>
