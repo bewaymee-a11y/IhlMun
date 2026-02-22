@@ -21,7 +21,7 @@ export const STATIC_COMMITTEES = [
                 role: "Main Chair",
                 experience:
                     "A student at Central Asian University, Darina combines extensive MUN leadership experience with strong analytical discipline. She is known for running structured, policy-focused debates where arguments are expected to be precise, legally grounded, and strategically coherent.",
-                photo_url: "/chairs/darina_galchevskaya.jpg",
+                photo_url: "./chairs/darina_galchevskaya.jpg",
                 image_position: "center 55%",
             },
             {
@@ -30,7 +30,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "A graduating student of Target International School, Aziza brings award-winning debate experience and a sharp understanding of digital governance issues. She prioritizes intellectual clarity and solution-oriented diplomacy.",
-                photo_url: "/chairs/placeholder-chair.jpg",
+                photo_url: "./chairs/placeholder-chair.jpg",
                 image_position: "center 50%",
             },
         ],
@@ -54,7 +54,7 @@ export const STATIC_COMMITTEES = [
                 role: "Main Chair",
                 experience:
                     "A freshman in International Relations at Webster University, Hilola approaches regional security topics with academic depth and practical debate experience across multiple MUN leadership roles.",
-                photo_url: "/chairs/hilola_sotimkulova.jpg",
+                photo_url: "./chairs/hilola_sotimkulova.jpg",
                 image_position: "center 50%",
             },
             {
@@ -63,7 +63,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "Student at ALWIUT and active MUN participant since 2023, Muazzam is recognized for structured moderation and consistent high-level engagement across committees.",
-                photo_url: "/chairs/muazzam_muminova.jpg",
+                photo_url: "./chairs/muazzam_muminova.jpg",
                 image_position: "center 50%",
             },
             {
@@ -72,7 +72,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "Known for her work as a writer and organizer, Khadija brings strong rhetorical skills and confident public speaking to committee leadership.",
-                photo_url: "/chairs/khadija_bakhromova.jpg",
+                photo_url: "./chairs/khadija_bakhromova.jpg",
                 image_position: "center 50%",
             },
         ],
@@ -97,7 +97,7 @@ export const STATIC_COMMITTEES = [
                 role: "Main Chair",
                 experience:
                     "Currently on a gap year, Dilshod has broad experience across chairing, delegating, and organizing conferences. He approaches criminal justice topics with procedural authority and a focus on realistic enforcement mechanisms.",
-                photo_url: "/chairs/dilshod_khalbekov.jpg",
+                photo_url: "./chairs/dilshod_khalbekov.jpg",
                 image_position: "center 50%",
             },
             {
@@ -106,7 +106,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "A graduate of CIS Tashkent, Fahriddin brings years of involvement in MUN both as delegate and chair. His moderation style emphasizes disciplined negotiation and well-structured resolutions.",
-                photo_url: "/chairs/fahriddin_shirinov.jpg",
+                photo_url: "./chairs/fahriddin_shirinov.jpg",
                 image_position: "center 50%",
             },
             {
@@ -115,7 +115,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "Student at The British School of Tashkent and Secretary-General of BSTMUN '25, Roman combines international-level recognition with confident committee management and strong procedural control.",
-                photo_url: "/chairs/roman_kim.jpg",
+                photo_url: "./chairs/roman_kim.jpg",
                 image_position: "center 50%",
             },
         ],
@@ -139,7 +139,7 @@ export const STATIC_COMMITTEES = [
                 role: "Main Chair",
                 experience:
                     "A sophomore majoring in International Relations at Webster University in Tashkent, Ezoza has chaired extensively and is known for maintaining analytical depth and procedural professionalism in humanitarian debates.",
-                photo_url: "/chairs/ezoza_bobomurodova.jpg",
+                photo_url: "./chairs/ezoza_bobomurodova.jpg",
                 image_position: "center 50%",
             },
             {
@@ -148,7 +148,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "A sophomore at TSUL, Khonzodabegim combines legal academic training with consistent MUN leadership experience, emphasizing structured and policy-based discussions.",
-                photo_url: "/chairs/khonzodabegim_burkhonova.jpg",
+                photo_url: "./chairs/khonzodabegim_burkhonova.jpg",
                 image_position: "center 50%",
             },
             {
@@ -157,7 +157,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "A Year 11 student at The British School of Tashkent and two-time \"Best Chair\" recipient, Saida is recognized for balanced moderation and high debate standards.",
-                photo_url: "/chairs/saida_adkhamova.jpg",
+                photo_url: "./chairs/saida_adkhamova.jpg",
                 image_position: "center 50%",
             },
         ],
@@ -182,7 +182,7 @@ export const STATIC_COMMITTEES = [
                 role: "Main Chair",
                 experience:
                     "A sophomore at TSUE and active professional at Payme, Abdumajid brings extensive conference experience and a decisive leadership style suited for crisis-driven Security Council simulations.",
-                photo_url: "/chairs/abdumajid_toshmatov.jpg",
+                photo_url: "./chairs/abdumajid_toshmatov.jpg",
                 image_position: "center 50%",
             },
             {
@@ -191,7 +191,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "A Webster University student with multiple awards and diverse MUN roles, Dilnoza is known for analytical consistency and calm procedural control.",
-                photo_url: "/chairs/dilnoza_yuldasheva.jpg",
+                photo_url: "./chairs/dilnoza_yuldasheva.jpg",
                 image_position: "center 50%",
             },
             {
@@ -200,7 +200,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "A student at Interhouse Lyceum, Mark combines competitive delegate experience with confident chairing, ensuring disciplined and strategic debate.",
-                photo_url: "/chairs/mark_tokarev.jpg",
+                photo_url: "./chairs/mark_tokarev.jpg",
                 image_position: "center 75%",
             },
         ],
@@ -222,7 +222,7 @@ export const STATIC_COMMITTEES = [
                 role: "Main Chair / Congress Arbiter",
                 experience:
                     "Active in MUN since 2020 with international conference recognition, Saidakhmadkhon specializes in historical simulations and structured diplomatic negotiation.",
-                photo_url: "/chairs/saidakhmadkhon_saidaminov.jpg",
+                photo_url: "./chairs/saidakhmadkhon_saidaminov.jpg",
                 image_position: "center 50%",
             },
             {
@@ -231,7 +231,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair / Chairperson",
                 experience:
                     "Participating in MUN since 2023, Neve has earned international-level recognition and is committed to maintaining historically grounded and strategically dynamic debate.",
-                photo_url: "/chairs/neve_marie_crige.jpg",
+                photo_url: "./chairs/neve_marie_crige.jpg",
                 image_position: "center 50%",
             },
         ],
@@ -255,7 +255,7 @@ export const STATIC_COMMITTEES = [
                 role: "\u041f\u0440\u0435\u0434\u0441\u0435\u0434\u0430\u0442\u0435\u043b\u044c / Main Chair",
                 experience:
                     "\u041f\u0435\u0440\u0432\u043e\u043a\u0443\u0440\u0441\u043d\u0438\u0446\u0430 \u0410\u043a\u0430\u0434\u0435\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u043b\u0438\u0446\u0435\u044f \u0418\u043d\u0442\u0435\u0440\u0445\u0430\u0443\u0441 \u0441 \u0431\u043e\u043b\u0435\u0435 20 \u043a\u043e\u043d\u0444\u0435\u0440\u0435\u043d\u0446\u0438\u044f\u043c\u0438 \u041c\u041e\u041e\u041d. \u0410\u0441\u0430\u043b\u044c \u0441\u043e\u0447\u0435\u0442\u0430\u0435\u0442 \u043e\u043f\u044b\u0442 \u043f\u0440\u0435\u0434\u0441\u0435\u0434\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u0430 \u0441 \u0432\u043d\u0438\u043c\u0430\u043d\u0438\u0435\u043c \u043a \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0430\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u0438 \u0438 \u043f\u043e\u043b\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u043c\u0443 \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u0443.",
-                photo_url: "/chairs/asal_shukurova.jpg",
+                photo_url: "./chairs/asal_shukurova.jpg",
                 image_position: "center 50%",
             },
             {
@@ -264,7 +264,7 @@ export const STATIC_COMMITTEES = [
                 role: "\u041f\u0440\u0435\u0434\u0441\u0435\u0434\u0430\u0442\u0435\u043b\u044c / Co-Chair",
                 experience:
                     "\u0421\u0442\u0443\u0434\u0435\u043d\u0442\u043a\u0430 \u0412\u0435\u0431\u0441\u0442\u0435\u0440\u0441\u043a\u043e\u0433\u043e \u0443\u043d\u0438\u0432\u0435\u0440\u0441\u0438\u0442\u0435\u0442\u0430 \u0432 \u0422\u0430\u0448\u043a\u0435\u043d\u0442\u0435, \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u0446\u0430 \u0431\u043e\u043b\u0435\u0435 17 \u043a\u043e\u043d\u0444\u0435\u0440\u0435\u043d\u0446\u0438\u0439 \u041c\u041e\u041e\u041d \u0438 \u0428\u041e\u0421. \u041c\u0430\u0440\u0438\u044f\u043c \u0438\u0437\u0432\u0435\u0441\u0442\u043d\u0430 \u043a\u0430\u043a \u0443\u0432\u0435\u0440\u0435\u043d\u043d\u044b\u0439 \u0438 \u0434\u0438\u0441\u0446\u0438\u043f\u043b\u0438\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043c\u043e\u0434\u0435\u0440\u0430\u0442\u043e\u0440 \u043f\u043e\u043b\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u0434\u0438\u0441\u043a\u0443\u0441\u0441\u0438\u0439.",
-                photo_url: "/chairs/mariyam_melibaeva.jpg",
+                photo_url: "./chairs/mariyam_melibaeva.jpg",
                 image_position: "center 50%",
             },
         ],
@@ -286,7 +286,7 @@ export const STATIC_COMMITTEES = [
                 role: "Main Chair",
                 experience:
                     "Senior at Interhouse Lyceum with over 20 conferences of experience, Nozanin oversees analytical reporting and structured media coordination within the Press Corps.",
-                photo_url: "/chairs/placeholder-chair.jpg",
+                photo_url: "./chairs/placeholder-chair.jpg",
                 image_position: "center 50%",
             },
             {
@@ -295,7 +295,7 @@ export const STATIC_COMMITTEES = [
                 role: "Co-Chair",
                 experience:
                     "With a background in design and media production, Lola ensures professional visual storytelling and organized media coverage throughout the conference.",
-                photo_url: "/chairs/placeholder-chair.jpg",
+                photo_url: "./chairs/placeholder-chair.jpg",
                 image_position: "center 50%",
             },
         ],
