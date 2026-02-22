@@ -4,6 +4,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import ScrollToTop from '@/components/common/ScrollToTop';
 import HomePage from '@/pages/HomePage';
 import CommitteesPage from '@/pages/CommitteesPage';
 import RegisterPage from '@/pages/RegisterPage';
@@ -23,6 +24,7 @@ function AppContent() {
       <div className="noise-overlay" />
 
       <HashRouter>
+        <ScrollToTop />
         <Routes>
           {/* Admin route without navbar/footer */}
           <Route path="/admin" element={<AdminPage />} />
