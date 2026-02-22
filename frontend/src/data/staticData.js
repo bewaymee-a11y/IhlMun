@@ -221,7 +221,7 @@ export const STATIC_COMMITTEES = [
             {
                 id: "b3dbe5cb-52ae-407a-b7b1-e112dc771ee4",
                 name: "Neve Marie Crige",
-                role: "Co-Chair / Chairperson",
+                role: "Main Chair",
                 experience:
                     "Participating in MUN since 2023, Neve has earned international-level recognition and is committed to maintaining historically grounded and strategically dynamic debate.",
                 photo_url: "./secretariat/neve_marie_crige.jpg",

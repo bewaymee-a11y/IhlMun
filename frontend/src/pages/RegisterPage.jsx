@@ -10,13 +10,45 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const RegisterPage = () => {
-  const { t } = useLanguage();
+  const { t: originalT } = useLanguage();
   const { committeeId } = useParams();
 
   // Find committee from static data — no API call needed
   const [committee] = useState(() =>
     STATIC_COMMITTEES.find((c) => c.id === committeeId) || null
   );
+
+  const isDuma = committee?.id === "ee2381a7-0918-42fa-a026-e6da9ce34efd";
+
+  const t = (key) => {
+    if (isDuma) {
+      const dumaDict = {
+        backToCommittees: 'Вернуться к комитетам',
+        applyFor: 'Подача заявки в',
+        fillApplicationForm: 'Пожалуйста, заполните форму заявки ниже.',
+        participationIsFree: 'Участие абсолютно бесплатно',
+        freeNotice: 'В отличие от многих других конференций MUN, IHL MUN полностью бесплатна для всех делегатов. Мы верим в обеспечение равных возможностей.',
+        personalInformation: 'Личная информация',
+        firstName: 'Имя',
+        surname: 'Фамилия',
+        email: 'Электронная почта',
+        phoneNumber: 'Номер телефона',
+        telegramUsername: 'Имя пользователя Telegram',
+        dateOfBirth: 'Дата рождения',
+        placeOfStudy: 'Место обучения',
+        applicationQuestions: 'Вопросы заявки',
+        munExperienceQ: 'Подробно опишите ваш предыдущий опыт участия в MUN (Модели ООН). Если опыта нет, так и напишите.',
+        motivationQ: 'Почему вы хотите участвовать в IHL MUN и в этом конкретном комитете?',
+        globalCrisisQ: 'Выберите текущий глобальный кризис и кратко опишите его последствия и возможные решения.',
+        submitApplication: 'Отправить заявку',
+        applicationReceived: 'Заявка получена',
+        thankYouApplying: 'Спасибо за подачу заявки. Ваша заявка в',
+        reviewContact: 'Мы рассмотрим её и свяжемся с вами в ближайшее время.',
+      };
+      if (dumaDict[key]) return dumaDict[key];
+    }
+    return originalT(key);
+  };
   const [loading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(''); // e.g. 'Waking up server...'
@@ -70,27 +102,27 @@ const RegisterPage = () => {
     setError('');
 
     // Validation
-    if (!formData.first_name.trim()) return setError('Please enter your First Name / Имя');
-    if (!formData.surname.trim()) return setError('Please enter your Surname / Фамилия');
-    if (!formData.email.trim()) return setError('Please enter your Email Address / Адрес электронной почты');
-    if (!formData.phone.trim()) return setError('Please enter your Phone Number / Номер телефона');
-    if (!formData.telegram.trim()) return setError('Please enter your Telegram Username / Имя пользователя Telegram');
-    if (!formData.date_of_birth.trim()) return setError('Please enter your Date of Birth / Дата рождения');
-    if (!formData.place_of_study.trim()) return setError('Please enter your Place of Study / Место обучения');
-    if (!formData.mun_experience.trim()) return setError('Please describe your MUN experience / Опишите ваш опыт участия в MUN');
+    if (!formData.first_name.trim()) return setError(isDuma ? 'Пожалуйста, введите ваше Имя' : 'Please enter your First Name / Имя');
+    if (!formData.surname.trim()) return setError(isDuma ? 'Пожалуйста, введите вашу Фамилию' : 'Please enter your Surname / Фамилия');
+    if (!formData.email.trim()) return setError(isDuma ? 'Пожалуйста, введите ваш адрес электронной почты' : 'Please enter your Email Address / Адрес электронной почты');
+    if (!formData.phone.trim()) return setError(isDuma ? 'Пожалуйста, введите ваш номер телефона' : 'Please enter your Phone Number / Номер телефона');
+    if (!formData.telegram.trim()) return setError(isDuma ? 'Пожалуйста, введите ваше имя пользователя Telegram' : 'Please enter your Telegram Username / Имя пользователя Telegram');
+    if (!formData.date_of_birth.trim()) return setError(isDuma ? 'Пожалуйста, введите вашу дату рождения' : 'Please enter your Date of Birth / Дата рождения');
+    if (!formData.place_of_study.trim()) return setError(isDuma ? 'Пожалуйста, введите ваше место обучения' : 'Please enter your Place of Study / Место обучения');
+    if (!formData.mun_experience.trim()) return setError(isDuma ? 'Пожалуйста, опишите ваш опыт участия в MUN' : 'Please describe your MUN experience / Опишите ваш опыт участия в MUN');
 
-    if (!formData.motivation.trim()) return setError('Please enter your motivation / Опишите вашу мотивацию');
-    if (wordCounts.motivation > 250) return setError(`Motivation must be max 250 words (currently ${wordCounts.motivation} words) / Мотивация должна быть до 250 слов`);
+    if (!formData.motivation.trim()) return setError(isDuma ? 'Пожалуйста, опишите вашу мотивацию' : 'Please enter your motivation / Опишите вашу мотивацию');
+    if (wordCounts.motivation > 250) return setError(isDuma ? `Мотивация должна быть до 250 слов (сейчас ${wordCounts.motivation} слов)` : `Motivation must be max 250 words (currently ${wordCounts.motivation} words) / Мотивация должна быть до 250 слов`);
 
-    if (!formData.global_crisis.trim()) return setError('Please write about a global crisis / Напишите о глобальном кризисе');
-    if (wordCounts.global_crisis < 200 || wordCounts.global_crisis > 300) return setError(`Global crisis essay must be 200-300 words (currently ${wordCounts.global_crisis} words) / Эссе о глобальном кризисе должно быть 200-300 слов`);
+    if (!formData.global_crisis.trim()) return setError(isDuma ? 'Пожалуйста, напишите о глобальном кризисе' : 'Please write about a global crisis / Напишите о глобальном кризисе');
+    if (wordCounts.global_crisis < 200 || wordCounts.global_crisis > 300) return setError(isDuma ? `Эссе о глобальном кризисе должно быть 200-300 слов (сейчас ${wordCounts.global_crisis} слов)` : `Global crisis essay must be 200-300 words (currently ${wordCounts.global_crisis} words) / Эссе о глобальном кризисе должно быть 200-300 слов`);
 
     setSubmitting(true);
-    setSubmitStatus('Sending...');
+    setSubmitStatus(isDuma ? 'Отправка...' : 'Sending...');
 
     // Show a helpful message if the server takes more than 5 seconds to respond
     const slowTimer = setTimeout(() => {
-      setSubmitStatus('Waking up server, please wait (~30 sec)...');
+      setSubmitStatus(isDuma ? 'Запуск сервера, пожалуйста, подождите (~30 сек)...' : 'Waking up server, please wait (~30 sec)...');
     }, 5000);
 
     try {
@@ -214,7 +246,7 @@ const RegisterPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="input-minimal"
-                  placeholder="your@email.com"
+                  placeholder={isDuma ? "ваш@email.com" : "your@email.com"}
                   required
                 />
               </div>
@@ -286,7 +318,7 @@ const RegisterPage = () => {
                   value={formData.mun_experience}
                   onChange={handleChange}
                   className="w-full bg-transparent border border-[var(--text-muted)]/20 p-3 text-[var(--text-main)] resize-none h-24 focus:outline-none focus:border-primary transition-colors"
-                  placeholder="N/A"
+                  placeholder={isDuma ? "Нет опыта" : "N/A"}
                   required
                 />
               </div>
@@ -304,7 +336,7 @@ const RegisterPage = () => {
                   required
                 />
                 <p className={`text-sm mt-1 ${wordCounts.motivation > 250 ? 'text-red-400' : 'text-text-muted'}`}>
-                  {wordCounts.motivation}/250 words max
+                  {wordCounts.motivation}/250 {isDuma ? 'слов макс.' : 'words max'}
                 </p>
               </div>
 
@@ -321,7 +353,7 @@ const RegisterPage = () => {
                   required
                 />
                 <p className={`text-sm mt-1 ${(wordCounts.global_crisis < 200 || wordCounts.global_crisis > 300) ? 'text-red-400' : 'text-green-400'}`}>
-                  {wordCounts.global_crisis} words (200-300 required)
+                  {wordCounts.global_crisis} {isDuma ? 'слов (требуется 200-300)' : 'words (200-300 required)'}
                 </p>
               </div>
             </div>
@@ -337,7 +369,7 @@ const RegisterPage = () => {
             {submitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                <span>{submitStatus || 'Sending...'}</span>
+                <span>{submitStatus || (isDuma ? 'Отправка...' : 'Sending...')}</span>
               </>
             ) : (
               t('submitApplication')
