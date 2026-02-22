@@ -43,17 +43,18 @@ export const PersonCard = ({ name, role, experience, photo_url, variant = 'defau
         <h3 className="font-heading text-sm md:text-base mb-1 text-[var(--text-main)]">{name}</h3>
         <p className="text-[var(--primary)] text-xs font-mono uppercase tracking-wider mb-1 md:mb-2">{role}</p>
 
-        <div className="relative">
-          <p className="text-[var(--text-muted)] text-xs leading-relaxed line-clamp-3">
-            {experience}
-          </p>
-
-          <div className="absolute top-[-16px] left-1/2 -translate-x-1/2 w-[calc(100%+24px)] md:w-[calc(100%+32px)] bg-[var(--background)] p-4 rounded-xl shadow-2xl border border-[var(--text-muted)]/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 scale-95 group-hover:scale-100 text-center origin-top">
-            <p className="text-[var(--text-muted)] text-xs leading-relaxed">
+        <div className="grid transition-all duration-500 ease-in-out grid-rows-[0fr] group-hover:grid-rows-[1fr]">
+          <div className="overflow-hidden">
+            <p className="text-[var(--text-muted)] text-xs leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
               {experience}
             </p>
           </div>
         </div>
+
+        {/* Default clamp-3 text that fades out when expanded */}
+        <p className="text-[var(--text-muted)] text-xs leading-relaxed line-clamp-3 absolute bottom-0 left-0 right-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none px-5 md:px-7 pb-4">
+          {experience}
+        </p>
       </div>
     </div>
   );
