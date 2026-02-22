@@ -202,7 +202,7 @@ const HomePage = () => {
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${process.env.PUBLIC_URL}${committee.background_image}')` }}
+                  style={{ backgroundImage: `url('${process.env.PUBLIC_URL}${committee.background_image?.replace('./', '/')}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/50 to-transparent" />
                 <div className="relative h-full flex flex-col justify-end p-6">
