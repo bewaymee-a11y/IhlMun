@@ -44,13 +44,13 @@ const CommitteesPage = () => {
           <SectionTitle
             title={t('ourCommittees')}
             subtitle={t('committeesSubtitle')}
-            className="mb-0"
+            className="mb-0 md:mb-0"
           />
         </div>
       </section>
 
       {/* Committees List */}
-      <section className="section-padding pt-0">
+      <section className="pb-16 md:pb-24">
         <div className="container-main">
           <div className="space-y-6">
             {committees.length === 0 ? (
