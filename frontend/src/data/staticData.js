@@ -186,7 +186,15 @@ export const STATIC_COMMITTEES = [
                 photo_url: "./secretariat/abdumajid_toshmatov.jpg",
                 image_position: "center 50%",
             },
-
+            {
+                id: "7e923e3e-4f3b-4c2d-8a0b-1f1c2b3a4d5e",
+                name: "Lola Yuldasheva",
+                role: "Co-Chair",
+                experience:
+                    "A Webster University student with multiple awards and diverse MUN roles, Lola is known for analytical consistency and calm procedural control.",
+                photo_url: "./secretariat/lola_yuldasheva.png",
+                image_position: "center 30%",
+            },
             {
                 id: "79323f6b-c483-4dad-b999-3fdc9b2d8f83",
                 name: "Mark Tokarev",
