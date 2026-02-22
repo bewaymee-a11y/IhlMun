@@ -276,7 +276,7 @@ export const STATIC_COMMITTEES = [
             {
                 id: "a958cd74-c60e-4a97-8983-43749bb98374",
                 name: "Nozanin Makhmudova",
-                role: "Main Chair",
+                role: "Editor-in-Chief",
                 experience:
                     "Senior at Interhouse Lyceum with over 20 conferences of experience, Nozanin oversees analytical reporting and structured media coordination within the Press Corps.",
                 photo_url: "./secretariat/nozanin_makhmudova.png",
@@ -285,7 +285,7 @@ export const STATIC_COMMITTEES = [
             {
                 id: "21e5e682-2f55-47d2-bbea-ce9ebf317eee",
                 name: "Lola Yuldasheva",
-                role: "Main Chair",
+                role: "Editor-in-Chief",
                 experience:
                     "With a background in design and media production, Lola ensures professional visual storytelling and organized media coverage throughout the conference.",
                 photo_url: "./secretariat/lola_yuldasheva.png",
