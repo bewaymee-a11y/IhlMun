@@ -15,6 +15,11 @@ import SelectionProcessPage from '@/pages/SelectionProcessPage';
 import AdminPage from '@/pages/AdminPage';
 import { STATIC_SETTINGS } from '@/data/staticData';
 
+// Domain enforcement — redirect from www to apex to avoid SSL mismatch
+if (window.location.host.startsWith('www.')) {
+  window.location.replace(window.location.href.replace('www.', ''));
+}
+
 function AppContent() {
   const [settings] = useState(STATIC_SETTINGS);
 

@@ -10,9 +10,9 @@ const AboutPage = () => {
   const [settings] = useState(STATIC_SETTINGS);
 
   return (
-    <div className="page-transition pt-24">
+    <div className="page-transition pt-16 md:pt-20">
       {/* Hero */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative pt-2 pb-0 md:pt-4 md:pb-0 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -24,14 +24,15 @@ const AboutPage = () => {
           <SectionTitle
             title={t('aboutUs')}
             subtitle={t('meetTheTeam')}
+            className="mb-0 md:mb-2"
           />
         </div>
       </section>
 
       {/* About Section */}
-      <section className="section-padding pt-0">
+      <section className="pt-0 pb-12 md:pb-16">
         <div className="container-main">
-          <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
+          <div className="grid lg:grid-cols-2 gap-16 items-start mb-12">
             <div>
               <h3 className="font-heading text-3xl mb-6">{t('ourMission')}</h3>
               <div className="space-y-4 text-text-muted leading-relaxed">

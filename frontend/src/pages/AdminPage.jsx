@@ -284,6 +284,7 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
   const [filterStatus, setFilterStatus] = useState('');
   const [filterCommittee, setFilterCommittee] = useState('');
   const [expandedReg, setExpandedReg] = useState(null);
+  const [showRaw, setShowRaw] = useState({});
 
   const statuses = ['Under Review', 'Reviewed', 'Not Reviewed', 'Accepted', 'Rejected', 'Waitlisted'];
   const statusColors = {
@@ -382,8 +383,14 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
               <React.Fragment key={reg.id}>
                 <tr className="border-b border-white/5 hover:bg-surface-highlight cursor-pointer" onClick={() => setExpandedReg(expandedReg === reg.id ? null : reg.id)}>
                   <td className="p-4">
-                    <div className="font-medium">{reg.full_name}</div>
-                    <div className="text-xs text-text-muted">{reg.institution}</div>
+                    <div className="font-medium">
+                      {(reg.first_name || reg.surname)
+                        ? `${reg.first_name || ''} ${reg.surname || ''}`.trim()
+                        : (reg.full_name || reg.name || reg.applicant_name || reg.fio || 'No Name')}
+                    </div>
+                    <div className="text-xs text-text-muted">
+                      {reg.place_of_study || reg.institution || reg.school || reg.university || reg.organization || 'No Institution'}
+                    </div>
                   </td>
                   <td className="p-4 text-text-muted">
                     <div>{reg.email}</div>
@@ -414,16 +421,20 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
                     <td colSpan="5" className="p-4">
                       <div className="grid md:grid-cols-2 gap-4 text-sm">
                         <div>
-                          <h4 className="font-heading text-primary mb-2">Why attend IHL MUN?</h4>
-                          <p className="text-text-muted whitespace-pre-wrap">{reg.why_attend || 'N/A'}</p>
+                          <h4 className="font-heading text-primary mb-2">Motivation / Why attend?</h4>
+                          <p className="text-text-muted whitespace-pre-wrap">
+                            {reg.motivation || reg.why_attend || reg.why_ihl_mun || reg.motivation_letter || reg.essay1 || 'N/A'}
+                          </p>
                         </div>
                         <div>
                           <h4 className="font-heading text-primary mb-2">MUN Experience</h4>
                           <p className="text-text-muted">{reg.mun_experience || 'N/A'}</p>
                         </div>
                         <div>
-                          <h4 className="font-heading text-primary mb-2">Why this committee?</h4>
-                          <p className="text-text-muted">{reg.why_committee || 'N/A'}</p>
+                          <h4 className="font-heading text-primary mb-2">Global Crisis / Why this committee?</h4>
+                          <p className="text-text-muted">
+                            {reg.global_crisis || reg.why_committee || reg.essay_question || reg.global_issues || reg.essay2 || 'N/A'}
+                          </p>
                         </div>
                         <div>
                           <h4 className="font-heading text-primary mb-2">Alternative Committees</h4>
@@ -435,7 +446,23 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
                         </div>
                         <div>
                           <h4 className="font-heading text-primary mb-2">Applied</h4>
-                          <p className="text-text-muted">{new Date(reg.created_at).toLocaleDateString()}</p>
+                          <p className="text-text-muted">{reg.created_at ? new Date(reg.created_at).toLocaleDateString() : 'N/A'}</p>
+                        </div>
+                        <div className="md:col-span-2 mt-4 pt-4 border-t border-white/10">
+                          <div className="flex justify-between items-center mb-2">
+                            <h4 className="font-heading text-primary text-xs uppercase tracking-wider">Debug / Raw Data</h4>
+                            <button
+                              onClick={() => setShowRaw(prev => ({ ...prev, [reg.id]: !prev[reg.id] }))}
+                              className="text-[10px] bg-white/5 hover:bg-white/10 px-2 py-1 transition-colors"
+                            >
+                              {showRaw[reg.id] ? 'Hide Raw Data' : 'Show Raw Data'}
+                            </button>
+                          </div>
+                          {showRaw[reg.id] && (
+                            <pre className="bg-black/50 p-3 overflow-x-auto text-[10px] text-green-400/80 font-mono">
+                              {JSON.stringify(reg, null, 2)}
+                            </pre>
+                          )}
                         </div>
                       </div>
                     </td>

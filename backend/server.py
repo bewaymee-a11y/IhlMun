@@ -16,6 +16,7 @@ import jwt
 import bcrypt
 import io
 import csv
+import json
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -543,24 +544,44 @@ async def export_registrations(user_id: str = Depends(verify_token)):
     
     output = io.StringIO()
     writer = csv.writer(output)
-    writer.writerow(["ID", "Full Name", "Institution", "Phone", "Telegram", "Email", "Committee", "Why Attend", "MUN Experience", "Why Committee", "Alternative Committees", "Consent Interview", "Status", "Created At"])
+    writer.writerow(["ID", "First Name", "Surname", "Full Name", "Institution", "Phone", "Telegram", "Email", "Committee", "Motivation", "MUN Experience", "Global Crisis", "Alternative Committees", "Consent Interview", "Status", "Created At", "Raw Data (JSON)"])
     
     for reg in registrations:
+        # Robust name handling
+        first_name = reg.get("first_name") or ""
+        surname = reg.get("surname") or ""
+        full_name = reg.get("full_name") or reg.get("name") or reg.get("applicant_name") or reg.get("fio") or ""
+        
+        if not first_name and not surname and full_name:
+            parts = full_name.split()
+            first_name = parts[0] if len(parts) > 0 else ""
+            surname = " ".join(parts[1:]) if len(parts) > 1 else ""
+        
+        # Robust institution handling
+        institution = reg.get("place_of_study") or reg.get("institution") or reg.get("school") or reg.get("university") or reg.get("organization") or ""
+        
+        # Robust essay handling
+        motivation = reg.get("motivation") or reg.get("why_attend") or reg.get("why_ihl_mun") or reg.get("motivation_letter") or reg.get("essay1") or ""
+        global_crisis = reg.get("global_crisis") or reg.get("why_committee") or reg.get("essay_question") or reg.get("global_issues") or reg.get("essay2") or ""
+        
         writer.writerow([
             reg.get("id", ""),
-            reg.get("full_name", ""),
-            reg.get("institution", ""),
+            first_name,
+            surname,
+            full_name,
+            institution,
             reg.get("phone", ""),
             reg.get("telegram", ""),
             reg.get("email", ""),
             reg.get("committee_name", ""),
-            reg.get("why_attend", "")[:100] + "..." if len(reg.get("why_attend", "")) > 100 else reg.get("why_attend", ""),
+            motivation,
             reg.get("mun_experience", ""),
-            reg.get("why_committee", ""),
+            global_crisis,
             reg.get("alternative_committees", ""),
             "Yes" if reg.get("consent_interview") else "No",
             reg.get("status", "Under Review"),
-            reg.get("created_at", "")
+            reg.get("created_at", ""),
+            json.dumps(reg)
         ])
     
     output.seek(0)

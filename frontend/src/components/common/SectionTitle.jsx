@@ -1,7 +1,8 @@
 export const SectionTitle = ({ title, subtitle, align = 'left', className = '' }) => {
+  const hasMargin = className.includes('mb-');
   return (
     <div
-      className={`mb-12 md:mb-16 ${align === 'center' ? 'text-center' : ''
+      className={`${hasMargin ? '' : 'mb-12 md:mb-16'} ${align === 'center' ? 'text-center' : ''
         } ${className}`}
     >
       <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 animate-fade-in-up text-[var(--text-main)]">
