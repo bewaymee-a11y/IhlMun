@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow admin API paths from indexing
+Disallow: /api/admin/
+
+Sitemap: https://ihlmun.uz/sitemap.xml
