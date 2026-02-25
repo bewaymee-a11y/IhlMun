@@ -84,6 +84,11 @@ const CommitteesPage = () => {
                             {t('registrationClosed')}
                           </span>
                         )}
+                        {committee.is_double_delegation && (
+                          <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 font-mono uppercase">
+                            Double Delegation
+                          </span>
+                        )}
                       </div>
                       <h3 className="font-heading text-lg md:text-3xl group-hover:text-primary transition-colors truncate">
                         {committee.name_ru || committee.name}
@@ -153,6 +158,7 @@ const CommitteesPage = () => {
                               experience={chair.experience}
                               photo_url={chair.photo_url}
                               imagePosition={chair.image_position || 'center 40%'}
+                              imageScale={chair.image_scale || 1}
                             />
                           </div>
                         ))}

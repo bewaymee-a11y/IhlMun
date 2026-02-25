@@ -387,14 +387,20 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
                       {(reg.first_name || reg.surname)
                         ? `${reg.first_name || ''} ${reg.surname || ''}`.trim()
                         : (reg.full_name || reg.name || reg.applicant_name || reg.fio || 'No Name')}
+                      {reg.first_name_2 && (
+                        <span className="text-primary ml-2">
+                          & {reg.first_name_2} {reg.surname_2}
+                        </span>
+                      )}
                     </div>
                     <div className="text-xs text-text-muted">
                       {reg.place_of_study || reg.institution || reg.school || reg.university || reg.organization || 'No Institution'}
+                      {reg.place_of_study_2 && <span className="text-primary/50"> | {reg.place_of_study_2}</span>}
                     </div>
                   </td>
                   <td className="p-4 text-text-muted">
-                    <div>{reg.email}</div>
-                    <div className="text-xs">{reg.telegram}</div>
+                    <div>{reg.email}{reg.email_2 ? <span className="block text-[10px] text-primary">Partner: {reg.email_2}</span> : ''}</div>
+                    <div className="text-xs">{reg.telegram}{reg.telegram_2 ? ` / ${reg.telegram_2}` : ''}</div>
                   </td>
                   <td className="p-4 text-primary text-xs">{reg.committee_name}</td>
                   <td className="p-4">
@@ -428,7 +434,7 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
                         </div>
                         <div>
                           <h4 className="font-heading text-primary mb-2">MUN Experience</h4>
-                          <p className="text-text-muted">{reg.mun_experience || 'N/A'}</p>
+                          <p className="text-text-muted whitespace-pre-wrap">{reg.mun_experience || 'N/A'}</p>
                         </div>
                         <div>
                           <h4 className="font-heading text-primary mb-2">Global Crisis / Why this committee?</h4>
@@ -440,6 +446,19 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
                           <h4 className="font-heading text-primary mb-2">Alternative Committees</h4>
                           <p className="text-text-muted">{reg.alternative_committees || 'N/A'}</p>
                         </div>
+                        {reg.first_name_2 && (
+                          <div className="md:col-span-2 bg-white/5 p-4 border border-primary/20">
+                            <h4 className="font-heading text-primary mb-2 uppercase text-xs">Second Delegate Info</h4>
+                            <div className="grid grid-cols-2 gap-2 text-xs">
+                              <div><span className="text-text-muted">Name:</span> {reg.first_name_2} {reg.surname_2}</div>
+                              <div><span className="text-text-muted">Email:</span> {reg.email_2}</div>
+                              <div><span className="text-text-muted">Telegram:</span> {reg.telegram_2}</div>
+                              <div><span className="text-text-muted">Phone:</span> {reg.phone_2}</div>
+                              <div><span className="text-text-muted">Birth:</span> {reg.date_of_birth_2}</div>
+                              <div><span className="text-text-muted">Study:</span> {reg.place_of_study_2}</div>
+                            </div>
+                          </div>
+                        )}
                         <div>
                           <h4 className="font-heading text-primary mb-2">Consent to Interview</h4>
                           <p className={reg.consent_interview ? 'text-green-400' : 'text-red-400'}>{reg.consent_interview ? 'Yes' : 'No'}</p>

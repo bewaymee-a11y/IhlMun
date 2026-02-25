@@ -91,6 +91,14 @@ class Registration(BaseModel):
     global_crisis: str
     status: str = "Under Review"  # Under Review, Reviewed, Not Reviewed, Accepted, Rejected, Waitlisted
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    # Second delegate (for double delegation committees like Press Corps)
+    first_name_2: Optional[str] = None
+    surname_2: Optional[str] = None
+    email_2: Optional[EmailStr] = None
+    phone_2: Optional[str] = None
+    telegram_2: Optional[str] = None
+    date_of_birth_2: Optional[str] = None
+    place_of_study_2: Optional[str] = None
 
 class RegistrationCreate(BaseModel):
     first_name: str
@@ -104,6 +112,14 @@ class RegistrationCreate(BaseModel):
     mun_experience: str
     motivation: str
     global_crisis: str
+    # Second delegate
+    first_name_2: Optional[str] = None
+    surname_2: Optional[str] = None
+    email_2: Optional[EmailStr] = None
+    phone_2: Optional[str] = None
+    telegram_2: Optional[str] = None
+    date_of_birth_2: Optional[str] = None
+    place_of_study_2: Optional[str] = None
 
 class RegistrationStatusUpdate(BaseModel):
     status: str  # Under Review, Reviewed, Not Reviewed, Accepted, Rejected, Waitlisted
@@ -269,14 +285,14 @@ async def init_default_data():
             },
             {
                 "id": str(uuid.uuid4()),
-                "name": "Congress Of Vienna",
+                "name": "Conference of Vienna",
                 "name_ru": None,
-                "description": "Historical simulation of the Congress of Vienna, a diplomatic conference that reshaped Europe.",
+                "description": "Historical simulation of the Conference of Vienna, a diplomatic conference that reshaped Europe.",
                 "agenda": ["No Fixed Agenda - Crisis Committee"],
                 "background_image": "/committees/vienna.jpg",
                 "chairs": [
-                    {"id": str(uuid.uuid4()), "name": "Neve", "role": "Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
-                    {"id": str(uuid.uuid4()), "name": "Said", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"}
+                    {"id": str(uuid.uuid4()), "name": "Neve Marie Krige", "role": "Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
+                    {"id": str(uuid.uuid4()), "name": "Saidakhmadkhon Saydaminov", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"}
                 ],
                 "registration_open": True,
                 "order": 4
@@ -544,35 +560,55 @@ async def export_registrations(user_id: str = Depends(verify_token)):
     
     output = io.StringIO()
     writer = csv.writer(output)
-    writer.writerow(["ID", "First Name", "Surname", "Full Name", "Institution", "Phone", "Telegram", "Email", "Committee", "Motivation", "MUN Experience", "Global Crisis", "Alternative Committees", "Consent Interview", "Status", "Created At", "Raw Data (JSON)"])
+    writer.writerow([
+        "ID", "First Name", "Surname", "Full Name", 
+        "First Name (2)", "Surname (2)", "Full Name (2)",
+        "Institution", "Phone", "Telegram", "Email", 
+        "Institution (2)", "Phone (2)", "Telegram (2)", "Email (2)",
+        "Committee", "Motivation", "MUN Experience", "Global Crisis", 
+        "Alternative Committees", "Consent Interview", "Status", "Created At", "Raw Data (JSON)"
+    ])
     
     for reg in registrations:
-        # Robust name handling
-        first_name = reg.get("first_name") or ""
-        surname = reg.get("surname") or ""
+        # Resolve names with fallbacks
+        fname = reg.get("first_name", "")
+        sname = reg.get("surname", "")
         full_name = reg.get("full_name") or reg.get("name") or reg.get("applicant_name") or reg.get("fio") or ""
         
-        if not first_name and not surname and full_name:
+        if not fname and not sname and full_name:
             parts = full_name.split()
-            first_name = parts[0] if len(parts) > 0 else ""
-            surname = " ".join(parts[1:]) if len(parts) > 1 else ""
+            fname = parts[0] if len(parts) > 0 else ""
+            sname = " ".join(parts[1:]) if len(parts) > 1 else ""
         
-        # Robust institution handling
-        institution = reg.get("place_of_study") or reg.get("institution") or reg.get("school") or reg.get("university") or reg.get("organization") or ""
-        
-        # Robust essay handling
+        # Resolve second delegate names
+        fname2 = reg.get("first_name_2", "")
+        sname2 = reg.get("surname_2", "")
+        full_name2 = f"{fname2} {sname2}".strip() if (fname2 or sname2) else ""
+
+        # Resolve institutions
+        inst = reg.get("place_of_study") or reg.get("institution") or reg.get("school") or reg.get("university") or reg.get("organization") or ""
+        inst2 = reg.get("place_of_study_2") or ""
+
+        # Resolve essays
         motivation = reg.get("motivation") or reg.get("why_attend") or reg.get("why_ihl_mun") or reg.get("motivation_letter") or reg.get("essay1") or ""
         global_crisis = reg.get("global_crisis") or reg.get("why_committee") or reg.get("essay_question") or reg.get("global_issues") or reg.get("essay2") or ""
-        
+
         writer.writerow([
             reg.get("id", ""),
-            first_name,
-            surname,
+            fname,
+            sname,
             full_name,
-            institution,
+            fname2,
+            sname2,
+            full_name2,
+            inst,
             reg.get("phone", ""),
             reg.get("telegram", ""),
             reg.get("email", ""),
+            inst2,
+            reg.get("phone_2", ""),
+            reg.get("telegram_2", ""),
+            reg.get("email_2", ""),
             reg.get("committee_name", ""),
             motivation,
             reg.get("mun_experience", ""),

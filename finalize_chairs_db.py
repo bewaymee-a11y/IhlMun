@@ -110,25 +110,25 @@ async def update_chairs_and_agendas():
         },
         {
             "id": str(uuid.uuid4()),
-            "name": "Congress Of Vienna",
+            "name": "Conference of Vienna",
             "name_ru": None,
-            "description": "Historical simulation of the Congress of Vienna, a diplomatic conference that reshaped Europe.",
+            "description": "Historical simulation of the Conference of Vienna, a diplomatic conference that reshaped Europe.",
             "agenda": ["Historical Simulation (Restoring Order in Europe)"],
             "background_image": "/committees/congressofviena.JPG",
             "chairs": [
                 {
                     "id": str(uuid.uuid4()), 
-                    "name": "Saidakhmadkhon Saidaminov", 
-                    "role": "Congress Arbiter", 
+                    "name": "Saidakhmadkhon Saydaminov", 
+                    "role": "Conference Arbiter", 
                     "experience": "Actively involved in MUN both locally and internationally, recipient of multiple Best Delegate awards (including OxfordMUN).", 
-                    "photo_url": "/chairs/saidakhmadkhon_saidaminov.jpg"
+                    "photo_url": "/chairs/saidakhmadkhon_saydaminov.jpg"
                 },
                 {
                     "id": str(uuid.uuid4()), 
-                    "name": "Neve Marie Crige", 
+                    "name": "Neve Marie Krige", 
                     "role": "Chairperson", 
                     "experience": "MUN participant for 4 years across local and international conferences, winning Best Delegate awards in all her committees, including at OxfordMUN.", 
-                    "photo_url": "/chairs/neve_marie_crige.jpg"
+                    "photo_url": "/chairs/neve_marie_krige.jpg"
                 }
             ],
             "registration_open": True,

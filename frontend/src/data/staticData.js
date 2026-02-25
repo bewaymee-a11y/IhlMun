@@ -33,6 +33,15 @@ export const STATIC_COMMITTEES = [
                 photo_url: "./secretariat/aziza_tillakhujaeva.png",
                 image_position: "center 50%",
             },
+            {
+                id: "ga-cochair-masrur",
+                name: "Masrur Anorov",
+                role: "Co-Chair",
+                experience:
+                    "Masrur is an experienced MUNer with a deep understanding of international diplomacy and parliamentary procedures. Known for his commitment to fostering inclusive debate, he empowers delegates to navigate complex geopolitical agendas and develop sustainable global solutions.",
+                photo_url: "./secretariat/masrur_anorov.jpg",
+                image_position: "center 30%",
+            },
         ],
         registration_open: true,
         order: 1,
@@ -186,7 +195,16 @@ export const STATIC_COMMITTEES = [
                 photo_url: "./secretariat/abdumajid_toshmatov.jpg",
                 image_position: "center 50%",
             },
-
+            {
+                id: "sc-cochair-dilrabo",
+                name: "Dilrabokhon Olimkhonova",
+                role: "Co-chair",
+                experience:
+                    "Dilrabo is a graduate of Westminster International School in Tashkent and currently studies at BMU. With over 30 MUN conferences behind her, she has served as Secretary-General, Vice Secretary-General, Chair, and delegate, earning awards including Best Delegate and Best Chair. Alongside MUN, she also runs her own online business.",
+                photo_url: "./secretariat/dilrabokhon_olimkhonova.jpg",
+                image_position: "center 30%",
+                image_scale: 1.3,
+            },
             {
                 id: "79323f6b-c483-4dad-b999-3fdc9b2d8f83",
                 name: "Mark Tokarev",
@@ -194,7 +212,8 @@ export const STATIC_COMMITTEES = [
                 experience:
                     "A student at Interhouse Lyceum, Mark combines competitive delegate experience with confident chairing, ensuring disciplined and strategic debate.",
                 photo_url: "./secretariat/mark_tokarev.jpg",
-                image_position: "center 75%",
+                image_position: "center 10%",
+                image_scale: 1.1,
             },
         ],
         registration_open: true,
@@ -202,29 +221,29 @@ export const STATIC_COMMITTEES = [
     },
     {
         id: "af870613-a7be-4773-84a5-a7563f9f28df",
-        name: "Congress of Vienna",
+        name: "Conference of Vienna",
         name_ru: null,
         description:
-            "The Congress of Vienna was a landmark diplomatic conference held in 1814–1815 to reshape the political landscape of Europe following the Napoleonic Wars, bringing together representatives of all major European powers. Delegates were tasked with establishing a new political order, redrawing national borders, and creating a framework for maintaining peace and stability across the continent for generations to come. The Congress established the Concert of Europe, an innovative system of multilateral diplomacy and collective security that governed European affairs for nearly a century. This committee simulates the historical negotiations and strategic decisions of the Congress, challenging delegates to analyze and engage with the complex diplomatic realities of the early nineteenth century.",
+            "The Conference of Vienna was a landmark diplomatic conference held in 1814–1815 to reshape the political landscape of Europe following the Napoleonic Wars, bringing together representatives of all major European powers. Delegates were tasked with establishing a new political order, redrawing national borders, and creating a framework for maintaining peace and stability across the continent for generations to come. The Conference established the Concert of Europe, an innovative system of multilateral diplomacy and collective security that governed European affairs for nearly a century. This committee simulates the historical negotiations and strategic decisions of the Conference, challenging delegates to analyze and engage with the complex diplomatic realities of the early nineteenth century.",
         agenda: ["Historical Simulation (Restoring Order in Europe)"],
         background_image: "./committees/congressofviena.JPG",
         chairs: [
             {
                 id: "f09170d8-599f-4129-b453-285441dc3b2d",
-                name: "Saidakhmadkhon Saidaminov",
-                role: "Congress Arbiter",
+                name: "Saidakhmadkhon Saydaminov",
+                role: "Conference Arbiter",
                 experience:
                     "Active in MUN since 2020 with international conference recognition, Saidakhmadkhon specializes in historical simulations and structured diplomatic negotiation.",
-                photo_url: "./secretariat/saidakhmadkhon_saidaminov.jpg",
+                photo_url: "./secretariat/saidakhmadkhon_saydaminov.jpg",
                 image_position: "center 50%",
             },
             {
                 id: "b3dbe5cb-52ae-407a-b7b1-e112dc771ee4",
-                name: "Neve Marie Crige",
+                name: "Neve Marie Krige",
                 role: "Chairperson",
                 experience:
                     "Participating in MUN since 2023, Neve has earned international-level recognition and is committed to maintaining historically grounded and strategically dynamic debate.",
-                photo_url: "./secretariat/neve_marie_crige.jpg",
+                photo_url: "./secretariat/neve_marie_krige.jpg",
                 image_position: "center 50%",
             },
         ],
@@ -269,9 +288,10 @@ export const STATIC_COMMITTEES = [
         name: "Press Corps",
         name_ru: null,
         description:
-            "The Press Corps is a unique committee that operates differently from all other committees at this conference, offering delegates a distinctive perspective on conference diplomacy. Rather than debating resolutions, delegates in the Press Corps act as journalists, reporters, editors, and media professionals tasked with covering the proceedings of all other committees in real time. Members of the Press Corps produce written articles, multimedia content, and live reporting that captures the debates, key speeches, and outcomes emerging from across the conference. This committee offers an exceptional experience for delegates interested in journalism, communication, and the critical role of media in shaping public discourse on international affairs.",
+            "The Press Corps is a unique committee that operates differently from all other committees at this conference, offering delegates a distinctive perspective on conference diplomacy. Rather than debating resolutions, delegates in the Press Corps act as journalists, reporters, editors, and media professionals tasked with covering the proceedings of all other committees in real time. Members of the Press Corps produce written articles, multimedia content, and live reporting that captures the debates, key speeches, and outcomes emerging from across the conference. This committee offers an exceptional experience for delegates interested in journalism, communication, and the critical role of media in shaping public discourse on international affairs. Note: Press Corps supports Double Delegation, allowing participants to register and work in pairs.",
         agenda: ["No Fixed Agenda"],
         background_image: "/committees/press.JPG",
+        is_double_delegation: true,
         chairs: [
             {
                 id: "a958cd74-c60e-4a97-8983-43749bb98374",

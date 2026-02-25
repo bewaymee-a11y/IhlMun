@@ -15,13 +15,13 @@ async def update_db():
     # Change name of Vienna Congress
     await db.committees.update_one(
         {"name": "Vienna Congress of 1815"},
-        {"$set": {"name": "Congress Of Vienna"}}
+        {"$set": {"name": "Conference of Vienna"}}
     )
 
     # Set new background image URLs (assuming user puts them in frontend/public/committees/)
     updates = [
         {"name": "UNODC", "url": "/committees/unodc.jpg"},
-        {"name": "Congress Of Vienna", "url": "/committees/vienna.jpg"},
+        {"name": "Conference of Vienna", "url": "/committees/vienna.jpg"},
         {"name": "Press Corps", "url": "/committees/press.jpg"},
         {"name": "IOM – UN Migration", "url": "/committees/iom.jpg"},
         {"name": "Human Rights Council", "url": "/committees/hrc.jpg"},

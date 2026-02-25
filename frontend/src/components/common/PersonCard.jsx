@@ -1,6 +1,6 @@
 import { User } from 'lucide-react';
 
-export const PersonCard = ({ name, role, experience, photo_url, variant = 'default', imagePosition = 'center 40%' }) => {
+export const PersonCard = ({ name, role, experience, photo_url, variant = 'default', imagePosition = 'center 40%', imageScale = 1 }) => {
   const isPlaceholder = !photo_url || photo_url.includes('placeholder');
   let imageUrl = photo_url;
   if (photo_url?.startsWith('/')) {
@@ -32,8 +32,11 @@ export const PersonCard = ({ name, role, experience, photo_url, variant = 'defau
           <img
             src={imageUrl}
             alt={name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            style={{ objectPosition: imagePosition }}
+            className="w-full h-full object-cover transition-transform duration-500"
+            style={{
+              objectPosition: imagePosition,
+              transform: `scale(${imageScale})`
+            }}
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

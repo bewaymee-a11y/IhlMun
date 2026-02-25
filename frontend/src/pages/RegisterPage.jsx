@@ -19,6 +19,8 @@ const RegisterPage = () => {
   );
 
   const isDuma = committee?.id === "ee2381a7-0918-42fa-a026-e6da9ce34efd";
+  const isPressCorps = committee?.id === "b21a56ab-da9f-4526-a3d0-8580a5624e18";
+  const isDoubleDelegation = isPressCorps;
 
   const t = (key) => {
     if (isDuma) {
@@ -71,6 +73,14 @@ const RegisterPage = () => {
     mun_experience: '',
     motivation: '',
     global_crisis: '',
+    // Second delegate
+    first_name_2: '',
+    surname_2: '',
+    email_2: '',
+    phone_2: '',
+    telegram_2: '',
+    date_of_birth_2: '',
+    place_of_study_2: '',
   });
 
   const [wordCounts, setWordCounts] = useState({
@@ -109,6 +119,17 @@ const RegisterPage = () => {
     if (!formData.telegram.trim()) return setError(isDuma ? 'Пожалуйста, введите ваше имя пользователя Telegram' : 'Please enter your Telegram Username / Имя пользователя Telegram');
     if (!formData.date_of_birth.trim()) return setError(isDuma ? 'Пожалуйста, введите вашу дату рождения' : 'Please enter your Date of Birth / Дата рождения');
     if (!formData.place_of_study.trim()) return setError(isDuma ? 'Пожалуйста, введите ваше место обучения' : 'Please enter your Place of Study / Место обучения');
+
+    if (isDoubleDelegation) {
+      if (!formData.first_name_2.trim()) return setError('Please enter First Name for the Second Delegate');
+      if (!formData.surname_2.trim()) return setError('Please enter Surname for the Second Delegate');
+      if (!formData.email_2.trim()) return setError('Please enter Email for the Second Delegate');
+      if (!formData.phone_2.trim()) return setError('Please enter Phone Number for the Second Delegate');
+      if (!formData.telegram_2.trim()) return setError('Please enter Telegram Username for the Second Delegate');
+      if (!formData.date_of_birth_2.trim()) return setError('Please enter Date of Birth for the Second Delegate');
+      if (!formData.place_of_study_2.trim()) return setError('Please enter Place of Study for the Second Delegate');
+    }
+
     if (!formData.mun_experience.trim()) return setError(isDuma ? 'Пожалуйста, опишите ваш опыт участия в MUN' : 'Please describe your MUN experience / Опишите ваш опыт участия в MUN');
 
     if (!formData.motivation.trim()) return setError(isDuma ? 'Пожалуйста, опишите вашу мотивацию' : 'Please enter your motivation / Опишите вашу мотивацию');
@@ -303,6 +324,107 @@ const RegisterPage = () => {
               </div>
             </div>
           </div>
+
+          {/* Second Delegate Information */}
+          {isDoubleDelegation && (
+            <div className="bg-surface border border-primary/20 p-6 mb-6 animate-fade-in text-left">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-8 bg-primary text-black flex items-center justify-center font-bold">2</div>
+                <h2 className="font-heading text-xl">Second Delegate Information</h2>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm text-text-muted mb-2">{t('firstName')} *</label>
+                  <input
+                    type="text"
+                    name="first_name_2"
+                    value={formData.first_name_2}
+                    onChange={handleChange}
+                    className="input-minimal"
+                    placeholder={t('firstName')}
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm text-text-muted mb-2">{t('surname')} *</label>
+                  <input
+                    type="text"
+                    name="surname_2"
+                    value={formData.surname_2}
+                    onChange={handleChange}
+                    className="input-minimal"
+                    placeholder={t('surname')}
+                    required
+                  />
+                </div>
+
+                <div className="md:col-span-2">
+                  <label className="block text-sm text-text-muted mb-2">{t('email')} *</label>
+                  <input
+                    type="email"
+                    name="email_2"
+                    value={formData.email_2}
+                    onChange={handleChange}
+                    className="input-minimal"
+                    placeholder="partner@email.com"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm text-text-muted mb-2">{t('phoneNumber')} *</label>
+                  <input
+                    type="tel"
+                    name="phone_2"
+                    value={formData.phone_2}
+                    onChange={handleChange}
+                    className="input-minimal"
+                    placeholder="+998 XX XXX XX XX"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm text-text-muted mb-2">{t('telegramUsername')} *</label>
+                  <input
+                    type="text"
+                    name="telegram_2"
+                    value={formData.telegram_2}
+                    onChange={handleChange}
+                    className="input-minimal"
+                    placeholder="@username"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm text-text-muted mb-2">{t('dateOfBirth')} *</label>
+                  <input
+                    type="date"
+                    name="date_of_birth_2"
+                    value={formData.date_of_birth_2}
+                    onChange={handleChange}
+                    className="input-minimal"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm text-text-muted mb-2">{t('placeOfStudy')} *</label>
+                  <input
+                    type="text"
+                    name="place_of_study_2"
+                    value={formData.place_of_study_2}
+                    onChange={handleChange}
+                    className="input-minimal"
+                    placeholder={t('placeOfStudy')}
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Essay Questions */}
           <div className="bg-surface border border-[var(--text-muted)]/20 p-6 mb-6">

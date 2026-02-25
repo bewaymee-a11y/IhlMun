@@ -75,14 +75,14 @@ async def reset_committees():
         },
         {
             "id": str(uuid.uuid4()),
-            "name": "Congress Of Vienna",
+            "name": "Conference of Vienna",
             "name_ru": None,
-            "description": "Historical simulation of the Congress of Vienna, a diplomatic conference that reshaped Europe.",
+            "description": "Historical simulation of the Conference of Vienna, a diplomatic conference that reshaped Europe.",
             "agenda": ["No Fixed Agenda - Crisis Committee"],
             "background_image": "/committees/vienna.jpg",
             "chairs": [
-                {"id": str(uuid.uuid4()), "name": "Neve", "role": "Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
-                {"id": str(uuid.uuid4()), "name": "Said", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"}
+                {"id": str(uuid.uuid4()), "name": "Neve Marie Krige", "role": "Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
+                {"id": str(uuid.uuid4()), "name": "Saidakhmadkhon Saydaminov", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"}
             ],
             "registration_open": True,
             "order": 4
