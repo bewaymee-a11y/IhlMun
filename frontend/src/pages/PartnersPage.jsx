@@ -33,19 +33,24 @@ const PartnersPage = () => {
                     <div className="absolute inset-y-0 right-0 w-12 md:w-40 bg-gradient-to-l from-[var(--surface)] to-transparent z-10" />
 
                     {/* Marquee Container */}
-                    <div className="animate-marquee gap-8 md:gap-20">
+                    <div className="animate-marquee gap-8 md:gap-20 items-start">
                         {quadrupledPartners.map((partner, index) => (
                             <div
                                 key={`${partner.id}-${index}`}
-                                className="flex items-center justify-center w-[140px] md:w-[220px] h-20 md:h-32 shrink-0 group px-2"
+                                className="flex flex-col items-center w-[140px] md:w-[220px] shrink-0 group px-2"
                             >
-                                <div className="w-full h-full flex items-center justify-center bg-white/5 rounded-xl border border-white/5 group-hover:bg-white/10 group-hover:border-[var(--primary)]/30 transition-all duration-300 backdrop-blur-sm px-4 md:px-6">
+                                {/* Logo Box */}
+                                <div className="w-full h-24 md:h-36 flex items-center justify-center bg-white/5 rounded-xl border border-white/5 group-hover:bg-white/10 group-hover:border-[var(--primary)]/30 transition-all duration-300 backdrop-blur-sm px-4 md:px-6">
                                     <img
                                         src={partner.logo}
                                         alt={partner.name}
-                                        className="max-h-[70%] max-w-[90%] object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                                        className="max-h-[65%] max-w-[85%] object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
                                     />
                                 </div>
+                                {/* Name Label */}
+                                <span className="mt-4 text-[var(--text-muted)] group-hover:text-[var(--primary)] text-xs md:text-sm font-medium transition-all duration-300 text-center opacity-80 group-hover:opacity-100 whitespace-normal line-clamp-2">
+                                    {partner.name}
+                                </span>
                             </div>
                         ))}
                     </div>
