@@ -167,8 +167,12 @@ h6 {
 
 .animate-marquee {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   width: max-content;
   animation: marquee 30s linear infinite;
+  align-items: center;
 }
 
 .animate-marquee:hover {

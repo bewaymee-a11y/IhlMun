@@ -10,8 +10,8 @@ const PARTNERS = [
 const PartnersPage = () => {
     const { t } = useLanguage();
 
-    // Create a doubled list for infinite scroll effect
-    const doubledPartners = [...PARTNERS, ...PARTNERS];
+    // Create a 4x list for infinite scroll effect to ensure no gaps on high-res mobile/desktop
+    const quadrupledPartners = [...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS];
 
     return (
         <div className="page-transition min-h-screen pt-24 md:pt-32 pb-16">
@@ -28,27 +28,24 @@ const PartnersPage = () => {
 
                 {/* Train Animation Section */}
                 <div className="relative overflow-hidden py-12 bg-[var(--surface)] border-y border-[var(--text-muted)]/10">
-                    {/* Gradient Overlays for Fade Effect */}
-                    <div className="absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-[var(--surface)] to-transparent z-10" />
-                    <div className="absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-[var(--surface)] to-transparent z-10" />
+                    {/* Gradient Overlays for Fade Effect - Hide on mobile to save space if needed, or keep for aesthetics */}
+                    <div className="absolute inset-y-0 left-0 w-12 md:w-40 bg-gradient-to-r from-[var(--surface)] to-transparent z-10" />
+                    <div className="absolute inset-y-0 right-0 w-12 md:w-40 bg-gradient-to-l from-[var(--surface)] to-transparent z-10" />
 
                     {/* Marquee Container */}
-                    <div className="animate-marquee flex items-center gap-12 md:gap-24">
-                        {doubledPartners.map((partner, index) => (
+                    <div className="animate-marquee gap-8 md:gap-20">
+                        {quadrupledPartners.map((partner, index) => (
                             <div
                                 key={`${partner.id}-${index}`}
-                                className="flex flex-col items-center justify-center w-32 md:w-48 shrink-0 group"
+                                className="flex items-center justify-center w-[140px] md:w-[220px] h-20 md:h-32 shrink-0 group px-2"
                             >
-                                <div className="h-20 md:h-32 w-full flex items-center justify-center bg-white/5 rounded-xl border border-white/5 group-hover:bg-white/10 group-hover:border-[var(--primary)]/30 transition-all duration-300 backdrop-blur-sm px-6 py-4">
+                                <div className="w-full h-full flex items-center justify-center bg-white/5 rounded-xl border border-white/5 group-hover:bg-white/10 group-hover:border-[var(--primary)]/30 transition-all duration-300 backdrop-blur-sm px-4 md:px-6">
                                     <img
                                         src={partner.logo}
                                         alt={partner.name}
-                                        className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                                        className="max-h-[70%] max-w-[90%] object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
                                     />
                                 </div>
-                                <span className="mt-4 text-[var(--text-muted)] group-hover:text-[var(--primary)] text-sm md:text-base font-medium transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">
-                                    {partner.name}
-                                </span>
                             </div>
                         ))}
                     </div>
