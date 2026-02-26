@@ -13,6 +13,7 @@ import SpeakersPage from '@/pages/SpeakersPage';
 import MediaPage from '@/pages/MediaPage';
 import SelectionProcessPage from '@/pages/SelectionProcessPage';
 import AdminPage from '@/pages/AdminPage';
+import PartnersPage from '@/pages/PartnersPage';
 import { STATIC_SETTINGS } from '@/data/staticData';
 
 // Domain enforcement — redirect from www to apex to avoid SSL mismatch
@@ -48,6 +49,7 @@ function AppContent() {
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/speakers" element={<SpeakersPage />} />
                     <Route path="/media" element={<MediaPage />} />
+                    <Route path="/partners" element={<PartnersPage />} />
                     <Route path="/selection-process" element={<SelectionProcessPage />} />
                   </Routes>
                 </main>

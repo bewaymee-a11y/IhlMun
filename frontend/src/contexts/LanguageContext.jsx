@@ -9,6 +9,7 @@ const translations = {
     selection: 'Selection',
     aboutUs: 'About Us',
     media: 'Media',
+    partners: 'Partners',
     register: 'Register',
     applyNow: 'Apply Now',
 
@@ -139,6 +140,8 @@ const translations = {
     guestSpeakers: 'Guest Speakers',
     speakersSubtitle: 'Distinguished speakers at the Opening Ceremony',
     speakersComingSoon: 'Guest speakers will be announced as the conference approaches. Follow our Instagram for updates.',
+    ourPartners: 'Our Partners',
+    partnersSubtitle: 'The organizations that support and share our vision for youth diplomacy.',
 
     // Benefits cards
     globalPerspective: 'Global Perspective',
@@ -160,6 +163,7 @@ const translations = {
     selection: 'Отбор',
     aboutUs: 'О нас',
     media: 'Медиа',
+    partners: 'Партнеры',
     register: 'Регистрация',
     applyNow: 'Подать заявку',
 
@@ -290,6 +294,8 @@ const translations = {
     guestSpeakers: 'Приглашённые спикеры',
     speakersSubtitle: 'Выступающие на церемонии открытия',
     speakersComingSoon: 'Приглашённые спикеры будут объявлены ближе к конференции. Следите за обновлениями в Instagram.',
+    ourPartners: 'Наши партнеры',
+    partnersSubtitle: 'Организации, которые поддерживают и разделяют наше видение молодежной дипломатии.',
 
     // Benefits cards
     globalPerspective: 'Глобальная перспектива',

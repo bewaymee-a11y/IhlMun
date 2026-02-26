@@ -55,6 +55,7 @@ export const Footer = ({ settings }) => {
                 { to: '/selection-process', label: t('selection') },
                 { to: '/about', label: t('aboutUs') },
                 { to: '/media', label: t('media') },
+                { to: '/partners', label: t('partners') },
               ].map(link => (
                 <Link
                   key={link.to}

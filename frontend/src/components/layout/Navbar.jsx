@@ -43,6 +43,7 @@ export const Navbar = () => {
     { to: '/selection-process', label: t('selection') },
     { to: '/about', label: t('aboutUs') },
     { to: '/media', label: t('media') },
+    { to: '/partners', label: t('partners') },
   ];
 
   const isActive = (path) => location.pathname === path;
