@@ -154,7 +154,10 @@ const translations = {
     networkingDesc: 'Connect with like-minded students from across the region.',
 
     // Footer
-    footerDescription: 'Join the premier Model United Nations conference in Central Asia.',
+    // Partners
+    amionClub: 'AMION-club',
+    cocaColaUzbekistan: 'Coca Cola Uzbekistan',
+    unodcUzbekistan: 'UNODC Uzbekistan',
   },
   ru: {
     // Navigation
@@ -308,7 +311,10 @@ const translations = {
     networkingDesc: 'Связь с единомышленниками со всего региона.',
 
     // Footer
-    footerDescription: 'Присоединяйтесь к премьер-конференции Модели ООН в Центральной Азии.',
+    // Partners
+    amionClub: 'AMION-клуб',
+    cocaColaUzbekistan: 'Coca Cola Узбекистан',
+    unodcUzbekistan: 'UNODC Узбекистан',
   }
 };
 

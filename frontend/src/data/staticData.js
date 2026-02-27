@@ -5,7 +5,7 @@
 export const STATIC_COMMITTEES = [
     // ── 1. BEGINNER ─────────────────────────────────────────────────────────────
     {
-        id: "c7cad356-9773-4866-ab8b-1a93efefc94f",
+        id: "c0479710-ce48-484d-b60c-1093f46c566d",
         name: "United Nations General Assembly",
         name_ru: null,
         description:
@@ -47,7 +47,7 @@ export const STATIC_COMMITTEES = [
         order: 1,
     },
     {
-        id: "e45ca3e4-29ea-45cc-ae47-e62e351ff3f0",
+        id: "3e6b61f0-9e26-44df-81f4-cd975ffd786d",
         name: "United Nations Office on Drugs and Crime",
         name_ru: null,
         description:
@@ -90,7 +90,7 @@ export const STATIC_COMMITTEES = [
     },
     // ── 2. INTERMEDIATE ─────────────────────────────────────────────────────────
     {
-        id: "f23b2c4f-d8ef-4904-a568-9e5425c3b43d",
+        id: "3af8bf29-718d-4b34-9850-a9a2919d4492",
         name: "Commission on Crime Prevention and Criminal Justice",
         name_ru: null,
         description:
@@ -132,7 +132,7 @@ export const STATIC_COMMITTEES = [
         order: 3,
     },
     {
-        id: "866f360d-addb-4057-9e20-ff0d089222c0",
+        id: "75ead8f2-901c-45f4-a212-39347eaed0e0",
         name: "International Organization for Migration",
         name_ru: null,
         description:
@@ -176,7 +176,7 @@ export const STATIC_COMMITTEES = [
     },
     // ── 3. ADVANCED ─────────────────────────────────────────────────────────────
     {
-        id: "cd231913-8228-4af3-bc86-b2bf8162c655",
+        id: "f8dda8b1-dd4c-4dee-a735-bec48d36e2d1",
         name: "United Nations Security Council",
         name_ru: null,
         description:
@@ -220,7 +220,7 @@ export const STATIC_COMMITTEES = [
         order: 5,
     },
     {
-        id: "af870613-a7be-4773-84a5-a7563f9f28df",
+        id: "f718c2fa-69fc-4839-899b-3627c8f143f4",
         name: "Conference of Vienna",
         name_ru: null,
         description:
@@ -251,7 +251,7 @@ export const STATIC_COMMITTEES = [
         order: 6,
     },
     {
-        id: "ee2381a7-0918-42fa-a026-e6da9ce34efd",
+        id: "ff5ad85e-ef00-43e1-acee-f7869eda4ffe",
         name: "Комитет Государственной Думы России",
         name_ru: "Комитет Государственной Думы России",
         description:
@@ -284,7 +284,7 @@ export const STATIC_COMMITTEES = [
         order: 7,
     },
     {
-        id: "b21a56ab-da9f-4526-a3d0-8580a5624e18",
+        id: "b75e9bfa-fc84-478c-9a2f-f9778fe0545e",
         name: "Press Corps",
         name_ru: null,
         description:

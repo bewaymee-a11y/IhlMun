@@ -174,7 +174,7 @@ const AdminDashboard = ({ onLogout }) => {
   }, []);
 
   const tabs = [
-    { id: 'registrations', label: 'Registrations', icon: Users },
+    { id: 'registrations', label: `Registrations (${data.registrations.length})`, icon: Users },
     { id: 'committees', label: 'Committees', icon: BookOpen },
     { id: 'secretariat', label: 'Secretariat', icon: Users },
     { id: 'speakers', label: 'Speakers', icon: Mic },
@@ -242,6 +242,7 @@ const AdminDashboard = ({ onLogout }) => {
                 data={data.committees}
                 headers={headers}
                 onRefresh={fetchData}
+                registrations={data.registrations}
               />
             )}
             {activeTab === 'secretariat' && (
@@ -321,8 +322,16 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
 
   // Filter data
   const filteredData = data.filter(reg => {
-    if (filterStatus && reg.status !== filterStatus) return false;
-    if (filterCommittee && reg.committee_id !== filterCommittee) return false;
+    // Handle fallback status if it's missing in the DB
+    const currentStatus = reg.status || 'Under Review';
+    if (filterStatus && currentStatus !== filterStatus) return false;
+    if (filterCommittee) {
+      const selectedComm = committees.find(c => c.id === filterCommittee);
+      // Check ID match OR committee name match (for old registrations after DB reset)
+      const matchesId = reg.committee_id === filterCommittee;
+      const matchesName = selectedComm && (reg.committee_name === selectedComm.name || reg.committee_name === selectedComm.name_ru);
+      if (!matchesId && !matchesName) return false;
+    }
     return true;
   });
 
@@ -504,7 +513,7 @@ const RegistrationsTab = ({ data, headers, onRefresh, committees }) => {
 };
 
 // Committees Tab
-const CommitteesTab = ({ data, headers, onRefresh }) => {
+const CommitteesTab = ({ data, headers, onRefresh, registrations }) => {
   const [expanded, setExpanded] = useState(null);
 
   const handleToggleRegistration = async (committee) => {
@@ -537,9 +546,14 @@ const CommitteesTab = ({ data, headers, onRefresh }) => {
                 />
                 <div>
                   <h3 className="font-heading text-lg">{comm.name_ru || comm.name}</h3>
-                  <span className={`text-xs font-mono ${comm.registration_open ? 'text-green-400' : 'text-red-400'}`}>
-                    Registration {comm.registration_open ? 'Open' : 'Closed'}
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className={`text-xs font-mono ${comm.registration_open ? 'text-green-400' : 'text-red-400'}`}>
+                      {comm.registration_open ? 'Open' : 'Closed'}
+                    </span>
+                    <span className="text-xs bg-white/5 px-2 py-0.5 text-primary border border-primary/20">
+                      {registrations.filter(r => r.committee_id === comm.id).length} Applicants
+                    </span>
+                  </div>
                 </div>
               </div>
               <ChevronDown size={20} className={`transform transition-transform ${expanded === comm.id ? 'rotate-180' : ''}`} />

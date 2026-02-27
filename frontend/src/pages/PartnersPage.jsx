@@ -1,10 +1,9 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const PARTNERS = [
-    { id: 1, name: 'MGIMO Tashkent', logo: process.env.PUBLIC_URL + '/partners/mgimo_tashkent.png' },
-    { id: 2, name: 'Coca Cola Uzbekistan', logo: process.env.PUBLIC_URL + '/partners/coca_cola.png' },
-    { id: 3, name: 'Pizza Hut', logo: process.env.PUBLIC_URL + '/partners/pizza_hut.png' },
-    { id: 4, name: 'UNODC Uzbekistan', logo: process.env.PUBLIC_URL + '/partners/unodc.png' },
+    { id: 1, translationKey: 'amionClub', logo: process.env.PUBLIC_URL + '/partners/amion_club.png' },
+    { id: 2, translationKey: 'cocaColaUzbekistan', logo: process.env.PUBLIC_URL + '/partners/coca_cola.png' },
+    { id: 4, translationKey: 'unodcUzbekistan', logo: process.env.PUBLIC_URL + '/partners/unodc.png' },
 ];
 
 const PartnersPage = () => {
@@ -43,13 +42,13 @@ const PartnersPage = () => {
                                 <div className="w-full h-24 md:h-36 flex items-center justify-center bg-white/5 rounded-xl border border-white/5 group-hover:bg-white/10 group-hover:border-[var(--primary)]/30 transition-all duration-300 backdrop-blur-sm px-4 md:px-6">
                                     <img
                                         src={partner.logo}
-                                        alt={partner.name}
-                                        className="max-h-[65%] max-w-[85%] object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                                        alt={t(partner.translationKey)}
+                                        className="max-h-[65%] max-w-[85%] object-contain transition-all duration-500 opacity-90 group-hover:opacity-100"
                                     />
                                 </div>
                                 {/* Name Label */}
                                 <span className="mt-4 text-[var(--text-muted)] group-hover:text-[var(--primary)] text-xs md:text-sm font-medium transition-all duration-300 text-center opacity-80 group-hover:opacity-100 whitespace-normal line-clamp-2">
-                                    {partner.name}
+                                    {t(partner.translationKey)}
                                 </span>
                             </div>
                         ))}

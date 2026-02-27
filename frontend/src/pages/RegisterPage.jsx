@@ -18,9 +18,8 @@ const RegisterPage = () => {
     STATIC_COMMITTEES.find((c) => c.id === committeeId) || null
   );
 
-  const isDuma = committee?.id === "ee2381a7-0918-42fa-a026-e6da9ce34efd";
-  const isPressCorps = committee?.id === "b21a56ab-da9f-4526-a3d0-8580a5624e18";
-  const isDoubleDelegation = isPressCorps;
+  const isDuma = committee?.id === "ff5ad85e-ef00-43e1-acee-f7869eda4ffe";
+  const isDoubleDelegation = committee?.is_double_delegation;
 
   const t = (key) => {
     if (isDuma) {
@@ -139,6 +138,7 @@ const RegisterPage = () => {
     if (wordCounts.global_crisis < 200 || wordCounts.global_crisis > 300) return setError(isDuma ? `Эссе о глобальном кризисе должно быть 200-300 слов (сейчас ${wordCounts.global_crisis} слов)` : `Global crisis essay must be 200-300 words (currently ${wordCounts.global_crisis} words) / Эссе о глобальном кризисе должно быть 200-300 слов`);
 
     setSubmitting(true);
+    setError('');
     setSubmitStatus(isDuma ? 'Отправка...' : 'Sending...');
 
     // Show a helpful message if the server takes more than 5 seconds to respond
@@ -147,13 +147,37 @@ const RegisterPage = () => {
     }, 5000);
 
     try {
-      await axios.post(`${API}/registrations`, {
-        ...formData,
-        committee_id: committeeId,
-      }, { timeout: 60000 });
+      // Clean up optional fields that are empty strings to avoid Pydantic validation errors
+      const submissionData = { ...formData, committee_id: committeeId };
+
+      // If it's not a double delegation committee, remove the extra fields entirely
+      if (!isDoubleDelegation) {
+        ['first_name_2', 'surname_2', 'email_2', 'phone_2', 'telegram_2', 'date_of_birth_2', 'place_of_study_2'].forEach(key => {
+          delete submissionData[key];
+        });
+      } else {
+        // If it is double delegation but some fields are empty, make them null
+        ['email_2'].forEach(key => {
+          if (submissionData[key] === '') delete submissionData[key];
+        });
+      }
+
+      await axios.post(`${API}/registrations`, submissionData, { timeout: 60000 });
       setSuccess(true);
     } catch (e) {
-      const message = e.response?.data?.detail || 'Application failed. Please try again.';
+      console.error('Registration error:', e);
+      let message = 'Application failed. Please try again.';
+
+      if (e.response?.data?.detail) {
+        const detail = e.response.data.detail;
+        if (typeof detail === 'string') {
+          message = detail;
+        } else if (Array.isArray(detail)) {
+          // FastAPI validation error list
+          message = detail.map(err => `${err.loc[err.loc.length - 1]}: ${err.msg}`).join(', ');
+        }
+      }
+
       setError(message);
     } finally {
       clearTimeout(slowTimer);
