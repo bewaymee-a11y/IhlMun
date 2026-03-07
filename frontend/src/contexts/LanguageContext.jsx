@@ -155,7 +155,9 @@ const translations = {
 
     // Footer
     // Partners
-    amionClub: 'AMION-club',
+    imunmt: 'IMUNMT',
+    unUzbekistan: 'United Nations in Uzbekistan',
+    pizzaHut: 'Pizza Hut',
     cocaColaUzbekistan: 'Coca Cola Uzbekistan',
     unodcUzbekistan: 'UNODC Uzbekistan',
   },
@@ -312,7 +314,9 @@ const translations = {
 
     // Footer
     // Partners
-    amionClub: 'AMION-клуб',
+    imunmt: 'IMUNMT',
+    unUzbekistan: 'ООН в Узбекистане',
+    pizzaHut: 'Pizza Hut',
     cocaColaUzbekistan: 'Coca Cola Узбекистан',
     unodcUzbekistan: 'UNODC Узбекистан',
   }

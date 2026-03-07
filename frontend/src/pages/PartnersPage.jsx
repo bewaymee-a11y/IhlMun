@@ -1,9 +1,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const PARTNERS = [
-    { id: 1, translationKey: 'amionClub', logo: process.env.PUBLIC_URL + '/partners/amion_club.png' },
-    { id: 2, translationKey: 'cocaColaUzbekistan', logo: process.env.PUBLIC_URL + '/partners/coca_cola.png' },
-    { id: 4, translationKey: 'unodcUzbekistan', logo: process.env.PUBLIC_URL + '/partners/unodc.png' },
+    { id: 1, translationKey: 'unUzbekistan', logo: process.env.PUBLIC_URL + '/partners/un_uzb.png' },
+    { id: 2, translationKey: 'imunmt', logo: process.env.PUBLIC_URL + '/partners/imunmt.jpg' },
+    { id: 3, translationKey: 'cocaColaUzbekistan', logo: process.env.PUBLIC_URL + '/partners/coca_cola.png' },
+    { id: 4, translationKey: 'pizzaHut', logo: process.env.PUBLIC_URL + '/partners/pizza_hut.png' },
+    { id: 5, translationKey: 'unodcUzbekistan', logo: process.env.PUBLIC_URL + '/partners/unodc.png' },
 ];
 
 const PartnersPage = () => {
