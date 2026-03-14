@@ -249,9 +249,9 @@ async def init_default_data():
             },
             {
                 "id": str(uuid.uuid4()),
-                "name": "Human Rights Council",
+                "name": "CCPCJ",
                 "name_ru": None,
-                "description": "The Human Rights Council is responsible for strengthening the promotion and protection of human rights around the globe.",
+                "description": "The Commission on Crime Prevention and Criminal Justice acts as the principal policymaking body of the United Nations.",
                 "agenda": [
                     "Reviewing Violations of Press Freedom and the Protection of Journalists",
                     "Examining the Status and Rights of Religious Minorities in the Syrian Arab Republic"

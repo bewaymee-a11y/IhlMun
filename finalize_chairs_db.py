@@ -21,7 +21,10 @@ async def update_chairs_and_agendas():
             "name": "IOM – UN Migration",
             "name_ru": None,
             "description": "The International Organization for Migration works to ensure the orderly and humane management of migration.",
-            "agenda": ["Addressing the Humanitarian Consequences of Mass Displacement Due to Climate Change"],
+            "agenda": [
+                "The Impact of Aggressive Border Enforcement Policies on Forced Migration and Asylum Systems",
+                "Balancing State Sovereignty and the Protection of Migrants' Rights"
+            ],
             "background_image": "/committees/migration.JPG",
             "chairs": [
                 {
@@ -54,7 +57,10 @@ async def update_chairs_and_agendas():
             "name": "CCPCJ",
             "name_ru": None,
             "description": "The Commission on Crime Prevention and Criminal Justice acts as the principal policymaking body of the United Nations.",
-            "agenda": ["Enhancing Global Responses to Environmental Crimes: Combating Illegal Wildlife Trade and Deforestation"],
+            "agenda": [
+                "Reviewing Violations of Press Freedom and the Protection of Journalists",
+                "Examining the Status and Rights of Religious Minorities in the Syrian Arab Republic"
+            ],
             "background_image": "/committees/ccpcj.jpg",
             "chairs": [
                 {
@@ -87,7 +93,10 @@ async def update_chairs_and_agendas():
             "name": "General Assembly",
             "name_ru": None,
             "description": "The General Assembly is the main deliberative organ of the United Nations, comprising all 193 Member States.",
-            "agenda": ["Addressing the Challenges of Foreign Political Interference in the Internal and External Affairs of Sovereign States"],
+            "agenda": [
+                "Addressing the Challenges of Foreign Political Interference via Technology and Media",
+                "Digitizing and Innovating Peacekeeping Efforts"
+            ],
             "background_image": "/committees/ga.jpg",
             "chairs": [
                 {
@@ -113,7 +122,7 @@ async def update_chairs_and_agendas():
             "name": "Conference of Vienna",
             "name_ru": None,
             "description": "Historical simulation of the Conference of Vienna, a diplomatic conference that reshaped Europe.",
-            "agenda": ["Historical Simulation (Restoring Order in Europe)"],
+            "agenda": ["No Fixed Agenda - Crisis Committee"],
             "background_image": "/committees/congressofviena.JPG",
             "chairs": [
                 {
@@ -139,7 +148,7 @@ async def update_chairs_and_agendas():
             "name": "Комитет Государственной Думы России",
             "name_ru": "Комитет Государственной Думы России",
             "description": "Симуляция заседания Комитета Государственной Думы Российской Федерации.",
-            "agenda": ["«Чёрный октябрь»: Политический и конституционный кризис 1993 года в России."],
+            "agenda": ["«Чёрный октябрь»: Политический и конституционный кризис в Российской Федерации"],
             "background_image": "/committees/gosduma.jpg",
             "chairs": [
                 {
@@ -162,10 +171,10 @@ async def update_chairs_and_agendas():
         },
         {
             "id": str(uuid.uuid4()),
-            "name": "UNODC",
+            "name": "United Nations Commission on Narcotic Drugs",
             "name_ru": None,
-            "description": "United Nations Office on Drugs and Crime tackles global crime and drug trafficking.",
-            "agenda": ["Strengthening Regional Cooperation to Combat Drug Trafficking in Central Asia"],
+            "description": "The United Nations Commission on Narcotic Drugs (CND) is the central policymaking body within the United Nations system on drug-related matters.",
+            "agenda": ["Prevention of Drug Use Among Youth"],
             "background_image": "/committees/unodc.JPG",
             "chairs": [
                 {
@@ -195,43 +204,10 @@ async def update_chairs_and_agendas():
         },
         {
             "id": str(uuid.uuid4()),
-            "name": "Security Council",
-            "name_ru": None,
-            "description": "The Security Council has primary responsibility for the maintenance of international peace and security.",
-            "agenda": ["Mitigating Armed Conflicts and Terrorist Expansion in the Sahel Region"],
-            "background_image": "/committees/secrity.JPG",
-            "chairs": [
-                {
-                    "id": str(uuid.uuid4()), 
-                    "name": "Abdumajid Toshmatov", 
-                    "role": "Main Chair", 
-                    "experience": "Sophomore at TSUE, working in the banking sector. He has participated in over 50 MUN conferences.", 
-                    "photo_url": "/chairs/abdumajid_toshmatov.jpg"
-                },
-                {
-                    "id": str(uuid.uuid4()), 
-                    "name": "Dilnoza Yuldasheva", 
-                    "role": "Chair", 
-                    "experience": "Webster University student with over 30 conferences in various roles.", 
-                    "photo_url": "/chairs/dilnoza_yuldasheva.jpg"
-                },
-                {
-                    "id": str(uuid.uuid4()), 
-                    "name": "Mark Tokarev", 
-                    "role": "Chair", 
-                    "experience": "Student at Interhouse Lyceum with 20+ MUN conferences of experience.", 
-                    "photo_url": "/chairs/mark_tokarev.jpg"
-                }
-            ],
-            "registration_open": True,
-            "order": 7
-        },
-        {
-            "id": str(uuid.uuid4()),
             "name": "Press Corps",
             "name_ru": None,
             "description": "The Press Corps covers all committees and produces conference media content.",
-            "agenda": ["No Fixed Agenda"],
+            "agenda": ["No fixed agenda - Media Coverage"],
             "background_image": "/committees/press.JPG",
             "chairs": [
                 {
@@ -250,7 +226,7 @@ async def update_chairs_and_agendas():
                 }
             ],
             "registration_open": True,
-            "order": 8
+            "order": 7
         }
     ]
 
