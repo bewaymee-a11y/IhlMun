@@ -354,11 +354,11 @@ async def init_default_data():
     if admin_count == 0:
         admin = {
             "id": str(uuid.uuid4()),
-            "username": "admin",
-            "password_hash": hash_password("admin123")
+            "username": "admin_ihlmun_2026",
+            "password_hash": hash_password("N7!bW9$kR2*vP5@qL8#x")
         }
         await db.admins.insert_one(admin)
-        logger.info("Created default admin user (username: admin, password: admin123)")
+        logger.info("Created default admin user (username: admin_ihlmun_2026)")
 
     # Create default settings if not exists
     settings = await db.settings.find_one({})

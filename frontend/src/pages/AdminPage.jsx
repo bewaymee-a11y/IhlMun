@@ -32,11 +32,20 @@ const AdminLogin = ({ onLogin }) => {
     setLoading(true);
 
     try {
-      const res = await axios.post(`${API}/admin/login`, { username, password });
+      const res = await axios.post(`${API}/admin/login`, {
+        username: username.trim(),
+        password: password.trim()
+      });
       localStorage.setItem('admin_token', res.data.access_token);
       onLogin();
     } catch (e) {
-      setError('Invalid credentials');
+      if (!e.response) {
+        setError('Network Error: Make sure your local backend (server.py) is running on port 8000.');
+      } else if (e.response.status === 401) {
+        setError('Invalid credentials');
+      } else {
+        setError('An error occurred during login. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

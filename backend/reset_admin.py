@@ -23,11 +23,11 @@ async def reset_admin():
     # Create default admin
     admin = {
         "id": str(uuid.uuid4()),
-        "username": "admin",
-        "password_hash": hash_password("admin123")
+        "username": "admin_ihlmun_2026",
+        "password_hash": hash_password("N7!bW9$kR2*vP5@qL8#x")
     }
     await db.admins.insert_one(admin)
-    print("Admin credentials reset to: username: admin, password: admin123")
+    print("Admin credentials reset to: username: admin_ihlmun_2026, password: N7!bW9$kR2*vP5@qL8#x")
     
     client.close()
 
