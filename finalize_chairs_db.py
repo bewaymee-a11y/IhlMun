@@ -204,6 +204,42 @@ async def update_chairs_and_agendas():
         },
         {
             "id": str(uuid.uuid4()),
+            "name": "Security Council",
+            "name_ru": None,
+            "description": "The Security Council has primary responsibility for the maintenance of international peace and security.",
+            "agenda": [
+                "Maintenance of International Peace and Security",
+                "Addressing Global Threats"
+            ],
+            "background_image": "/committees/secrity.JPG",
+            "chairs": [
+                {
+                    "id": str(uuid.uuid4()), 
+                    "name": "Abdumajid Toshmatov", 
+                    "role": "Main Chair", 
+                    "experience": "Sophomore at TSUE, working in the banking sector. He has participated in over 50 MUN conferences.", 
+                    "photo_url": "/chairs/abdumajid_toshmatov.jpg"
+                },
+                {
+                    "id": str(uuid.uuid4()), 
+                    "name": "Dilnoza Yuldasheva", 
+                    "role": "Chair", 
+                    "experience": "Webster University student with over 30 conferences in various roles.", 
+                    "photo_url": "/chairs/dilnoza_yuldasheva.jpg"
+                },
+                {
+                    "id": str(uuid.uuid4()), 
+                    "name": "Mark Tokarev", 
+                    "role": "Chair", 
+                    "experience": "Student at Interhouse Lyceum with 20+ MUN conferences of experience.", 
+                    "photo_url": "/chairs/mark_tokarev.jpg"
+                }
+            ],
+            "registration_open": True,
+            "order": 7
+        },
+        {
+            "id": str(uuid.uuid4()),
             "name": "Press Corps",
             "name_ru": None,
             "description": "The Press Corps covers all committees and produces conference media content.",
@@ -226,7 +262,7 @@ async def update_chairs_and_agendas():
                 }
             ],
             "registration_open": True,
-            "order": 7
+            "order": 8
         }
     ]
 

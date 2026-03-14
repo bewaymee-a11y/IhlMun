@@ -331,6 +331,24 @@ async def init_default_data():
             },
             {
                 "id": str(uuid.uuid4()),
+                "name": "Security Council",
+                "name_ru": None,
+                "description": "The Security Council has primary responsibility for the maintenance of international peace and security.",
+                "agenda": [
+                    "Maintenance of International Peace and Security",
+                    "Addressing Global Threats"
+                ],
+                "background_image": "/committees/secrity.JPG",
+                "chairs": [
+                    {"id": str(uuid.uuid4()), "name": "Abdulmajid Toshmatov", "role": "Main Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
+                    {"id": str(uuid.uuid4()), "name": "Dilnoza Yuldasheva", "role": "Co-Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"},
+                    {"id": str(uuid.uuid4()), "name": "Mark Tokarev", "role": "Co-Chair", "experience": "MUN experience", "photo_url": "/placeholder-chair.jpg"}
+                ],
+                "registration_open": True,
+                "order": 7
+            },
+            {
+                "id": str(uuid.uuid4()),
                 "name": "Press Corps",
                 "name_ru": None,
                 "description": "The Press Corps covers all committees and produces conference media content.",
@@ -342,7 +360,7 @@ async def init_default_data():
                     {"id": str(uuid.uuid4()), "name": "Mokhina", "role": "Co-Chair", "experience": "Media experience", "photo_url": "/placeholder-chair.jpg"}
                 ],
                 "registration_open": True,
-                "order": 7
+                "order": 8
             }
         ]
         await db.committees.insert_many(default_committees)
