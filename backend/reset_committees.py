@@ -104,12 +104,11 @@ async def reset_committees():
         },
         {
             "id": str(uuid.uuid4()),
-            "name": "UNODC",
+            "name": "United Nations Commission on Narcotic Drugs",
             "name_ru": None,
-            "description": "United Nations Office on Drugs and Crime tackles global crime and drug trafficking.",
+            "description": "The United Nations Commission on Narcotic Drugs (CND) is the central policymaking body within the United Nations system on drug-related matters.",
             "agenda": [
-                "Strengthening Regional Cooperation to Combat Drug Trafficking, Abuse, and Related Crimes in Central Asia",
-                "Promoting Sustainable Agrarian Transitions for Cocoa and Opium Farmers"
+                "Prevention of Drug Use Among Youth"
             ],
             "background_image": "/committees/unodc.jpg",
             "chairs": [

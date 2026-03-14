@@ -48,12 +48,12 @@ export const STATIC_COMMITTEES = [
     },
     {
         id: "3e6b61f0-9e26-44df-81f4-cd975ffd786d",
-        name: "United Nations Office on Drugs and Crime",
+        name: "United Nations Commission on Narcotic Drugs",
         name_ru: null,
         description:
-            "The United Nations Office on Drugs and Crime (UNODC) is the principal United Nations entity mandated to assist members states in their struggle against illicit drugs, crime, and terrorism. Founded in 1997, it works with member states to implement international treaties on drugs and crime, and develops domestic legislation to address these persistent global threats. Through field-based technical cooperation projects, UNODC assists countries in building sustainable capacity to confront these challenges to development, peace, and security. It promotes regional cooperation and robust policy frameworks to counter organized crime, drug trafficking, corruption, and related offenses.",
+            "The United Nations Commission on Narcotic Drugs (CND) is the central policymaking body within the United Nations system on drug-related matters. Established in 1946, the Commission is mandated by the General Assembly to assist the Economic and Social Council in supervising the application of international drug control treaties. The CND reviews and analyzes the global drug situation, develops strategies and practical recommendations for member states, and takes decisions on the scheduling of substances under international control. Through its annual sessions and intersessional activities, it provides a platform for member states, civil society, and international organizations to advance evidence-based approaches to drug control, prevention, treatment, and rehabilitation.",
         agenda: [
-            "Strengthening Regional Cooperation to Combat Drug Trafficking, Abuse, and Related Crimes in Central Asia",
+            "Prevention of Drug Use Among Youth",
         ],
         background_image: "./committees/unodc.JPG",
         chairs: [
@@ -96,7 +96,7 @@ export const STATIC_COMMITTEES = [
         description:
             "The Commission on Crime Prevention and Criminal Justice (CCPCJ) serves as the principal policymaking body of the United Nations on criminal justice matters, guiding the work of UNODC in implementing international standards globally. Established in 1992, it coordinates international efforts on crime prevention, criminal justice reform, and combating transnational organized crime. The Commission develops international standards, norms, and recommendations in the field of crime prevention, and conducts research into emerging criminal justice trends. It works in close partnership with member states and UNODC to address the evolving challenges posed by organized crime, environmental crimes, and cybercrime.",
         agenda: [
-            "Enhancing Global Responses to Environmental Crimes and Their Links to Transnational Organized Crime",
+            "Implementation of the United Nations Convention against Cybercrime: Strengthening Criminal Justice Responses to ICT-facilitated Violence Against Women and Girls",
         ],
         background_image: "./committees/ccpcj.jpg",
         chairs: [

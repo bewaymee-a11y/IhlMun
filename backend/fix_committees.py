@@ -39,8 +39,7 @@ async def reset_committees():
             "name_ru": None,
             "description": "The Commission on Crime Prevention and Criminal Justice acts as the principal policymaking body of the United Nations.",
             "agenda": [
-                "Reviewing Violations of Press Freedom and the Protection of Journalists",
-                "Examining the Status and Rights of Religious Minorities in the Syrian Arab Republic"
+                "Implementation of the United Nations Convention against Cybercrime: Strengthening Criminal Justice Responses to ICT-facilitated Violence Against Women and Girls"
             ],
             "background_image": "/committees/ccpcj.jpg",
             "chairs": [
@@ -98,12 +97,11 @@ async def reset_committees():
         },
         {
             "id": str(uuid.uuid4()),
-            "name": "UNODC",
+            "name": "United Nations Commission on Narcotic Drugs",
             "name_ru": None,
-            "description": "United Nations Office on Drugs and Crime tackles global crime and drug trafficking.",
+            "description": "The United Nations Commission on Narcotic Drugs (CND) is the central policymaking body within the United Nations system on drug-related matters.",
             "agenda": [
-                "Strengthening Regional Cooperation to Combat Drug Trafficking, Abuse, and Related Crimes in Central Asia",
-                "Promoting Sustainable Agrarian Transitions for Cocoa and Opium Farmers"
+                "Prevention of Drug Use Among Youth"
             ],
             "background_image": "/committees/unodc.JPG",
             "chairs": [
